@@ -1,0 +1,242 @@
+version: "3.1"
+
+stories:
+
+  # Transport protocols (Ch7)
+  - story: User asks about transport protocol
+    steps:
+      - intent: ask_transport_protocol
+      - action: utter_transport_protocol
+
+
+  - story: Lister les ports après affirmation
+    steps:
+      - intent: ask_port
+      - action: action_set_last_topic
+      - slot_was_set:
+          - last_topic: "port"
+      - action: utter_port
+      - intent: affirm
+      - action: utter_list_ports
+
+
+
+  - story: User asks about socket
+    steps:
+      - intent: ask_socket
+      - action: action_set_last_topic
+      - slot_was_set:
+          - last_topic: "socket"
+      - action: utter_socket
+      - intent: affirm
+      - action: utter_socket_example
+
+  - story: User asks about checksum
+    steps:
+      - intent: ask_checksum
+      - action: utter_checksum
+  
+  - story: Demande de primitive
+    steps:
+      - intent: ask_primitive
+      - action: utter_ask_primitive
+
+#####
+  - story: TCP Protocol Overview
+    steps:
+      - intent: ask_tcp_overview
+      - action: action_set_last_topic
+      - slot_was_set:
+          - last_topic: "tcp"
+      - action: utter_ask_tcp_overview
+      - intent: affirm
+      - action: utter_socket_example
+
+
+  - story: TCP Connection Establishment
+    steps:
+      - intent: ask_bout_en_bout
+      - action: utter_bout_en_bout
+
+  - story: Comparaison TCP Lianson de données
+    steps:
+      - intent: ask_tcp_comparatif_data_link_table
+      - action: utter_tcp_comparatif_data_link_table
+
+  - story: Exemple de différence entre TCP et Lianson de donnée
+    steps:
+      - intent: ask_tcp_vs_ppp_example
+      - action: utter_tcp_vs_ppp_example
+
+  - story: TCP Features Description
+    steps:
+      - intent: ask_tcp_features
+      - action: utter_tcp_features
+
+  - story: TCP Segment Format
+    steps:
+      - intent: ask_tcp_segment_format
+      - action: utter_tcp_segment_format
+  - story: consultation connexion TCP
+    steps:
+      - intent: connexion_tcp
+      - action: utter_connexion_tcp
+
+  - story: consultation fermeture TCP
+    steps:
+      - intent: fermeture_tcp
+      - action: utter_fermeture_tcp
+
+  - story: consultation états TCP
+    steps:
+      - intent: etats_tcp
+      - action: utter_etats_tcp
+
+  - story: consultation temporisation TCP
+    steps:
+      - intent: temporisation_tcp
+      - action: utter_temporisation_tcp
+
+  - story: consultation algorithmes TCP
+    steps:
+      - intent: algorithmes_tcp
+      - action: utter_algorithmes_tcp
+
+  - story: Demande d'informations sur l'algorithme de Jacobson
+    steps:
+      - intent: ask_algorithm_jacobson
+      #- action: action_set_last_topic
+      #- slot_was_set:
+      #    - last_topic: tcp_algorithms
+      - action: utter_algorithm_jacobson
+
+  - story: Demande d'informations sur l'algorithme de Karn
+    steps:
+      - intent: ask_algorithm_karn
+      #- action: action_set_last_topic
+      #- slot_was_set:
+      #    - last_topic: tcp_algorithms
+      - action: utter_algo_karn
+
+  - story: Questions sur les temporisateurs TCP
+    steps:
+      - intent: ask_autres_temporisateurs_tcp
+      #- action: action_set_last_topic
+      #- slot_was_set:
+      #    - last_topic: tcp_timers
+      - action: utter_autres_temporisateurs_tcp
+
+  - story: Algorithmes Clark et Nagle
+    steps:
+      - intent: ask_algorithm_clark_nagle
+      #- action: action_set_last_topic
+      #- slot_was_set:
+       #   - last_topic: tcp_optimizations
+      - action: utter_algorithm_clark_nagle
+
+  - story: Contrôle de congestion TCP
+    steps:
+      - intent: ask_controle_congestion_tcp
+      #- action: action_set_last_topic
+      #- slot_was_set:
+      #    - last_topic: tcp_congestion
+      - action: utter_controle_congestion_tcp
+  
+  - story: Détail d’une primitive socket
+    steps:
+      - intent: primitive_detail
+        entities:
+          - primitive: "Bind"
+      - action: action_expliquer_primitive
+
+  - story: Question sur UDP et services
+    steps:
+      - intent: udp_intro
+      - action: utter_udp_intro
+      - intent: udp_services
+      - action: utter_udp_services
+
+  - story: Utilisation d’UDP et détails techniques
+    steps:
+      - intent: udp_use_cases
+      - action: utter_udp_use_cases
+      - intent: udp_header_structure
+      - action: utter_udp_header_structure
+
+  
+
+  - story: Discussion sur les protocoles TCP et UDP
+    steps:
+      - intent: transport_protocols_summary
+      - action: utter_transport_protocols_summary
+      - intent: tcp_vs_udp
+      - action: utter_tcp_vs_udp
+      - intent: tcp_advantages
+      - action: utter_tcp_advantages
+      - intent: udp_simplicity
+      - action: utter_udp_simplicity
+
+  - story: débit TCP sur Ethernet
+    steps:
+      - intent: tcp_throughput
+      - action: utter_tcp_throughput
+
+  - story: format d’en-tête TCP
+    steps:
+      - intent: tcp_header_format
+      - action: utter_tcp_header_format
+
+  - story: mode connecté TCP
+    steps:
+      - intent: tcp_connection_context
+      - action: utter_tcp_connection_context
+
+  - story: ordre des segments TCP
+    steps:
+      - intent: tcp_segment_order
+      - action: utter_tcp_segment_order
+
+  - story: connexions multiples TCP
+    steps:
+      - intent: tcp_multiple_connections
+      - action: utter_tcp_multiple_connections
+
+  - story: identification connexion TCP
+    steps:
+      - intent: tcp_connection_identification
+      - action: utter_tcp_connection_identification
+
+  - story: gestion de plusieurs connexions TCP
+    steps:
+      - intent: tcp_multiple_connections
+      - action: utter_tcp_multiple_connections
+
+  - story: Expliquer la différence entre ping et connexion TCP
+    steps:
+      - intent: tcp_ping_vs_tcp_connection
+      - action: utter_tcp_ping_vs_tcp_connection
+
+  - story: TCP sur réseau local vs réseau distant
+    steps:
+      - intent: tcp_same_vs_different_networks
+      - action: utter_tcp_same_vs_different_networks
+
+  - story: Analyse netstat TCP
+    steps:
+      - intent: tcp_netstat_analysis
+      - action: utter_tcp_netstat_analysis
+
+  - story: Analyse avancée netstat TCP
+    steps:
+      - intent: tcp_advanced_statistics
+      - action: utter_tcp_advanced_statistics
+
+  - story: Analyse complète d’une trame Ethernet
+    steps:
+      - intent: ethernet_frame_analysis
+      - action: utter_ethernet_frame_analysis
+
+  - story: Analyse complète d’une trame Ethernet avec interprétation réseau
+    steps:
+      - intent: ethernet_frame_full_analysis
+      - action: utter_ethernet_frame_full_analysis

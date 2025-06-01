@@ -1,0 +1,10 @@
+{
+  "bind": "Bind",
+  "listen": "Listen",
+  "connect": "Connect",
+  "accept": "Accept",
+  "close": "Close",
+  "sendto": "Sendto",
+  "receivefrom": "Receivefrom",
+  "write": "Write"
+}

@@ -1,0 +1,869 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+
+  - ask_transport_protocol
+  - ask_port
+  - ask_list_ports
+  - ask_socket
+  - ask_checksum
+  - ask_tcp_overview
+  - ask_bout_en_bout
+  - ask_tcp_comparatif_data_link_table
+  - ask_tcp_vs_ppp_example
+  - ask_tcp_features
+  - ask_tcp_segment_format
+  - connexion_tcp
+  - fermeture_tcp
+  - etats_tcp
+  - temporisation_tcp
+  - algorithmes_tcp
+  - ask_algorithm_jacobson
+  - ask_algorithm_karn
+  - ask_autres_temporisateurs_tcp
+  - ask_algorithm_clark_nagle
+  - ask_controle_congestion_tcp
+  - interface_tcp_application
+  - ask_primitive
+  - primitive_detail
+  - udp_intro
+  - udp_services
+  - udp_header_structure
+  - udp_vs_tcp
+  - udp_use_cases
+  - transport_protocols_summary
+  - tcp_vs_udp
+  - tcp_advantages
+  - udp_simplicity
+  - tcp_throughput
+  - tcp_header_format
+  - tcp_connection_context
+  - tcp_segment_order
+  - tcp_multiple_connections
+  - tcp_connection_identification
+  - tcp_ping_vs_tcp_connection
+  - tcp_same_vs_different_networks
+  - tcp_netstat_analysis
+  - tcp_advanced_statistics
+  - ethernet_frame_analysis
+  - ethernet_frame_full_analysis
+
+  - affirm
+
+entities:
+  - tcp_flag
+  - tcp_field
+  - segment_size
+  - primitive
+  - ip_address
+  - port_number
+
+slots:
+  protocole: 
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+
+  algorithme:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+
+  version_rip:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+
+  message_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: message_type
+
+  ip_type:
+    type: categorical
+    values:
+      - fixe
+      - dynamique
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: ip_type
+
+  duration:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: duration
+
+  tcp_flag:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tcp_flag
+
+  tcp_field:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tcp_field
+
+  segment_size:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: segment_size
+
+  primitive:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: primitive
+
+  client_ip:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: ip_address
+
+  server_ip:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: ip_address
+
+  client_port:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: port_number
+
+  server_port:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: port_number
+
+  last_topic:
+    type: text
+    influence_conversation: true
+    initial_value: null
+    mappings:
+      - type: custom
+        action: action_set_last_topic
+
+
+
+
+responses:
+  utter_context_unsure:
+  - text: >
+        👍 Je suis là pour t’aider, mais peux-tu préciser sur quel sujet tu veux en savoir plus ?
+
+ 
+  utter_slot_debug:
+  - text: "Le slot last_topic vaut : {last_topic}"
+
+
+  utter_transport_protocol:
+  - text: >
+      Un protocole de transport fournit une interface permettant aux applications d’accéder aux services du réseau.
+
+      Voici ses principales fonctions :
+
+      - 🎯 **Identification des applications** : chaque application est identifiée par un **port** unique, ce qui permet à plusieurs applications de communiquer en même temps sur une même machine.
+
+      - 🔌 **Communication via sockets** : une **socket** associe une adresse IP à un numéro de port, permettant d’identifier les extrémités de la communication.
+
+      - 🛡️ **Vérification de l’intégrité** : pour s'assurer que les données n'ont pas été altérées pendant la transmission, le protocole utilise un **total de contrôle** (ou *checksum*), une méthode de détection d'erreurs.
+
+      En résumé, le protocole de transport agit comme un intermédiaire fiable entre les applications et le réseau.
+
+      👉 Souhaites-tu que je t’explique plus en détail la notion de **port** ou de **socket** ?
+
+  utter_port:
+  - text: >
+      🔢 **Notion de port**
+
+      Lorsqu'une machine exécute plusieurs applications en même temps, il est essentiel de pouvoir identifier clairement à quelle application doivent être livrées les données reçues. C’est là qu’intervient la notion de **port**.
+
+      Un **port** est un identifiant numérique qui permet au protocole de transport de savoir pour **quelle application** il travaille. ⚠️ Attention, cela n’a rien à voir avec les ports physiques d’un commutateur réseau !
+
+      💡 Sur certains systèmes d’exploitation, ce numéro de port peut être lié au **PID (Process Identifier)** du processus actif.
+
+      📦 **Plage des ports** :
+      - Les numéros de port sont codés sur **16 bits**, soit de **0 à 65535**.
+      - Les ports **0 à 1023** sont appelés **ports bien connus** (*well-known ports*), réservés aux services système comme HTTP (80), FTP (21), etc.
+      - Les autres ports (au-delà de 1023) sont généralement utilisés de manière dynamique par les clients ou pour des applications spécifiques.
+
+      Ces affectations sont définies officiellement par l’**IANA** (*Internet Assigned Numbers Authority*), ce qui facilite la compatibilité entre les applications et les réseaux.
+
+      Tu veux que je te montre une liste des ports les plus utilisés ?
+
+  utter_list_ports:
+    - text: >
+        📘 Voici une liste de ports couramment utilisés :
+
+        - 20/21 : FTP (transfert de fichiers)
+        - 22 : SSH (connexion sécurisée à distance)
+        - 23 : Telnet (connexion à distance non sécurisée)
+        - 25 : SMTP (envoi d’e-mails)
+        - 53 : DNS (résolution de noms de domaine)
+        - 80 : HTTP (navigation web)
+        - 110 : POP3 (réception d’e-mails)
+        - 143 : IMAP (réception d’e-mails)
+        - 443 : HTTPS (navigation web sécurisée)
+
+  utter_socket:
+  - text: >
+      🔌 **Notion de socket**
+
+      Une **application** qui utilise TCP ou UDP doit être identifiée de manière unique sur une machine. Pour cela, le système d’exploitation utilise un **socket**, qui est une **paire** :
+
+      🧩 `<adresse IP locale, numéro de port local>`
+
+      👉 Cette paire permet d’identifier un **processus local** utilisant un protocole de transport.
+
+      📡 Pour identifier une communication complète entre deux applications, on parle de **socket étendu** avec **5 éléments** :
+
+      🧾 `<protocole, IP locale, port local ; IP distante, port distant>`
+
+      Ainsi, une connexion TCP peut être totalement définie avec ces 5 éléments, assurant qu'elle est unique sur le réseau.
+
+      Tu veux un **exemple concret** de socket en TCP ? 🔍
+
+  utter_socket_example:
+  - text: >
+      🧪 **Exemple de socket en TCP** :
+
+      Imaginons une application cliente (navigateur) qui se connecte à un serveur web.
+
+      - **Côté client** :
+        - Protocole : TCP
+        - IP locale : 192.168.1.10
+        - Port local : 50534 (choisi dynamiquement)
+      
+      - **Côté serveur** :
+        - IP distante : 93.184.216.34
+        - Port distant : 80 (HTTP)
+
+      👉 Le socket complet est donc :
+      `TCP, 192.168.1.10:50534 ; 93.184.216.34:80`
+
+      Ce couple identifie **uniquement** cette session TCP dans tout l’Internet.
+
+
+  utter_checksum:
+    - text: >
+        ✅ **Notion de total de contrôle (checksum)**
+
+        Le **checksum** est une technique de **redondance** utilisée dans les protocoles TCP et UDP pour **vérifier l'intégrité des données** transmises.
+
+        🧠 Il s’agit d’un calcul simple effectué sur les données du segment (souvent une **somme** des bits ou une **complémentation bit à bit**) pour détecter les erreurs de transmission.
+
+        📏 Ce **champ de 16 bits** est placé dans l’**en-tête TCP ou UDP**. Sa position exacte dépend du protocole utilisé.
+
+        🔍 Lorsqu’un paquet est reçu, le destinataire **recalcule** le checksum et le compare avec celui reçu dans l’en-tête. S’ils ne correspondent pas ➜ les données sont considérées comme corrompues.
+
+  utter_ask_tcp_overview:
+  - text: >
+      📦 **Présentation générale de TCP (Transmission Control Protocol)**
+
+      Le protocole **TCP** est utilisé lorsque les applications ont besoin d’une **communication fiable** entre deux hôtes sur un réseau. Contrairement à IP, il corrige ses principales lacunes en offrant les services suivants :
+
+      🔄 **Fiabilité** : détection et correction des erreurs lors de la transmission  
+      🚦 **Contrôle de flux** : évite la surcharge du récepteur  
+      🔐 **Contrôle de la connexion** : établit et maintient une communication cohérente entre les deux extrémités  
+
+      🧱 TCP fonctionne avec une unité appelée **segment**. Voici comment ça marche :
+
+      - Pour envoyer un segment :  
+        👉 Le module TCP appelle IP avec une **Requête_émission(segment, adresse IP distante)**  
+      
+      - Pour recevoir un segment :  
+        👉 Le module IP signale TCP avec une **Indication_réception(segment reçu, adresse IP source)**  
+
+      L'interface TCP/IP est simple, mais celle entre TCP et les **applications utilisatrices** est plus complexe. On l’étudiera après avoir vu le **format du segment TCP** et le **cycle de vie d’une connexion**.
+
+      ➕ **Souhaitez-vous que je vous explique :**
+      - 🧪 **Le fonctionnement de TCP étape par étape** (établissement, transfert, fermeture) ?
+      - 🧰 **Les primitives utilisées** dans les échanges TCP ?
+      - 📄 **Le format d’un segment TCP** avec ses champs ?
+
+  utter_bout_en_bout:
+  - text: >
+      🔄 **Connexion de bout en bout en TCP**
+
+      TCP fonctionne selon un modèle de **dialogue de bout en bout** :  
+      📡 Une connexion est établie **directement entre les deux hôtes terminaux** — pas entre les routeurs, commutateurs ou autres équipements intermédiaires.
+
+      📜 Décrit dans la [RFC 793](https://datatracker.ietf.org/doc/html/rfc793), TCP permet à deux applications distantes d’échanger des données de manière **fiable et ordonnée**, peu importe le chemin que les paquets prennent à travers le réseau.
+
+      ⚙️ Pour cela :
+      - Une **connexion** est établie à la demande d’une application (via le **3-way handshake**)  
+      - Un **contexte de connexion** est créé et maintenu des deux côtés (paramètres négociés, état de la communication, temporisations, etc.)  
+      - Cette connexion est **gérée entièrement par les hôtes** (ordinateurs, serveurs…), **jamais par les routeurs** intermédiaires
+
+      💬 Ce mode connecté signifie que :
+      - Les deux extrémités doivent être prêtes à communiquer  
+      - Une demande doit être acceptée pour que la communication démarre  
+      - On parle alors de **la vie de la connexion TCP**
+
+      ➕ Tu veux que je t'explique :
+      - 🔁 **Le cycle de vie complet d'une connexion TCP** ?
+      - 🧠 **Comment le contexte de connexion est géré dans TCP** ?
+      - 📶 **La différence entre la fiabilité TCP et le fonctionnement d'IP sans connexion** ?
+
+
+  utter_tcp_features:
+  - text: >
+      ⚙️ **Fonctionnalités avancées de TCP**
+
+      TCP offre un service de transport **fiable et ordonné**, en s’appuyant sur plusieurs mécanismes clés :
+
+      🔢 **Numérotation octet par octet**  
+      Chaque octet est numéroté pour permettre la détection de pertes ou de duplications, et la remise en ordre à la réception.
+
+      ✅ **Acquittements**  
+      L’émetteur attend un accusé de réception pour chaque séquence de données envoyée. Cela permet de retransmettre les segments perdus.
+
+      🪟 **Fenêtre d’anticipation (Sliding Window)**  
+      - Gère la quantité de données qu’un émetteur peut envoyer sans attendre d’acquittement.  
+      - Dépend de la capacité du tampon de réception de l’autre hôte.  
+      - Sa taille est dynamique, ajustée selon la bande passante estimée en cours de communication.
+
+      ⏱️ **Temporisateurs adaptatifs**  
+      - Le temps d’attente pour un acquittement est ajusté dynamiquement en fonction des délais observés sur le réseau.  
+      - Cela rend TCP plus efficace dans des réseaux variables.
+
+      🚨 **Données urgentes (urgent data)**  
+      TCP peut transmettre certaines données « urgentes » sans les soumettre au contrôle de flux classique.
+
+      🔁 **Comparaison avec la couche liaison OSI**  
+      Comme en liaison de données, TCP gère :  
+      - Le séquencement  
+      - Le contrôle de flux  
+      - La détection et la correction des erreurs  
+      Mais à la différence de la couche liaison, TCP agit **entre des hôtes distants** à travers un réseau potentiellement instable et multiple.
+
+      ➕ Souhaitez-vous explorer :
+      - 🪟 La **gestion détaillée de la fenêtre glissante** ?
+      - ⏱️ Le **fonctionnement des temporisateurs adaptatifs** ?
+      - 🚨 Ou comment sont traitées les **données urgentes en TCP** ?
+      - 📊 Un tableau comparatif entre TCP et un protocole comme HDLC ou PPP ?
+      - 🔍 Un exemple concret illustrant les différences de comportement ?
+
+
+  utter_tcp_comparatif_data_link_table:
+    - text: >
+        📊 Voici un tableau comparatif simplifié :
+
+        | Fonction               | Liaison (ex. : PPP)         | Transport (TCP)             |
+        |------------------------|-----------------------------|-----------------------------|
+        | Couche OSI             | 2 – Liaison de données      | 4 – Transport               |
+        | Type de communication | Direct (support physique)   | Bout en bout (via IP)       |
+        | Adressage              | MAC                         | IP + Port                   |
+        | Contrôle de flux       | Oui                         | Oui                         |
+        | Réémission             | Locale                      | Bout en bout                |
+        | Nbre de connexions     | 1 souvent                   | Plusieurs simultanées       |
+        | Ordre des données      | Garanti par le support      | Doit être restauré          |
+
+        ➕ Tu veux qu’on applique ça à un scénario concret (comme un téléchargement FTP) ?
+
+  utter_tcp_vs_ppp_example:
+    - text: >
+        🔍 Imaginons un fichier téléchargé depuis Internet :
+
+        - **PPP (liaison)** : gère les trames entre ton ordinateur et ton routeur, sur la ligne ADSL ou fibre.
+        - **TCP (transport)** : gère la fiabilité de l’échange **entre ton PC et le serveur distant**, même à travers plusieurs routeurs.
+
+
+
+  utter_tcp_segment_format:
+  - text: >
+      📦 Le **segment TCP** contient un en-tête structuré suivi éventuellement de **données**.
+
+      Voici les principaux champs de l’en-tête TCP (sans options) :
+
+      🔹 **Port source** (16 bits) : identifie l’application côté émetteur  
+      🔹 **Port destination** (16 bits) : identifie l’application côté récepteur  
+      🔹 **Numéro de séquence** (32 bits) : identifie le premier octet de données envoyées  
+      🔹 **Numéro d’accusé de réception** (32 bits) : indique le prochain octet attendu  
+      🔹 **Longueur d’en-tête (Data Offset)** (4 bits) : longueur de l’en-tête TCP (en mots de 32 bits)  
+      🔹 **Réservé** (6 bits) : réservé pour des usages futurs  
+      🔹 **Drapeaux (flags)** (6 bits) : contrôlent la communication :
+          - URG : données urgentes  
+          - ACK : acquittement  
+          - PSH : envoi immédiat aux applications  
+          - RST : réinitialisation de la connexion  
+          - SYN : ouverture de connexion  
+          - FIN : fermeture de connexion  
+      🔹 **Fenêtre** (16 bits) : taille de la fenêtre de réception (contrôle de flux)  
+      🔹 **Total de contrôle (Checksum)** (16 bits) : vérifie l’intégrité du segment  
+      🔹 **Pointeur d’urgence** (16 bits) : indique la position des données urgentes  
+      🔹 **Options** (taille variable) : permettent d’ajouter des fonctionnalités comme :
+          - **MSS (Maximum Segment Size)** : taille max des segments acceptés  
+          - **Timestamp** : mesure du RTT (temps aller-retour)  
+          - **Window Scale** : extension de la taille de la fenêtre (> 65 535 octets)  
+          - **SACK permitted** : permet les acquittements sélectifs  
+      🔹 **Remplissage (padding)** : aligne l’en-tête sur un multiple de 4 octets  
+      🔹 **Données** : transport de l'information de l’application (et données urgentes si URG)
+
+      🧪 Exemple : Sur un réseau Ethernet, la MSS vaut souvent **1460 octets** (1500 - 40 d’en-têtes IP + TCP)
+
+      🔍 Souhaitez-vous une représentation graphique de ce segment TCP ou une explication via un exemple Wireshark ?
+
+  utter_connexion_tcp:
+  - text: >
+      🔐 **Ouverture d’une connexion TCP : le Three-Way Handshake**
+
+      Une connexion TCP débute par une procédure en **trois étapes** entre un **client** et un **serveur**, appelée *three-way-handshake* :
+
+      1️⃣ Le **client** initie la connexion avec un segment contenant le drapeau `SYN=1` et un **numéro de séquence initial** `nseqE = x`.
+
+      2️⃣ Le **serveur**, après une ouverture passive, répond avec un segment `SYN=1, ACK=1`, contenant :
+         - `nseqE = y` (son propre numéro de séquence initial)
+         - `nseqR = x + 1` (accusé de réception du SYN du client)
+
+      3️⃣ Le **client** finalise l’ouverture avec un segment `ACK=1` :
+         - `nseqE = x + 1`
+         - `nseqR = y + 1` (accusé de réception du SYN du serveur)
+
+      ✅ À l’issue de ces 3 échanges, la connexion est établie : les deux parties connaissent les numéros de séquence de départ et peuvent commencer à transmettre des données de manière fiable.
+
+      ⚙️ **Schéma de l’échange :**
+
+      ```
+      Client  →  SYN, nseqE = x, nseqR = 0
+      Serveur ←  SYN, ACK, nseqE = y, nseqR = x+1
+      Client  →  ACK, nseqE = x+1, nseqR = y+1
+      ```
+
+      🧭 Le client doit connaître à l’avance le **numéro de port** de l’application serveur. Les ports standards sont souvent utilisés (ex : 80 pour HTTP, 443 pour HTTPS), mais des ports personnalisés sont possibles.
+
+      👉 Ce mécanisme assure une **synchronisation fiable** entre les deux hôtes avant tout échange de données.
+
+      Voulez-vous une explication sur le mécanisme de fermeture ?
+
+  utter_fermeture_tcp:
+    - text: >
+        🔚 *Fermeture d’une connexion TCP*
+
+        La fermeture d'une connexion TCP suit un processus en **quatre étapes**, car une connexion TCP est **bidirectionnelle** : chaque sens doit être fermé indépendamment.
+
+        🧩 *Étapes de la fermeture normale* :
+        1. Un côté (client ou serveur) envoie un segment avec le drapeau `FIN = 1` pour indiquer qu'il a terminé l'envoi de données.
+        2. L'autre côté répond avec un segment `ACK`, accusant réception du FIN.
+        3. Ensuite, le second côté envoie son propre segment `FIN` pour signaler qu’il a aussi terminé l’envoi de ses données.
+        4. Le premier côté répond à son tour avec un `ACK`, complétant ainsi la fermeture.
+
+        ➕ Chaque flux est fermé séparément, ce qui explique pourquoi **quatre segments sont nécessaires** (contrairement aux trois lors de l'ouverture).
+
+        ⚠️ *Fermeture brutale (RST)* :
+        En cas de problème (ex. fermeture inattendue d'une application), un module TCP peut envoyer un segment avec `RST = 1`.
+        - Ce segment peut contenir les derniers octets en attente.
+        - Aucun `ACK` n’est attendu.
+        - Le destinataire traite les données restantes, puis signale une **fin anormale** de la connexion à l’application.
+
+  
+  utter_etats_tcp:
+    - text: >
+        TCP utilise un automate à 11 états pour gérer les connexions. Parmi les états : LISTEN, SYN_SENT,
+        ESTABLISHED, FIN_WAIT, TIME_WAIT, etc. Ces états représentent les différentes étapes d'établissement,
+        de transfert de données et de fermeture d'une connexion TCP.
+
+        On voit que l’ouverture et la fermeture d’une connexion dépendent de nombreux événements et peuvent conduire à beaucoup de situations différentes.
+        Une représentation commode des étapes de l’établissement et de la libération d’une connexion TCP se fait en utilisant un automate d’états finis à onze états (voir tableau 7.2).
+        Dans chaque état, seuls certains événements sont autorisés et une action précise est entreprise.
+        Dans le cas où l’événement n’est pas autorisé, on renvoie un signal d’erreur.
+
+        La figure suivante donne les transitions d’états de l’automate d’une connexion TCP :
+      image: "https://ibb.co/sJpKsfPL.png"
+
+  utter_temporisation_tcp:
+    - text: >
+        TCP utilise des temporisateurs pour assurer la fiabilité des transmissions. À chaque envoi de segment, un minuteur est déclenché. 
+        Si l’accusé de réception (ACK) n’est pas reçu avant l’expiration de ce délai, TCP considère le segment comme perdu et le retransmet.
+
+        Pour gérer cette temporisation, TCP mesure le RTT (Round Trip Time), c’est-à-dire le temps aller-retour entre l’envoi d’un segment 
+        et la réception de son acquittement. Ce délai peut fortement varier selon la distance, la qualité du réseau et le trafic.
+
+        Par exemple :
+        - ping 192.168.0.2 ⟶ RTT ≈ 6 ms (réseau local)
+        - ping 203.50.4.178 ⟶ RTT ≈ 358 ms (vers l’Australie)
+
+        Grâce à ces mesures dynamiques, TCP ajuste automatiquement ses temporisations pour optimiser la fiabilité et l’efficacité des transferts.
+  
+  utter_algorithmes_tcp:
+    - text: >
+        TCP implémente plusieurs algorithmes comme celui de Jacobson pour ajuster les temporisations
+        avec RTT estimé et écart de variation (D). L'algorithme de Karn évite l'ambiguïté des acquittements
+        en ignorant les RTT des segments retransmis. Clark et Nagle réduisent l'envoi de petits segments
+        inutiles, améliorant l'efficacité dans les communications interactives.
+  
+  
+
+  utter_algorithm_jacobson:
+    - text: >
+        L’algorithme de Jacobson est utilisé par TCP pour ajuster dynamiquement la temporisation (timeout) en fonction des conditions du réseau.
+
+        ⚙️ Pourquoi c’est nécessaire ?
+        Si la temporisation est trop courte → retransmissions inutiles.  
+        Si elle est trop longue → performances dégradées.  
+        Il faut donc une estimation **précise et adaptative** du délai d’attente.
+
+        📏 L’idée de Jacobson :
+        On mesure en continu le RTT (Round Trip Time), c’est-à-dire le temps entre l’envoi d’un segment TCP et la réception de son ACK.
+        Pour éviter de réagir à de simples variations momentanées, on utilise une **moyenne pondérée** :
+
+        RTT_estimé = a × RTT_estimé + (1 – a) × Nouveau_RTT  
+        ➤ Avec a ≈ 7/8, donc plus de poids au passé pour lisser les fluctuations.
+
+        🧮 Ensuite, on évalue la **variabilité** du RTT avec une estimation d’écart :
+
+        D = (1 – a) × |RTT_estimé – Nouveau_RTT|
+
+        🕓 Enfin, on fixe la temporisation avec une marge de sécurité proportionnelle à la variabilité :
+
+        Temporisation = RTT_estimé + 4 × D
+
+        ✅ Résultat : une temporisation adaptative, plus longue quand le réseau est instable, plus courte quand il est stable.
+
+  
+
+  utter_algo_karn:
+    - text: >
+        🔄 **Algorithme de Karn** (TCP) :  
+        Il résout un problème d’ambiguïté lié aux accusés de réception (ACK) lorsque des segments sont retransmis.
+
+        📌 Problème :
+        Lorsqu’un segment est retransmis, on ne peut pas savoir si l’ACK reçu correspond au segment original ou au retransmis. Cela fausse le calcul du RTT (Round Trip Time) si on le met à jour dans ce contexte.
+
+        ✅ Solution (algorithme de Karn) :
+        - **Ignorer** les mesures de RTT pour les segments retransmis.
+        - **Conserver** la temporisation précédente.
+        - **Augmenter** la temporisation en cas de nouvelle expiration :
+          Nouvelle temporisation = g × Temporisation (avec g ≈ 2, stratégie de backoff).
+
+        🧠 Avantage :  
+        Cela évite de fausser la mesure du RTT et limite les surévaluations entraînant des délais excessifs.
+
+        Voulez-vous d'autres que je donne d'autres temporisateurs utilisés par TCP ?
+
+  
+
+  utter_autres_temporisateurs_tcp:
+    - text: >
+        ⏱️ **Autres temporisateurs utilisés par TCP** :
+
+        1. **Temporisateur de persistance** :
+        - Évite le blocage mutuel quand le récepteur a une fenêtre de réception nulle.
+        - Il envoie des "probes" pour vérifier si la fenêtre est réouverte.
+
+        2. **Temporisateur de limitation d’attente (keep-alive)** :
+        - Vérifie si la connexion est toujours active après une longue période d’inactivité.
+        - Peut entraîner une fermeture si aucune réponse n’est reçue.
+
+        3. **Temporisateur TIME-WAIT** :
+        - Utilisé après la fermeture d’une connexion.
+        - Dure 2 fois la durée de vie maximale d’un segment pour garantir qu’aucun segment résiduel ne subsiste sur le réseau.
+
+        📦 Ces temporisateurs améliorent la fiabilité, la robustesse et la gestion efficace des ressources TCP.
+
+  
+
+  utter_algorithm_clark_nagle:
+    - text: >
+        📉 **Syndrome de la fenêtre stupide (Silly Window Syndrome)** :
+        Ce problème survient lorsque l’émetteur envoie de tout petits segments de données, souvent un octet à la fois,
+        ce qui sature inutilement le réseau et dégrade les performances de TCP.
+
+        🧠 **Solution — Algorithme de Clark (côté récepteur)** :
+        - Le récepteur n’annonce pas une mise à jour de fenêtre pour de très petites tailles (comme 1 octet).
+        - Il attend soit :
+          - que le tampon soit à moitié vide, **ou**
+          - qu’un segment de taille maximale puisse être reçu.
+        ✅ Cela réduit le nombre de mises à jour inutiles et évite d’encourager l’envoi de petits segments.
+
+        🚀 **Solution — Algorithme de Nagle (côté émetteur)** :
+        - L’émetteur envoie **le premier octet seul**, puis attend son acquittement.
+        - Ensuite, il accumule les données dans un tampon et les envoie toutes d’un coup.
+        - Cette méthode évite d’inonder le réseau avec des segments minuscules.
+
+        🧩 **Complémentarité** :
+        - Ces deux algorithmes sont **compatibles et souvent utilisés ensemble**.
+        - Clark évite les petites fenêtres côté récepteur.
+        - Nagle évite les petits envois côté émetteur.
+
+        📊 **Objectif commun** :
+        - Réduire la surcharge réseau due aux petits paquets,
+        - Optimiser les performances TCP, en particulier pour les applications interactives comme les sessions SSH ou Telnet.
+
+  
+
+  utter_controle_congestion_tcp:
+    - text: >
+        📶 **Contrôle de congestion TCP** :
+        TCP utilise un algorithme adaptatif pour éviter la saturation du réseau. Il ajuste dynamiquement
+        la **fenêtre de congestion (congestion window)** en fonction des accusés de réception (ACK) et des
+        expirations de temporisation (timeouts).
+
+        📌 **Fonctionnement global** :
+        TCP maintient deux fenêtres :
+        - La **fenêtre de réception** (donnée par le récepteur),
+        - La **fenêtre de congestion** (gérée par l’émetteur pour éviter de surcharger le réseau).
+
+        L’expéditeur ne peut envoyer qu’un nombre d’octets égal au **minimum** de ces deux fenêtres.
+
+        🚀 **Phase 1 – Démarrage lent (Slow Start)** :
+        - La taille de la fenêtre de congestion commence à 1 MSS (Maximum Segment Size).
+        - À chaque ACK reçu, la taille double (croissance **exponentielle**).
+        - Cette croissance continue jusqu’à atteindre un seuil appelé **"seuil d’évitement de congestion" (ssthresh)**.
+
+        ⚠️ **Détection de congestion (Timeout)** :
+        - Si un segment n’est pas acquitté à temps, on considère qu’il y a congestion.
+        - Le seuil est alors fixé à la moitié de la fenêtre courante.
+        - La fenêtre de congestion est **réinitialisée à 1 MSS**.
+
+        📉 **Phase 2 – Évitement de congestion (Congestion Avoidance)** :
+        - Dès que la fenêtre atteint `ssthresh`, la croissance devient **linéaire** : +1 MSS par fenêtre réussie.
+        - Cela permet de stabiliser l’envoi de données et de prévenir la surcharge du réseau.
+      
+        📊 **Illustration (figure)** :
+        - 📈 De 0 à 8 : croissance exponentielle (Slow Start).
+        - 🟥 À 13 : **perte de segment** → timeout → réinitialisation.
+        - 📉 De 14 à 24 : croissance **linéaire** (Congestion Avoidance), après une nouvelle croissance exponentielle jusqu’au seuil.
+
+        🧠 **Conclusion** :
+        Ce mécanisme permet à TCP de détecter et réagir à la congestion **sans surcharge excessive du réseau**,
+        en adaptant dynamiquement sa vitesse d’envoi en fonction des retours du réseau.
+
+      image: "https://ibb.co/sJpKsfPL.png"
+
+
+  utter_interface_tcp_application:
+    - text: >
+        🧩 **Interface entre TCP et l'application** :
+
+        Les processus applicatifs communiquent via **des sockets TCP**, une abstraction logicielle
+        qui permet d’envoyer et de recevoir des données à travers une connexion réseau fiable.
+
+        🔧 **Côté serveur** :
+        - `socket()` : création de la socket.
+        - `bind()` : association à une adresse IP et un numéro de port.
+        - `listen()` : mise en attente des connexions entrantes.
+        - `accept()` : accepte une connexion entrante et crée une nouvelle socket dédiée.
+
+        🖥️ **Côté client** :
+        - `socket()` : création de la socket.
+        - `connect()` : demande de connexion à un serveur (initie la connexion TCP).
+
+        🔄 **Échange de données** :
+        - `read()` / `write()` : primitives standards pour lire et écrire dans la socket.
+        - ou bien `recv()` / `send()` : équivalents souvent utilisés.
+        - parfois `recvfrom()` / `sendto()` : surtout pour UDP, mais utilisables selon l’implémentation.
+
+        ❌ **Fermeture de la connexion** :
+        - `close()` : termine la connexion côté client (**fermeture active**) ou côté serveur (**fermeture passive**).
+
+        ⚙️ Ces primitives permettent aux applications client/serveur de **gérer la communication réseau** sans avoir à manipuler les détails internes de TCP.
+
+  utter_ask_primitive:
+    - text: "Quelle primitive veux-tu que je détaille ? Bind, Listen, Connect, Accept, Read, Write, Close, etc. ?"
+
+  utter_udp_intro:
+    - text: >
+        UDP est un protocole de transport sans connexion, simple et rapide,
+        qui n'assure ni fiabilité, ni ordre de livraison, ni vérification d'erreurs complexes.
+        Il fonctionne sans établissement de connexion préalable.
+
+  utter_udp_services:
+    - text: >
+        UDP fournit un service minimal efficace, adapté aux applications temps réel,
+        comme le streaming, les jeux en ligne ou les services DNS et SNMP.
+
+  utter_udp_header_structure:
+    - text: >
+        L'en-tête UDP comprend 4 champs : port source, port destination, longueur et checksum,
+        sur un total de 8 octets.
+
+  utter_udp_vs_tcp:
+    - text: >
+        Contrairement à TCP, UDP ne garantit pas la fiabilité ni l'ordre de livraison.
+        Il est plus rapide mais moins robuste, et il n'impose pas de surcharge de gestion.
+
+  utter_primitive_detail:
+    - text: >
+        La primitive {primitive} permet d'interagir avec les sockets UDP.
+        Pour plus de détails, consulte la documentation de ton OS ou la base de données.
+
+  utter_udp_use_cases:
+    - text: >
+        UDP est utilisé dans les applications qui tolèrent les pertes de données :
+        DNS, SNMP, RIP, les jeux en réseau et le streaming vidéo/audio.
+
+  utter_transport_protocols_summary:
+    - text: >
+        Deux protocoles de transport sont utilisés : TCP, fiable et complexe, pour les échanges importants ; et UDP, simple et rapide, adapté aux applications avec contraintes de temps.
+
+  utter_tcp_vs_udp:
+    - text: >
+        TCP est utilisé pour les échanges fiables et volumineux, tandis qu'UDP convient aux communications rapides et simples où la perte de données est tolérable.
+
+  utter_tcp_advantages:
+    - text: >
+        TCP assure la fiabilité des échanges avec des mécanismes de contrôle d'erreurs, de séquence, de flux et de congestion, ce qui le rend indispensable pour les applications critiques.
+
+  utter_udp_simplicity:
+    - text: >
+        UDP est plus léger que TCP, sans gestion de connexion ni de fiabilité, ce qui le rend utile pour les applications temps réel comme le streaming ou les jeux en ligne.
+
+  utter_tcp_throughput:
+    - text: >
+        Sur Ethernet à 10 Mbit/s, en tenant compte des 40 octets d'en-tête IP et TCP, 
+        le débit utile maximal est environ 9,55 Mbit/s pour 1460 octets utiles sur 1528 transmis.
+
+  utter_tcp_header_format:
+    - text: >
+        TCP utilise un seul format de segment pour simplifier le traitement, optimiser les performances 
+        et permettre une implémentation cohérente pour tous les types de communication (connexion, transfert, fermeture).
+
+  utter_tcp_connection_context:
+    - text: >
+        Le mode connecté permet à TCP de gérer un contexte de communication, avec contrôle de flux, 
+        correction d'erreurs, numérotation, et adaptation dynamique aux conditions du réseau.
+
+  utter_tcp_segment_order:
+    - text: >
+        Comme IP ne garantit pas l'ordre des datagrammes, TCP numérote les octets et réordonne les segments 
+        à la réception pour assurer la cohérence des données pour l'application.
+
+  utter_tcp_multiple_connections:
+    - text: >
+        Oui, TCP peut gérer plusieurs connexions en parallèle, chaque connexion étant identifiée par une paire 
+        unique de sockets (adresse IP et numéro de port pour l'émetteur et le récepteur).
+
+  utter_tcp_connection_identification:
+    - text: >
+        Le port élevé ({client_port}) indique que la machine {client_ip} est probablement un client. 
+        Le port bas ({server_port}), ici typique d'un serveur Web (port 80), indique que {server_ip} est le serveur.
+        Les adresses IP appartenant à des réseaux différents impliquent qu'un ou plusieurs routeurs sont traversés.
+
+  utter_tcp_ping_vs_tcp_connection:
+    - text: >
+        Bien que votre connexion TCP soit active (état ESTABLISHED), il est possible que la machine distante ou un routeur intermédiaire filtre les requêtes ICMP (utilisées par la commande ping) pour des raisons de sécurité. 
+        Ainsi, l'absence de réponse au ping ne signifie pas nécessairement que la machine est hors service. Votre application peut continuer à fonctionner normalement.
+
+  utter_tcp_same_vs_different_networks:
+    - text: >
+        TCP fonctionne de la même manière que les machines soient sur le même réseau ou sur des réseaux différents.
+        Dans les deux cas, un segment TCP est encapsulé dans un datagramme IP contenant les adresses IP source et destination.
+        La différence réside dans le traitement au niveau des couches inférieures : sur un même réseau, la trame contient directement les adresses MAC des deux machines.
+  utter_tcp_netstat_analysis:
+    - text: >
+        L’analyse des statistiques netstat montre que 7 connexions TCP sont actuellement actives.
+        Le trafic est bien équilibré entre les segments envoyés et reçus. Le nombre très faible de retransmissions (10 sur plus de 107 000 segments envoyés)
+        indique une bonne qualité de transmission, avec un taux d’erreur très bas, de l’ordre de 2*10⁻⁸ si l’on considère une taille typique de segment TCP.
+        Les "ouvertures actives" correspondent aux connexions initiées par la machine, et les "ouvertures passives" à celles reçues.
+
+  utter_tcp_advanced_statistics:
+    - text: >
+        Les statistiques montrent une activité réseau typique d’un serveur :
+        les segments envoyés sont en moyenne de 1388 octets, tandis que ceux reçus sont bien plus petits (135 octets),
+        ce qui suggère que cette machine envoie de gros volumes de données et reçoit peu (probablement des requêtes).
+        91% des paquets reçus contiennent des acquittements (ACK), chacun validant environ 2,33 Ko de données.
+        Les pertes de segments sont probablement dues à la congestion ou l’instabilité réseau.
+        Les paquets "window update" et "window probe" servent à ajuster dynamiquement la fenêtre TCP.
+        Les paquets de contrôle sont utilisés pour gérer l'ouverture et la fermeture des connexions.
+        Sur 356 demandes de connexion, seules 92 ont été acceptées (75% d'échec), probablement à cause d’un contrôle d’accès (login/mot de passe).
+        Le volume moyen émis par connexion est de 5 Mo, contre 24 Ko reçus.
+        Le RTT a été mis à jour fréquemment (86% des cas), mais il y a eu très peu d’expirations de timeout (21),
+        et aucun abandon dû au mécanisme Keepalive : les connexions sont donc stables et bien gérées.
+
+  utter_ethernet_frame_analysis:
+    - text: >
+        Cette trame Ethernet commence par un préambule de synchronisation suivi de :
+        - Adresse MAC destination : AA:AA:AA:AA:AA:AA
+        - Adresse MAC source : AA:AB:08:00:20:0A
+        - Type : 0x7000 (valide si taille < 1500 → c’est une trame Ethernet II contenant un datagramme IP).
+        
+        Ensuite, l’en-tête IP (20 octets) est détaillé :
+        - Version : 4, Longueur en-tête : 5 mots (20 octets)
+        - Longueur totale du datagramme : 40 octets
+        - Identification : A6F5
+        - Pas de fragmentation (DF=1, MF=0)
+        - TTL : 26
+        - Protocole : 6 (TCP)
+        - IP source : 192.93.2.1
+        - IP destination : 132.227.61.5
+        - Somme de contrôle IP : 7594
+
+        L’en-tête TCP (20 octets) contient :
+        - Port source : 21 (FTP)
+        - Port destination : 3975
+        - Numéros de séquence et d’ACK valides
+        - Flags SYN et ACK à 1 → réponse positive à une requête de connexion
+        - Fenêtre : 4 096 octets
+
+        Enfin, il y a 6 octets de bourrage (valeurs : 20 20 20 20 20 20) pour compléter la trame Ethernet au minimum de 64 octets.
+
+        Trame complète correcte pour une initialisation de connexion FTP.
+
+  utter_ethernet_frame_full_analysis:
+    - text: >
+        La trame Ethernet commence par :
+        - Synchronisation : AA AA AA AA AA AA AA AB
+        - MAC destination : 08:00:20:0A:70:66
+        - MAC source : 08:00:20:0A:AC:96
+        - Type : 08 00 → datagramme IP
+
+        En-tête IP (20 octets) :
+        - Version : IPv4, Longueur de l’en-tête : 20 octets
+        - Longueur totale : 40 octets
+        - Identifiant : A6F5
+        - Pas de fragmentation (DF=1, MF=0)
+        - TTL : 26
+        - Protocole : TCP (06)
+        - IP source : 192.92.2.1
+        - IP destination : 132.227.61.5
+        - Somme de contrôle IP : 7594
+
+        Segment TCP :
+        - Port source : 21 (serveur FTP)
+        - Port destination : 3975 (client)
+        - Flags SYN et ACK activés → réponse positive à la demande de connexion
+        - Fenêtre : 4 096 octets
+        - Pas de données, en-tête de 20 octets seulement
+
+        Trame Ethernet complétée avec 6 octets de bourrage (20 20 20 20 20 20) pour atteindre 64 octets,
+        suivie d’un CRC : 9B 52 46 43.
+
+        **Interprétation réseau** : 
+        Cette trame peut avoir été capturée :
+        - **Dans le réseau source (192.92.2.0)** : le serveur FTP initie une réponse vers le client via un routeur de sortie.
+        - **Dans le réseau destination (132.227.0.0)** : le routeur d’entrée relaie une réponse TCP au client FTP.
+        - **Dans un réseau de transit** : entre routeurs intermédiaires, avec MACs inconnues des machines terminales.
+
+        Il s’agit d’un transfert FTP en cours d’établissement de connexion.
+actions:
+  - action_comparer_protocoles
+  - action_expliquer_primitive
+  - action_semantic_faq
+  - action_set_last_topic
