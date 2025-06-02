@@ -71,6 +71,7 @@ class ActionSetLastTopic(Action):
             'udp_intro': 'udp',
             'tcp_connection': 'tcp_connection',
             'primitive_detail': 'primitive',
+            'ask_tcp_segment_format': 'tcp_segment_format',
             'ask_tcp_features': 'tcp_features',
             'transport_protocols_summary': 'transport',
             'tcp_vs_udp': 'protocol_comparison'

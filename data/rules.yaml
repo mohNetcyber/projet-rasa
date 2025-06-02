@@ -77,11 +77,18 @@ rules:
   - rule: TCP Features
     steps:
       - intent: ask_tcp_features
+      - action: action_set_last_topic
       - action: utter_tcp_features
+
+  - rule: Répondre au cycle de vie TCP
+    steps:
+      - intent: ask_cycle_connexion_tcp
+      - action: utter_cycle_connexion_tcp
 
   - rule: TCP Segment Format
     steps:
       - intent: ask_tcp_segment_format
+      - action: action_set_last_topic
       - action: utter_tcp_segment_format
 
   - rule: répondre sur la connexion TCP
@@ -155,6 +162,11 @@ rules:
       - intent: udp_header_structure
       - action: utter_udp_header_structure
 
+  - rule: Interface de connexion udp
+    steps:
+      - intent: udp_socket_interface
+      - action: utter_udp_socket_interface
+
   - rule: Comparer UDP à TCP
     steps:
       - intent: udp_vs_tcp
@@ -195,7 +207,7 @@ rules:
       - intent: tcp_throughput
       - action: utter_tcp_throughput
 
-  - rule: Répondre à l’intérêt du format unique TCP
+  - rule: TCP segment format
     steps:
       - intent: tcp_header_format
       - action: utter_tcp_header_format
@@ -245,10 +257,15 @@ rules:
       - intent: tcp_advanced_statistics
       - action: utter_tcp_advanced_statistics
 
-  - rule: Répondre à une demande d’analyse de trame Ethernet
+#  - rule: Répondre à une demande d’analyse de trame Ethernet
+#    steps:
+#      - intent: ethernet_frame_analysis
+#      - action: utter_ethernet_frame_analysis
+
+  - rule: Décodage d’un segment TCP
     steps:
-      - intent: ethernet_frame_analysis
-      - action: utter_ethernet_frame_analysis
+    - intent: decode_tcp_segment
+    - action: utter_tcp_segment_decoding
 
   - rule: Répondre à une analyse complète de trame Ethernet
     steps:

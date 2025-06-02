@@ -71,12 +71,48 @@ stories:
   - story: TCP Features Description
     steps:
       - intent: ask_tcp_features
+      - action: action_set_last_topic
+      - slot_was_set:
+          - last_topic: "tcp_feature"
       - action: utter_tcp_features
+      - intent: first
+      - action: utter_cycle_connexion_tcp
 
+#  - story: TCP Features Description
+#    steps:
+#      - intent: ask_tcp_features
+#      - action: action_set_last_topic
+#      - slot_was_set:
+#          - last_topic: "tcp_feature"
+#      - action: utter_tcp_features
+#      - intent: second
+#      - action: utter_cycle_connexion_tcp
+
+#  - story: TCP Features Description
+#    steps:
+#      - intent: ask_tcp_features
+#      - action: action_set_last_topic
+#      - slot_was_set:
+#          - last_topic: "tcp_feature"
+#      - action: utter_tcp_features
+#      - intent: third
+#      - action: utter_cycle_connexion_tcp
+
+  - story: Demande sur le cycle TCP
+    steps:
+      - intent: ask_cycle_connexion_tcp
+      - action: utter_cycle_connexion_tcp
+ 
   - story: TCP Segment Format
     steps:
       - intent: ask_tcp_segment_format
+      - action: action_set_last_topic
+      - slot_was_set:
+          - last_topic: "tcp_segment_format"
       - action: utter_tcp_segment_format
+      - intent: affirm
+      - action: utter_tcp_segment_decoding
+
   - story: consultation connexion TCP
     steps:
       - intent: connexion_tcp
@@ -163,7 +199,10 @@ stories:
       - intent: udp_header_structure
       - action: utter_udp_header_structure
 
-  
+  - story: Interface de connexion udp
+    steps:
+      - intent: udp_socket_interface
+      - action: utter_udp_socket_interface
 
   - story: Discussion sur les protocoles TCP et UDP
     steps:
@@ -181,10 +220,7 @@ stories:
       - intent: tcp_throughput
       - action: utter_tcp_throughput
 
-  - story: format d’en-tête TCP
-    steps:
-      - intent: tcp_header_format
-      - action: utter_tcp_header_format
+  
 
   - story: mode connecté TCP
     steps:
@@ -231,10 +267,15 @@ stories:
       - intent: tcp_advanced_statistics
       - action: utter_tcp_advanced_statistics
 
-  - story: Analyse complète d’une trame Ethernet
+  - story: exemple décodage segment TCP
     steps:
-      - intent: ethernet_frame_analysis
-      - action: utter_ethernet_frame_analysis
+    - intent: decode_tcp_segment
+    - action: utter_tcp_segment_decoding
+
+#  - story: Analyse complète d’une trame Ethernet
+#    steps:
+#      - intent: ethernet_frame_analysis
+#      - action: utter_ethernet_frame_analysis
 
   - story: Analyse complète d’une trame Ethernet avec interprétation réseau
     steps:

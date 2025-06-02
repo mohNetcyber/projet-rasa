@@ -30,7 +30,6 @@ nlu:
     - Comment associer IP et port dans un socket ?
 - intent: ask_checksum
   examples: |
-    
     - Qu'est-ce qu'un checksum ?
     - Comment calculer un total de contrôle ?
     - À quoi sert le checksum dans TCP/UDP ?
@@ -46,6 +45,8 @@ nlu:
     - Quel est le but de TCP ?
 - intent: ask_bout_en_bout
   examples: |
+    - Connexion de bout en bout TCP
+    - TCP bout en bout
     - Comment fonctionne une connexion TCP ?
     - TCP est-il un protocole connecté ?
     - Comment établir une connexion en TCP ?
@@ -53,13 +54,29 @@ nlu:
     - Est-ce que TCP crée des connexions directes ?
 - intent: ask_tcp_features
   examples: |
+    - Fonctionnalités de TCP
     - Quelles sont les fonctionnalités de TCP ?
     - Comment TCP assure-t-il la fiabilité ?
     - TCP utilise-t-il des acquittements ?
     - Comment TCP numérote-t-il les octets ?
     - TCP garantit-il l'ordre des paquets ?
+
+ 
+- intent: cycle_connexion_tcp
+  examples: |
+    - Explique moi le cycle de vie d'une connexion TCP
+    - Quelles sont les étapes d'une connexion TCP ?
+    - Comment fonctionne l'ouverture et la fermeture d'une connexion TCP ?
+    - cycle TCP
+    - Ouverture et fermeture d'une connexion TCP
+    - processus TCP complet
+    - étapes d'une session TCP
+    - les états d'une connexion TCP
+
 - intent: ask_tcp_segment_format
   examples: |
+    - Format de tcp
+    - Format de segment TCP
     - Quel est le format d'un segment TCP ?
     - Comment est structuré l'en-tête TCP ?
     - Quels sont les champs d'un segment TCP ?
@@ -68,6 +85,7 @@ nlu:
 
 - intent: ask_tcp_comparatif_dat_link_table
   examples: |
+    - tcp et liaison de données
     - compare TCP et la couche liaison
     - quelle différence entre TCP et PPP
     - compare moi TCP et la couche 2
@@ -317,12 +335,23 @@ nlu:
     - Que sont les paquets de contrôle TCP ?
     - Combien de connexions ont échoué ?
     - Qu’est-ce que l’activité Keepalive indique ?
-- intent: ethernet_frame_analysis
+
+#- intent: ethernet_frame_analysis
+#  examples: |
+#    - Décode cette trame Ethernet : AA AA AA AA AA AA AA AB 08 00 ...
+#    - Analyse complète de la trame Ethernet suivante
+#    - Décodage hexadécimal d’une trame Ethernet
+#    - Que contient cette trame Ethernet en détail ?
+
+- intent: decode_tcp_segment
   examples: |
-    - Décode cette trame Ethernet : AA AA AA AA AA AA AA AB 08 00 ...
-    - Analyse complète de la trame Ethernet suivante
-    - Décodage hexadécimal d’une trame Ethernet
-    - Que contient cette trame Ethernet en détail ?
+    - Peux-tu m'aider à décoder ce segment TCP ?
+    - Comment analyser un segment TCP en hexadécimal ?
+    - Je veux comprendre ce segment : 00 15 0F 87 9C CB 7E 01 27 E3 EA 01 50 12 10 00 DF 3D 00 00
+    - Explique-moi la structure d'un segment TCP
+    - Donne un exemple de décodage TCP
+    - Analyse ce segment TCP s’il te plaît
+
 - intent: ethernet_frame_full_analysis
   examples: |
     - Décode cette trame Ethernet complètement : AA AA AA AA AA AA AA AB ...
@@ -349,3 +378,30 @@ nlu:
     - absolument
     - carrément
     - bien sûr
+
+- intent: first
+  examples: |
+    - le premier
+    - la première question
+    - explique moi la première
+    - je veux le premier sujet
+    - la 1ère
+    - la première option
+
+- intent: second
+  examples: |
+    - le deuxième
+    - la deuxième question
+    - la 2e
+    - la deuxième option
+    - je veux le contexte TCP
+    - parle moi du contexte de connexion
+
+- intent: third
+  examples: |
+    - le troisième
+    - la troisième question
+    - la 3e
+    - la dernière
+    - la différence entre TCP et IP
+    - fiabilité TCP vs IP

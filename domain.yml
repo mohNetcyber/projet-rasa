@@ -16,6 +16,7 @@ intents:
   - ask_tcp_comparatif_data_link_table
   - ask_tcp_vs_ppp_example
   - ask_tcp_features
+  - ask_cycle_connexion_tcp
   - ask_tcp_segment_format
   - connexion_tcp
   - fermeture_tcp
@@ -33,6 +34,7 @@ intents:
   - udp_intro
   - udp_services
   - udp_header_structure
+  - udp_socket_interface
   - udp_vs_tcp
   - udp_use_cases
   - transport_protocols_summary
@@ -49,10 +51,13 @@ intents:
   - tcp_same_vs_different_networks
   - tcp_netstat_analysis
   - tcp_advanced_statistics
-  - ethernet_frame_analysis
+  #- ethernet_frame_analysis
+  - decode_tcp_segment
   - ethernet_frame_full_analysis
-
   - affirm
+  - first
+  - second
+  - third
 
 entities:
   - tcp_flag
@@ -328,8 +333,56 @@ responses:
 
       ➕ Tu veux que je t'explique :
       - 🔁 **Le cycle de vie complet d'une connexion TCP** ?
-      - 🧠 **Comment le contexte de connexion est géré dans TCP** ?
-      - 📶 **La différence entre la fiabilité TCP et le fonctionnement d'IP sans connexion** ?
+#      - 🧠 **Comment le contexte de connexion est géré dans TCP** ?
+#      - 📶 **La différence entre la fiabilité TCP et le fonctionnement d'IP sans connexion** ?
+
+  ####### Cycle de vie tcp #######################
+  utter_cycle_connexion_tcp:
+  - text: >
+      🔄 **Cycle de vie d'une connexion TCP**
+
+      Une connexion TCP passe par trois phases essentielles : **ouverture**, **transfert de données**, puis **fermeture**, le tout géré par un **automate à 11 états**.
+
+      ### 🔐 Ouverture : le *Three-Way Handshake*
+      Une connexion débute par trois échanges entre le client et le serveur :
+
+      1️⃣ Le **client** envoie un segment `SYN=1` avec un numéro de séquence initial `nseqE = x`.
+
+      2️⃣ Le **serveur** répond avec `SYN=1, ACK=1`, contenant `nseqE = y` et `nseqR = x+1`.
+
+      3️⃣ Le **client** finalise avec `ACK=1`, `nseqE = x+1` et `nseqR = y+1`.
+
+      ✅ À l’issue de ces échanges, la connexion est établie et les deux hôtes peuvent échanger des données de manière fiable.
+
+      ```text
+      Client  →  SYN, nseqE = x
+      Serveur ←  SYN, ACK, nseqE = y, nseqR = x+1
+      Client  →  ACK, nseqE = x+1, nseqR = y+1
+      ```
+
+      ### 🔚 Fermeture : le *Four-Way Handshake*
+      Comme TCP est bidirectionnel, chaque sens doit être fermé séparément :
+
+      1. Un hôte envoie un segment `FIN=1` pour signaler la fin d'envoi.
+      2. L'autre répond avec `ACK`.
+      3. Il envoie à son tour un `FIN=1`.
+      4. Le premier répond par `ACK`.
+
+      ➕ Ce processus implique **4 segments** pour garantir une libération propre des ressources.
+
+      ⚠️ En cas de problème, une **fermeture brutale** avec `RST=1` est possible, signalant une fin anormale sans échange d'ACK.
+
+      ### 📊 États TCP
+      TCP utilise un **automate à 11 états** pour gérer chaque étape de la connexion (LISTEN, SYN_SENT, ESTABLISHED, FIN_WAIT_1, TIME_WAIT, etc.).
+
+      Dans chaque état, seuls certains événements sont autorisés. Un mauvais événement déclenche une erreur.
+
+      👉 Cette gestion par états garantit un contrôle précis et fiable de l’ensemble du cycle de connexion TCP.
+
+      🖼️ **Diagramme des états TCP :**
+      ![États TCP](https://ibb.co/sJpKsfPL.png)
+
+      Souhaites-tu un exemple pratique de transitions d'états TCP ?
 
 
   utter_tcp_features:
@@ -428,7 +481,7 @@ responses:
 
       🧪 Exemple : Sur un réseau Ethernet, la MSS vaut souvent **1460 octets** (1500 - 40 d’en-têtes IP + TCP)
 
-      🔍 Souhaitez-vous une représentation graphique de ce segment TCP ou une explication via un exemple Wireshark ?
+      🔍 Souhaitez-vous un exemple de  segment TCP ?
 
   utter_connexion_tcp:
   - text: >
@@ -493,6 +546,8 @@ responses:
         Une représentation commode des étapes de l’établissement et de la libération d’une connexion TCP se fait en utilisant un automate d’états finis à onze états (voir tableau 7.2).
         Dans chaque état, seuls certains événements sont autorisés et une action précise est entreprise.
         Dans le cas où l’événement n’est pas autorisé, on renvoie un signal d’erreur.
+
+        Souhaites-tu un exemple de l'état d'une connexion TCP
 
         La figure suivante donne les transitions d’états de l’automate d’une connexion TCP :
       image: "https://ibb.co/sJpKsfPL.png"
@@ -689,20 +744,96 @@ responses:
     - text: "Quelle primitive veux-tu que je détaille ? Bind, Listen, Connect, Accept, Read, Write, Close, etc. ?"
 
   utter_udp_intro:
-    - text: >
-        UDP est un protocole de transport sans connexion, simple et rapide,
-        qui n'assure ni fiabilité, ni ordre de livraison, ni vérification d'erreurs complexes.
-        Il fonctionne sans établissement de connexion préalable.
+  - text: >
+      📡 **UDP (User Datagram Protocol)** : un protocole simple et rapide
+
+      UDP est un **protocole de transport sans connexion**, ce qui signifie qu’il **n’établit pas de lien préalable** entre l’émetteur et le récepteur avant de transmettre des données.
+
+      ✳️ Contrairement à TCP, UDP :
+      - 🚫 **n'assure pas la fiabilité** de la transmission (pas de garantie de livraison)
+      - 🚫 **n’assure pas l’ordre d’arrivée** des paquets
+      - 🚫 **ne gère pas la détection ni la correction d’erreurs complexes**
+      - ✅ **ne provoque pas de délais supplémentaires** liés à des mécanismes de contrôle
+
+      🔄 Il ne fournit **aucune fonctionnalité de contrôle de flux, de congestion ou de retransmission**.
+
+      ⚙️ UDP se contente d’encapsuler les données dans des datagrammes et de les envoyer “tel quel”.
+
+      🎯 Il est utilisé dans les applications où :
+      - la **rapidité prime sur la fiabilité** (ex : streaming, VoIP, DNS)
+      - les applications peuvent elles-mêmes gérer les erreurs ou pertes
+      - la surcharge de TCP est jugée inutile
+
+      📌 En résumé : UDP est idéal pour des transmissions **légères et rapides**, au prix d’une fiabilité minimale.
 
   utter_udp_services:
-    - text: >
-        UDP fournit un service minimal efficace, adapté aux applications temps réel,
-        comme le streaming, les jeux en ligne ou les services DNS et SNMP.
+  - text: >
+      ⚙️ **UDP fournit un service minimal et efficace**, bien adapté aux applications qui nécessitent rapidité et faible surcharge.
+
+      🔹 UDP transmet les données sous forme de **datagrammes de petite taille**, sans établir de connexion ni attendre d’accusé de réception.
+
+      ✅ Ce fonctionnement est idéal pour :
+      - les **applications en temps réel** comme le **streaming audio/vidéo**
+      - les **jeux en ligne**, où la rapidité est plus critique que la fiabilité
+      - les **services de type question-réponse** (petits messages, réponses rapides)
+
+      🛠️ La **gestion des erreurs** (perte de données, duplication…) est **laissée à l’application**, souvent via des mécanismes de **temporisation**.
+
+      📚 Parmi les services fonctionnant au-dessus d’UDP, on trouve :
+      - 🌐 **DNS** (Domain Name System) — service d’annuaire
+      - 📡 **SNMP** (Simple Network Management Protocol) — gestion réseau
+      - 🧭 **RIP** (Routing Information Protocol) — routage
+      - 🔍 Utilitaire système **traceroute** (sur Unix), qui envoie des datagrammes UDP avec un TTL limité pour analyser le chemin réseau
+
+      📝 En résumé : UDP est **minimaliste mais performant**, utilisé dès que la fiabilité peut être gérée par l’application ou qu’elle est peu critique.
+
+      ❓Souhaites-tu savoir comment UDP se compare à TCP dans un contexte pratique ?
+      Ou veux-tu des exemples concrets d’applications qui utilisent l’un ou l’autre ?
+
 
   utter_udp_header_structure:
-    - text: >
-        L'en-tête UDP comprend 4 champs : port source, port destination, longueur et checksum,
-        sur un total de 8 octets.
+  - text: >
+      📦 **Structure de l'en-tête UDP**
+
+      Un datagramme UDP est composé de deux parties : un **en-tête** et les **données utilisateur**. Il est encapsulé dans un datagramme IP, comme les segments TCP.
+
+      L’en-tête UDP est **très simple** et occupe **8 octets**. Il contient **4 champs** de 16 bits chacun :
+
+      🔹 **Port source** : numéro de port de l’application émettrice. Sert d’adresse de réponse pour le destinataire.
+
+      🔹 **Port destination** : numéro de port de l’application réceptrice (côté serveur, par exemple).
+
+      🔹 **Longueur** : taille totale du datagramme UDP (en-tête + données), en octets. La longueur maximale des données est de **65 472 octets**.
+
+      🔹 **Checksum (somme de contrôle)** : permet de **vérifier l'intégrité** de l'en-tête et des données. Bien qu’optionnel dans IPv4, il est obligatoire en IPv6.
+
+      ✅ Sa simplicité permet un traitement très rapide des paquets, ce qui en fait un protocole idéal pour les **communications rapides et peu coûteuses**.
+
+    image: "https://ibb.co/Kj9rY44f" 
+
+
+######## Pas de nlu ni intents
+  utter_udp_socket_interface:
+  - text: >
+      🔌 **Interface entre UDP et les applications**
+
+      Les applications interagissent avec UDP via des **sockets UDP**, qui sont très simples à utiliser car **UDP fonctionne sans connexion** :
+
+      ➤ **Pas d’établissement ni de fermeture de connexion** : contrairement à TCP, les sockets UDP ne nécessitent ni `connect()` ni `close()`.
+
+      ### 🎛️ Côté serveur :
+      - Créer un socket.
+      - Lier le socket à un numéro de port avec la primitive **`Bind`**.
+      - Mettre le socket en attente avec la primitive **`Listen`** (bien que dans UDP, ce soit souvent implicite).
+
+      ### 📲 Côté client :
+      - Créer un socket.
+      - Envoyer et recevoir directement les données avec **`SendTo`** et **`ReceiveFrom`**, ou des équivalents comme **`Write`** et **`Read`**.
+
+      ✅ Ce modèle sans connexion est idéal pour les **applications légères et réactives**.
+
+      ❓Souhaites-tu un exemple de code client/serveur utilisant les sockets UDP ?
+
 
   utter_udp_vs_tcp:
     - text: >
@@ -728,8 +859,42 @@ responses:
         TCP est utilisé pour les échanges fiables et volumineux, tandis qu'UDP convient aux communications rapides et simples où la perte de données est tolérable.
 
   utter_tcp_advantages:
-    - text: >
-        TCP assure la fiabilité des échanges avec des mécanismes de contrôle d'erreurs, de séquence, de flux et de congestion, ce qui le rend indispensable pour les applications critiques.
+  - text: >
+      🔐 **Avantages du protocole TCP**
+
+      TCP (Transmission Control Protocol) est un protocole de transport **orienté connexion**, conçu pour garantir un **échange de données fiable**. Voici ses principaux atouts :
+
+      ### ✅ Fiabilité assurée grâce à plusieurs mécanismes :
+      - **Contrôle d’erreurs** : détection et retransmission des segments perdus.
+      - **Séquencement** : réassemblage des segments dans l’ordre d’envoi.
+      - **Contrôle de flux** : régulation du débit entre émetteur et récepteur.
+      - **Contrôle de congestion** : évite la surcharge du réseau.
+
+      ### 📦 Format d’en-tête unique
+      Tous les segments TCP ont un **même format d’en-tête** de 20 octets (hors options), qu’il s’agisse d’ouverture, de transfert ou de fermeture de connexion.
+      👉 Cela **simplifie et optimise le traitement** des paquets.
+
+      ### 🔄 Mode connecté
+      Grâce à l’établissement de connexion :
+      - Les paramètres sont **mémorisés des deux côtés** (contexte partagé).
+      - Permet une **gestion fine** du flux et des délais.
+      - Essentiel pour les applications critiques (HTTP, FTP, SSH...).
+
+      ### 📶 TCP réordonne les segments
+      Bien qu’IP puisse fragmenter les datagrammes, **TCP réordonne les données** car IP ne garantit pas leur ordre d’arrivée.
+
+      ### 🌐 Gestion de connexions multiples
+      TCP peut gérer **des centaines de connexions simultanément**. Chaque connexion est identifiée de manière unique par une paire de **sockets** :
+      ```
+      (IP_source, Port_source) ↔ (IP_destination, Port_destination)
+      ```
+      Cela permet, par exemple, à un navigateur web d’ouvrir plusieurs connexions pour charger les ressources d’une seule page.
+
+      📊 **Exemple de calcul de débit utile** :
+      - Ethernet à 10 Mbit/s, trame de 1 528 octets, données utiles TCP = 1 460 octets
+      - Débit utile ≈ 10 × (1460 / 1528) = **9,55 Mbit/s**
+
+      ❓Souhaites-tu une illustration schématique de l’établissement de connexion TCP (3-way handshake) ou un exemple de code TCP client/serveur ?
 
   utter_udp_simplicity:
     - text: >
@@ -756,9 +921,31 @@ responses:
         à la réception pour assurer la cohérence des données pour l'application.
 
   utter_tcp_multiple_connections:
-    - text: >
-        Oui, TCP peut gérer plusieurs connexions en parallèle, chaque connexion étant identifiée par une paire 
-        unique de sockets (adresse IP et numéro de port pour l'émetteur et le récepteur).
+  - text: >
+      🔄 **Multiples connexions TCP simultanées**
+
+      Oui, **TCP peut gérer plusieurs connexions en parallèle**, grâce à une **identification unique** pour chaque connexion via une paire de sockets :
+      ```
+      (adresse IP source, port source) ↔ (adresse IP destination, port destination)
+      ```
+
+      ### 🛜 Implémentation du protocole TCP
+      Le protocole TCP est **implémenté uniquement au niveau des hôtes** (postes clients/serveurs), pas dans les routeurs.
+      - 📍 Les routeurs R1 et R2 se limitent à la **couche IP**.
+      - Ce sont donc **PC1 et PC2** qui gèrent les connexions TCP.
+
+      ### 🌐 Plusieurs connexions avec un même hôte
+      PC1 peut avoir **plusieurs connexions simultanées avec PC2**, par exemple :
+      - Web : `(IP_PC1, port_x) ↔ (IP_PC2, port_80)`
+      - FTP : `(IP_PC1, port_y) ↔ (IP_PC2, port_21)`
+      👉 Le **changement de numéro de port** côté client permet à TCP de **différencier les connexions**.
+
+      ### 🧩 Réouverture d'une connexion après interruption
+      Si PC1 **interrompt brutalement** sa connexion avec le service Web et en ouvre une **nouvelle** :
+      - TCP **attribuera un nouveau numéro de séquence initial** (tiré au hasard).
+      - ✅ Aucun risque d’interférence entre segments de l’ancienne et de la nouvelle connexion.
+
+      ❓Souhaites-tu une visualisation de cette gestion des connexions TCP à travers un schéma ou un exemple de trace réseau (Wireshark) ?
 
   utter_tcp_connection_identification:
     - text: >
@@ -768,8 +955,17 @@ responses:
 
   utter_tcp_ping_vs_tcp_connection:
     - text: >
-        Bien que votre connexion TCP soit active (état ESTABLISHED), il est possible que la machine distante ou un routeur intermédiaire filtre les requêtes ICMP (utilisées par la commande ping) pour des raisons de sécurité. 
-        Ainsi, l'absence de réponse au ping ne signifie pas nécessairement que la machine est hors service. Votre application peut continuer à fonctionner normalement.
+        Vous utilisz la commande **netstat** sur votre ligne de commande,  vous constatez que vous avez une connexion TCP ouverte avec la machine 213.33.44.55, port 1863 dans l’état ESTABLISHED.
+        ✅ Vous avez une connexion TCP `ESTABLISHED` avec la machine `213.33.44.55`, port `1863` (MSN). Pourtant, un ping envoyé vers cette machine ne reçoit aucune réponse.
+
+        👉 Cela **ne signifie pas** que la machine est hors service.
+
+        🔐 En réalité, la machine ou un routeur intermédiaire **filtre les requêtes ICMP Echo Request** pour des raisons de sécurité (protection contre certaines attaques ou masquage de l’hôte).
+
+        ⚠️ Résultat : la commande `ping` ne peut plus être utilisée comme indicateur fiable de disponibilité.
+
+        🧠 **Conclusion :** Une machine qui ne répond pas au ping peut être toujours opérationnelle au niveau applicatif, notamment via TCP.
+
 
   utter_tcp_same_vs_different_networks:
     - text: >
@@ -797,37 +993,77 @@ responses:
         Le RTT a été mis à jour fréquemment (86% des cas), mais il y a eu très peu d’expirations de timeout (21),
         et aucun abandon dû au mécanisme Keepalive : les connexions sont donc stables et bien gérées.
 
-  utter_ethernet_frame_analysis:
-    - text: >
-        Cette trame Ethernet commence par un préambule de synchronisation suivi de :
-        - Adresse MAC destination : AA:AA:AA:AA:AA:AA
-        - Adresse MAC source : AA:AB:08:00:20:0A
-        - Type : 0x7000 (valide si taille < 1500 → c’est une trame Ethernet II contenant un datagramme IP).
-        
-        Ensuite, l’en-tête IP (20 octets) est détaillé :
-        - Version : 4, Longueur en-tête : 5 mots (20 octets)
-        - Longueur totale du datagramme : 40 octets
-        - Identification : A6F5
-        - Pas de fragmentation (DF=1, MF=0)
-        - TTL : 26
-        - Protocole : 6 (TCP)
-        - IP source : 192.93.2.1
-        - IP destination : 132.227.61.5
-        - Somme de contrôle IP : 7594
+  utter_tcp_segment_decoding:
+  - text: >
+      📦 **Exemple de décodage d’un segment TCP donné en hexadécimal :**
 
-        L’en-tête TCP (20 octets) contient :
-        - Port source : 21 (FTP)
-        - Port destination : 3975
-        - Numéros de séquence et d’ACK valides
-        - Flags SYN et ACK à 1 → réponse positive à une requête de connexion
-        - Fenêtre : 4 096 octets
+      **Segment hexadécimal analysé :**  
+      `00 15 0F 87 9C CB 7E 01 27 E3 EA 01 50 12 10 00 DF 3D 00 00`
 
-        Enfin, il y a 6 octets de bourrage (valeurs : 20 20 20 20 20 20) pour compléter la trame Ethernet au minimum de 64 octets.
+      🔍 **Analyse des champs TCP :**
+      - **Port source :** 21 → Il s’agit d’un **serveur FTP** (port bien connu).
+      - **Port destination :** 3975 → Port utilisé par le **client**.
+      - **Numéro de séquence :** `9C CB 7E 01` → Premier octet émis.
+      - **Numéro d’accusé de réception :** `27 E3 EA 01` → Premier octet attendu.
+      - **Longueur de l’en-tête :** 20 octets → Aucun octet de données.
+      - **Drapeaux :**
+        - `SYN` = 1 → Demande ou réponse d’ouverture de connexion.
+        - `ACK` = 1 → Présence d’un accusé de réception.
+        - Autres drapeaux (FIN, RST, PSH, URG) = 0.
+      - **Taille de la fenêtre :** 4096 octets → Taille de la fenêtre d’envoi autorisée.
+      - **Checksum :** `DF 3D` → Contrôle d’erreur.
+      - **Pointeur urgent :** `00 00` → Aucun pointeur de données urgentes.
 
-        Trame complète correcte pour une initialisation de connexion FTP.
+      📌 **Bilan :**
+      - Ce segment TCP est une **réponse positive à une ouverture de connexion** (SYN + ACK).
+      - Le serveur FTP accepte la connexion et envoie un numéro de séquence initial.
+      - Le segment ne contient pas de données utiles.
+      - Ce type de segment s’inscrit dans la **phase d’établissement de la connexion TCP** (3-way handshake).
+      - Le contexte machine n’est pas connu, mais il s’agit vraisemblablement de l’**initialisation d’un transfert FTP**.
+
+      ❓ **Et vous ?** Êtes-vous capable d’identifier les drapeaux activés et la nature de la communication dans un segment TCP hexadécimal donné ?
+
+
+#  utter_ethernet_frame_analysis:
+#    - text: >
+#
+#        Cette trame Ethernet commence par un préambule de synchronisation suivi de :
+#        - Adresse MAC destination : AA:AA:AA:AA:AA:AA
+#        - Adresse MAC source : AA:AB:08:00:20:0A
+#        - Type : 0x7000 (valide si taille < 1500 → c’est une trame Ethernet II contenant un datagramme IP).
+#        
+#        Ensuite, l’en-tête IP (20 octets) est détaillé :
+#        - Version : 4, Longueur en-tête : 5 mots (20 octets)
+#        - Longueur totale du datagramme : 40 octets
+#        - Identification : A6F5
+#        - Pas de fragmentation (DF=1, MF=0)
+#        - TTL : 26
+#        - Protocole : 6 (TCP)
+#        - IP source : 192.93.2.1
+#        - IP destination : 132.227.61.5
+#        - Somme de contrôle IP : 7594
+#
+#        L’en-tête TCP (20 octets) contient :
+#        - Port source : 21 (FTP)
+#        - Port destination : 3975
+#        - Numéros de séquence et d’ACK valides
+#        - Flags SYN et ACK à 1 → réponse positive à une requête de connexion
+#        - Fenêtre : 4 096 octets
+#
+#        Enfin, il y a 6 octets de bourrage (valeurs : 20 20 20 20 20 20) pour compléter la trame Ethernet au minimum de 64 octets.
+#
+#        Trame complète correcte pour une initialisation de connexion FTP.
 
   utter_ethernet_frame_full_analysis:
     - text: >
+        Soit la trame Ethernet suivante:
+
+        AA AA AA AA AA AA AA AB 08 00 20 0A 70 66 08 00 20 0A AC 96 08 00 45 
+        00 00 28 A6 F5 00 00 1A 06 75 94 C0 5D 02 01 84 E3 3D 05 00 15 0F 87 
+        9C CB 7E 01 27 E3 EA 01 50 12 10 00 DF 3D 00 00 20 20 20 20 20 20 9B 
+        52 46 43
+
+
         La trame Ethernet commence par :
         - Synchronisation : AA AA AA AA AA AA AA AB
         - MAC destination : 08:00:20:0A:70:66
