@@ -21,6 +21,20 @@ nlu:
     - Comment fonctionnent les ports TCP/UDP ?
     - Pourquoi certains ports sont réservés ?
     - Quelle est la différence entre ports connus et ports dynamiques ?
+- intent: ask_list_ports
+  examples: |
+    - Liste des ports
+    - Montre moi les ports courants
+    - Quels sont les ports standards ?
+    - Donne moi les numéros de ports
+    - Ports les plus utilisés
+    - Liste des ports réservés
+    - Ports TCP/UDP communs
+    - Ports bien connus
+    - Quels ports pour quels services ?
+    - Liste des ports standards
+
+  
 - intent: ask_socket
   examples: |
     - Qu'est-ce qu'un socket ?
@@ -62,7 +76,7 @@ nlu:
     - TCP garantit-il l'ordre des paquets ?
 
  
-- intent: cycle_connexion_tcp
+- intent: ask_cycle_connexion_tcp
   examples: |
     - Explique moi le cycle de vie d'une connexion TCP
     - Quelles sont les étapes d'une connexion TCP ?
@@ -83,7 +97,7 @@ nlu:
     - Quelle est la taille d'un en-tête TCP ?
     - Quelles options existent dans les segments TCP ?
 
-- intent: ask_tcp_comparatif_dat_link_table
+- intent: ask_tcp_comparatif_data_link_table
   examples: |
     - tcp et liaison de données
     - compare TCP et la couche liaison
@@ -227,6 +241,18 @@ nlu:
     - Pourquoi choisir UDP plutôt que TCP ?
     - Fiabilité UDP comparée à TCP.
     - Avantages d'UDP sur TCP.
+- intent: udp_socket_interface
+  examples: |
+    - Interface socket UDP
+    - Comment utiliser les sockets UDP ?
+    - Programmation avec UDP
+    - Primitives UDP
+    - Interface de programmation UDP
+    - Comment programmer avec UDP ?
+    - Sockets UDP vs TCP
+    - API socket pour UDP
+    - Fonctions socket UDP
+    - Comment créer un socket UDP ?
 - intent: udp_use_cases
   examples: |
     - Applications utilisant UDP.

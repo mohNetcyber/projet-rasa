@@ -24,7 +24,10 @@ rules:
       - intent: affirm
       - action: utter_context_unsure
 
-
+  - rule: Afficher directement la liste des ports sur demande
+    steps:
+      - intent: ask_list_ports
+      - action: utter_list_ports
 
 
   - rule: Expliquer socket

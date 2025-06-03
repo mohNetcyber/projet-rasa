@@ -19,7 +19,10 @@ stories:
       - intent: affirm
       - action: utter_list_ports
 
-
+  - story: Demande directe de la liste des ports
+    steps:
+      - intent: ask_list_ports
+      - action: utter_list_ports
 
   - story: User asks about socket
     steps:
