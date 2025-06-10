@@ -155,7 +155,7 @@ stories:
       #- action: action_set_last_topic
       #- slot_was_set:
       #    - last_topic: tcp_algorithms
-      - action: utter_algo_karn
+      - action: utter_algorithm_karn
 
   - story: Questions sur les temporisateurs TCP
     steps:
@@ -248,7 +248,12 @@ stories:
   - story: gestion de plusieurs connexions TCP
     steps:
       - intent: tcp_multiple_connections
+      - action: action_set_last_topic
+      - slot_was_set:
+          - last_topic: "tcp_multi_connections"
       - action: utter_tcp_multiple_connections
+      - intent: affirm
+      - action: exemple_tcp_multiple_connections
 
   - story: Expliquer la différence entre ping et connexion TCP
     steps:

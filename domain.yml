@@ -46,6 +46,7 @@ intents:
   - tcp_connection_context
   - tcp_segment_order
   - tcp_multiple_connections
+  - exemple_tcp_multiple_connections
   - tcp_connection_identification
   - tcp_ping_vs_tcp_connection
   - tcp_same_vs_different_networks
@@ -454,7 +455,7 @@ responses:
       📦 Le **segment TCP** contient un en-tête structuré suivi éventuellement de **données**.
 
       Voici les principaux champs de l’en-tête TCP (sans options) :
-
+      !"https://ibb.co/F4QVJCqh"
       🔹 **Port source** (16 bits) : identifie l’application côté émetteur  
       🔹 **Port destination** (16 bits) : identifie l’application côté récepteur  
       🔹 **Numéro de séquence** (32 bits) : identifie le premier octet de données envoyées  
@@ -539,7 +540,11 @@ responses:
   utter_etats_tcp:
     - text: >
         TCP utilise un automate à 11 états pour gérer les connexions. Parmi les états : LISTEN, SYN_SENT,
-        ESTABLISHED, FIN_WAIT, TIME_WAIT, etc. Ces états représentent les différentes étapes d'établissement,
+        ESTABLISHED, FIN_WAIT, TIME_WAIT, etc.
+        
+        !"https://ibb.co/hRJ9Nkst"
+
+        Ces états représentent les différentes étapes d'établissement,
         de transfert de données et de fermeture d'une connexion TCP.
 
         On voit que l’ouverture et la fermeture d’une connexion dépendent de nombreux événements et peuvent conduire à beaucoup de situations différentes.
@@ -567,12 +572,13 @@ responses:
         Grâce à ces mesures dynamiques, TCP ajuste automatiquement ses temporisations pour optimiser la fiabilité et l’efficacité des transferts.
   
   utter_algorithmes_tcp:
-    - text: >
-        TCP implémente plusieurs algorithmes comme celui de Jacobson pour ajuster les temporisations
-        avec RTT estimé et écart de variation (D). L'algorithme de Karn évite l'ambiguïté des acquittements
-        en ignorant les RTT des segments retransmis. Clark et Nagle réduisent l'envoi de petits segments
-        inutiles, améliorant l'efficacité dans les communications interactives.
-  
+  - text: >
+      TCP optimise ses performances grâce à plusieurs algorithmes : 
+      **Jacobson** affine le calcul du délai d’attente en tenant compte du RTT et de sa variation ; Karn évite les erreurs d’estimation en excluant
+      les RTT des segments retransmis ; Nagle et Clark limitent l'envoi de petits paquets pour améliorer 
+      l'efficacité des échanges interactifs. 
+      Souhaitez-vous en savoir plus sur l’un de ces algorithmes en particulier ?
+
   
 
   utter_algorithm_jacobson:
@@ -603,7 +609,7 @@ responses:
 
   
 
-  utter_algo_karn:
+  utter_algorithm_karn:
     - text: >
         🔄 **Algorithme de Karn** (TCP) :  
         Il résout un problème d’ambiguïté lié aux accusés de réception (ACK) lorsque des segments sont retransmis.
@@ -836,9 +842,18 @@ responses:
 
 
   utter_udp_vs_tcp:
-    - text: >
-        Contrairement à TCP, UDP ne garantit pas la fiabilité ni l'ordre de livraison.
-        Il est plus rapide mais moins robuste, et il n'impose pas de surcharge de gestion.
+  - text: >
+      TCP et UDP sont les deux principaux protocoles de transport dans l’architecture TCP/IP. 
+      TCP est un protocole complet, en mode connecté, qui assure la fiabilité, l’ordre, le contrôle de flux, 
+      d’erreur et de congestion. Il est adapté aux applications exigeant des transferts fiables de données, 
+      comme le web ou le transfert de fichiers.
+
+      UDP, plus simple et léger, ne garantit ni la fiabilité ni l’ordre des paquets. Il se contente d’acheminer 
+      les messages via IP, sans contrôle ni correction. Il est idéal pour les applications en temps réel 
+      ou les communications rapides de type requête/réponse, comme le streaming ou DNS.
+
+      Souhaitez-vous comparer leurs cas d’usage plus en détail ou voir un exemple concret ?
+
 
   utter_primitive_detail:
     - text: >
@@ -846,9 +861,18 @@ responses:
         Pour plus de détails, consulte la documentation de ton OS ou la base de données.
 
   utter_udp_use_cases:
-    - text: >
-        UDP est utilisé dans les applications qui tolèrent les pertes de données :
-        DNS, SNMP, RIP, les jeux en réseau et le streaming vidéo/audio.
+  - text: >
+      UDP est privilégié pour les applications en temps réel ou celles qui tolèrent la perte de données.
+      Il est utilisé dans le streaming audio/vidéo, les jeux en réseau, ou les services de type requête/réponse 
+      comme DNS, SNMP ou RIP. Grâce à sa légèreté et à l'absence d'accusé de réception, il permet 
+      des communications rapides avec peu de surcharge.
+
+      UDP est efficace pour envoyer de petits paquets à haut débit, sans garantie de livraison. 
+      C’est l’application, et non le protocole, qui gère les pertes éventuelles — souvent avec des mécanismes de temporisation. 
+      Par exemple, la commande traceroute utilise UDP pour envoyer des paquets à durée de vie limitée.
+
+      N'hésitez à poser des questions sur le reseau, je suis ici pout t'aider :) .
+
 
   utter_transport_protocols_summary:
     - text: >
@@ -910,6 +934,8 @@ responses:
         TCP utilise un seul format de segment pour simplifier le traitement, optimiser les performances 
         et permettre une implémentation cohérente pour tous les types de communication (connexion, transfert, fermeture).
 
+        Souhaitez-vous plus de détail sur l'en-tête TCP ou les types de communications TCP ?
+
   utter_tcp_connection_context:
     - text: >
         Le mode connecté permet à TCP de gérer un contexte de communication, avec contrôle de flux, 
@@ -929,6 +955,12 @@ responses:
       (adresse IP source, port source) ↔ (adresse IP destination, port destination)
       ```
 
+      Voulez-vous un exemple de connecions TCP simultanées ?
+  
+  utter_exemple_tcp_multiple_connections:
+  - text: >
+      ***Gestion de plusieurs connexions par TCP***
+      **Exemple:
       ### 🛜 Implémentation du protocole TCP
       Le protocole TCP est **implémenté uniquement au niveau des hôtes** (postes clients/serveurs), pas dans les routeurs.
       - 📍 Les routeurs R1 et R2 se limitent à la **couche IP**.
@@ -955,7 +987,7 @@ responses:
 
   utter_tcp_ping_vs_tcp_connection:
     - text: >
-        Vous utilisz la commande **netstat** sur votre ligne de commande,  vous constatez que vous avez une connexion TCP ouverte avec la machine 213.33.44.55, port 1863 dans l’état ESTABLISHED.
+        Vous utilisez la commande **netstat** sur votre ligne de commande,  vous constatez que vous avez une connexion TCP ouverte avec la machine 213.33.44.55, port 1863 dans l’état ESTABLISHED.
         ✅ Vous avez une connexion TCP `ESTABLISHED` avec la machine `213.33.44.55`, port `1863` (MSN). Pourtant, un ping envoyé vers cette machine ne reçoit aucune réponse.
 
         👉 Cela **ne signifie pas** que la machine est hors service.

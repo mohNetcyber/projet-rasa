@@ -11,16 +11,36 @@ nlu:
     - Comment fonctionne la couche transport ?
     - Quel est le rôle des protocoles de la couche transport ?
     - Expliquez-moi la fonction de la couche transport.
+    - Parle-moi de la couche transport
+    - Décris la couche transport
+    - C'est quoi un protocole de transport ?
+    - Quel est l'objectif de la couche transport ?
+    - Pourquoi utilise-t-on des protocoles de transport ?
+    - Que fait la couche transport dans TCP/IP ?
+    - Niveau 4 du modèle OSI ?
+    - Services de la couche transport
+    - Caractéristiques des protocoles de transport
+    - Transport dans le modèle TCP/IP
+    - Rôle du niveau transport
+    - Fonction transport dans les réseaux
+    - La couche 4 OSI
+    - Transport dans les réseaux
+    - Protocoles niveau transport
+    - Niveau transport TCP/IP
+
 - intent: ask_port
   examples: |
     - Qu'est-ce qu'un port en informatique ?
+    - Notion de port
+    - Expliquer le port
     - port
-    - oui pour le port
-    - ok port
+    - Utilité du port
+    - A quoi sert un port
     - À quoi servent les numéros de port ?
     - Comment fonctionnent les ports TCP/UDP ?
     - Pourquoi certains ports sont réservés ?
     - Quelle est la différence entre ports connus et ports dynamiques ?
+
 - intent: ask_list_ports
   examples: |
     - Liste des ports
@@ -38,6 +58,12 @@ nlu:
 - intent: ask_socket
   examples: |
     - Qu'est-ce qu'un socket ?
+    - Explique un socket
+    - A quoi sert un socket
+    - Notion de socket
+    - Socket
+    - Notion d'interface reseau
+    - Une interface réseau
     - Comment identifier une communication par socket ?
     - Quelle est la composition d'un socket ?
     - À quoi sert un socket dans le réseau ?
@@ -45,6 +71,10 @@ nlu:
 - intent: ask_checksum
   examples: |
     - Qu'est-ce qu'un checksum ?
+    - Décris le checksum
+    - Notion de checksum
+    - Checksum
+    - Expliquer le checksum
     - Comment calculer un total de contrôle ?
     - À quoi sert le checksum dans TCP/UDP ?
     - Expliquez le fonctionnement du total de contrôle.
@@ -52,6 +82,13 @@ nlu:
 - intent: ask_tcp_overview
   examples: |
     - TCP
+    - Protocole TCP
+    - Décris TCP
+    - Décris le protocole TCP
+    - Expliquer TCP
+    - Le protocole fiable de la couche de transport
+    - Le protocole de connexion de la couche transport
+    - Expliquer le protocole TCP
     - Qu'est-ce que TCP ?
     - Que fait le protocole TCP ?
     - Expliquez TCP simplement.
@@ -61,6 +98,7 @@ nlu:
   examples: |
     - Connexion de bout en bout TCP
     - TCP bout en bout
+    - Comment la couche transport assure la connexion
     - Comment fonctionne une connexion TCP ?
     - TCP est-il un protocole connecté ?
     - Comment établir une connexion en TCP ?
@@ -69,20 +107,22 @@ nlu:
 - intent: ask_tcp_features
   examples: |
     - Fonctionnalités de TCP
+    - Comment fonctionne TCP
     - Quelles sont les fonctionnalités de TCP ?
     - Comment TCP assure-t-il la fiabilité ?
     - TCP utilise-t-il des acquittements ?
     - Comment TCP numérote-t-il les octets ?
     - TCP garantit-il l'ordre des paquets ?
 
- 
+
 - intent: ask_cycle_connexion_tcp
   examples: |
     - Explique moi le cycle de vie d'une connexion TCP
     - Quelles sont les étapes d'une connexion TCP ?
     - Comment fonctionne l'ouverture et la fermeture d'une connexion TCP ?
-    - cycle TCP
+    - cycle de connexion TCP
     - Ouverture et fermeture d'une connexion TCP
+    - Les types de communication TCP
     - processus TCP complet
     - étapes d'une session TCP
     - les états d'une connexion TCP
@@ -90,6 +130,8 @@ nlu:
 - intent: ask_tcp_segment_format
   examples: |
     - Format de tcp
+    - En-tête tcp
+    - Header TCP
     - Format de segment TCP
     - Quel est le format d'un segment TCP ?
     - Comment est structuré l'en-tête TCP ?
@@ -323,6 +365,23 @@ nlu:
     - TCP et connexions en parallèle.
     - Plusieurs applications TCP sur une machine.
     - Distinction des flux TCP.
+- intent: exemple_tcp_multiple_connections
+  examples: |
+    - Montre moi un exemple de connexions TCP multiples
+    - Donne un exemple concret de connexions TCP simultanées
+    - Comment gérer plusieurs connexions TCP en même temps
+    - Exemple de connexions TCP parallèles
+    - Comment TCP gère plusieurs connexions
+    - Illustre les connexions TCP multiples
+    - Cas pratique de connexions TCP simultanées
+    - Explique avec  un exemple les connexions TCP multiples
+    - Connexions TCP simultanées exemple
+    - Comment une machine peut avoir plusieurs connexions TCP
+    - Plusieurs connexions TCP sur un serveur
+    - Montre la gestion de multiples connexions TCP
+    - Comment fonctionne TCP avec plusieurs connexions
+    - Exemple de serveur avec plusieurs connexions TCP
+    - Différentes connexions TCP sur un même hôte
 - intent: tcp_connection_identification
   examples: |
     - Comment identifier client et serveur dans une connexion TCP ?

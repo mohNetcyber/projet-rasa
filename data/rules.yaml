@@ -129,7 +129,7 @@ rules:
     steps:
       - intent: ask_algorithm_karn
       #- action: action_set_last_topic
-      - action: utter_algo_karn
+      - action: utter_algorithm_karn
 
   - rule: Expliquer les autres temporisateurs TCP
     steps:
@@ -238,6 +238,7 @@ rules:
   - rule: Gérer plusieurs connexions TCP
     steps:
       - intent: tcp_multiple_connections
+      - action: action_set_last_topic
       - action: utter_tcp_multiple_connections
 
   - rule: Répondre à une question sur l'absence de réponse au ping malgré une connexion TCP active
