@@ -1,0 +1,151 @@
+version: "3.1"
+
+rules:
+  - rule: Répondre aux objectifs du routage
+    steps:
+      - intent: objectifs_du_routage
+      - action: utter_objectifs_du_routage
+
+  - rule: Expliquer les boucles de routage
+    steps:
+      - intent: boucles_de_routage
+      - action: utter_boucles_de_routage
+
+  - rule: Expliquer le recalcul de route en cas de panne
+    steps:
+      - intent: panne_et_recalcul
+      - action: utter_panne_et_recalcul
+
+  - rule: Expliquer les protocoles de routage
+    steps:
+      - intent: protocoles_routage
+      - action: utter_protocoles_routage
+
+  - rule: Expliquer la hiérarchisation du réseau
+    steps:
+      - intent: hierarchisation_reseau
+      - action: utter_hierarchisation_reseau
+
+  - rule: Définir un système autonome
+    steps:
+      - intent: systeme_autonome
+      - action: utter_systeme_autonome
+
+  - rule: Différence IGP / EGP
+    steps:
+      - intent: difference_igp_egp
+      - action: utter_difference_igp_egp
+
+  - rule: répondre à une question sur RIP
+    steps:
+      - intent: protocole_rip
+      - action: utter_protocole_rip
+
+  - rule: Décrire le fonctionnement de RIP
+    steps:
+      - intent: fonctionnement_rip
+      - action: utter_fonctionnement_rip
+
+  - rule: Expliquer les limites de RIP
+    steps:
+      - intent: limites_rip
+      - action: utter_limites_rip
+
+  - rule: Décrire les variantes de RIP
+    steps:
+      - intent: variantes_rip
+      - action: utter_variantes_rip
+
+  - rule: Donner un exemple de boucle RIP
+    steps:
+      - intent: exemple_rip
+      - action: utter_exemple_rip
+
+  - rule: Expliquer RIPv2
+    steps:
+      - intent: ripv2
+      - action: utter_ripv2
+
+  - rule: RIP et UDP
+    steps:
+      - intent: rip_udp
+      - action: utter_rip_udp
+
+  - rule: Améliorations et transition vers OSPF
+    steps:
+      - intent: ameliorations_rip
+      - action: utter_ameliorations_rip
+
+  - rule: répondre à une question sur OSPF
+    steps:
+      - intent: protocole_ospf
+      - action: utter_protocole_ospf
+
+  - rule: expliquer le fonctionnement de OSPF
+    steps:
+      - intent: fonctionnement_ospf
+      - action: utter_fonctionnement_ospf
+
+  - rule: décrire les messages OSPF
+    steps:
+      - intent: messages_ospf
+      - action: utter_messages_ospf
+
+  - rule: parler de la sécurité OSPF
+    steps:
+      - intent: securite_ospf
+      - action: utter_securite_ospf
+
+  - rule: répondre à une question sur BGP
+    steps:
+      - intent: protocole_bgp
+      - action: utter_protocole_bgp
+
+  - rule: expliquer le fonctionnement de BGP
+    steps:
+      - intent: fonctionnement_bgp
+      - action: utter_fonctionnement_bgp
+
+  - rule: comparaison entre types d’algorithmes
+    steps:
+      - intent: comparaison_algorithmes
+      - action: utter_comparaison_algorithmes
+  - rule: Expliquer les routeurs BGP
+    steps:
+      - intent: routeur_bgp
+      - action: utter_routeur_bgp
+
+  - rule: Comparer les algorithmes de routage
+    steps:
+      - intent: comparaison_algorithmes
+      - action: utter_comparaison_algorithmes
+
+  - rule: Expliquer la diffusion multicast
+    steps:
+      - intent: diffusion_multicast
+      - action: utter_diffusion_multicast
+
+  - rule: Expliquer le routage multicast
+    steps:
+      - intent: routage_multicast
+      - action: utter_routage_multicast
+
+  - rule: Expliquer IGMP
+    steps:
+      - intent: igmp_gestion_groupes
+      - action: utter_igmp_gestion_groupes
+
+  - rule: Expliquer le routage pour les mobiles
+    steps:
+      - intent: routage_mobilite
+      - action: utter_routage_mobilite
+
+  - rule: Expliquer les réseaux peer-to-peer
+    steps:
+      - intent: peer_to_peer
+      - action: utter_peer_to_peer
+
+  - rule: Présenter les types de routage
+    steps:
+      - intent: types_routage
+      - action: utter_types_routage

@@ -1,0 +1,14 @@
+version: "3.1"
+
+stories:
+# Histoire : Salutation simple
+- story: Saluer l’utilisateur
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+# Histoire : Dire au revoir
+- story: Dire au revoir
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

@@ -1,0 +1,772 @@
+version: "3.1"
+
+stories:
+
+  # Histoire : Demander l’architecture en couches
+  - story: Expliquer l’architecture en couches
+    steps:
+    - intent: ask_architecture_couches
+    - action: utter_architecture_couches
+
+  # Histoire : Demander l’architecture avec suivi
+  - story: Architecture avec suivi
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_architecture_couches
+    - action: utter_architecture_couches
+
+  # Histoire : Demander le modèle OSI
+  - story: Expliquer le modèle OSI
+    steps:
+    - intent: ask_modele_osi
+    - action: utter_modele_osi
+
+  # Histoire : Demander OSI après salutation
+  - story: OSI après salutation
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_modele_osi
+    - action: utter_modele_osi
+
+  # Histoire : Demander TCP/IP
+  - story: Expliquer TCP/IP
+    steps:
+    - intent: ask_tcp_ip
+    - action: utter_tcp_ip
+
+  # Histoire : Demander TCP/IP avec détails
+  - story: TCP/IP avec détails
+    steps:
+    - intent: ask_tcp_ip
+    - action: utter_tcp_ip
+    - intent: ask_encapsulation
+    - action: utter_encapsulation
+
+  # Histoire : Demander la normalisation
+  - story: Expliquer la normalisation
+    steps:
+    - intent: ask_normalisation
+    - action: utter_normalisation
+
+  # Histoire : Demander la normalisation après OSI
+  - story: Normalisation après OSI
+    steps:
+    - intent: ask_modele_osi
+    - action: utter_modele_osi
+    - intent: ask_normalisation
+    - action: utter_normalisation
+
+  # Histoire : Demander l’encapsulation
+  - story: Expliquer l’encapsulation
+    steps:
+    - intent: ask_encapsulation
+    - action: utter_encapsulation
+
+  # Histoire : Demander l’encapsulation avec entité
+  - story: Encapsulation avec trame
+    steps:
+    - intent: ask_encapsulation
+    - action: utter_encapsulation
+    - slot_was_set:
+        - ethernet_frame: "{{ethernet_frame}}"
+
+  # Histoire : Demander les primitives OSI
+  - story: Expliquer les primitives
+    steps:
+    - intent: ask_primitives
+    - action: utter_primitives
+
+  # Histoire : Demander les primitives après couches
+  - story: Primitives après couches
+    steps:
+    - intent: ask_architecture_couches
+    - action: utter_architecture_couches
+    - intent: ask_primitives
+    - action: utter_primitives
+
+  # Histoire : Comparer LAN et WAN
+  - story: Comparer LAN et WAN
+    steps:
+    - intent: ask_lan_vs_wan
+    - action: utter_lan_vs_wan
+
+  # Histoire : LAN vs WAN après TCP/IP
+  - story: LAN vs WAN après TCP/IP
+    steps:
+    - intent: ask_tcp_ip
+    - action: utter_tcp_ip
+    - intent: ask_lan_vs_wan
+    - action: utter_lan_vs_wan
+
+  # Histoire : Demander la liste des exercices
+  - story: Lister les exercices
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+
+  # Histoire : Demander un exercice après la liste
+  - story: Exercice 1 après liste
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_1
+    - action: utter_exercice_1
+    - slot_was_set:
+        - current_exercise: "1"
+
+  # Histoire : Demander l’exercice 2 après liste
+  - story: Exercice 2 après liste
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_2
+    - action: utter_exercice_2
+    - slot_was_set:
+        - current_exercise: "2"
+
+  # Histoire : Demander l’exercice 3 après liste
+  - story: Exercice 3 après liste
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_3
+    - action: utter_exercice_3
+    - slot_was_set:
+        - current_exercise: "3"
+
+  # Histoire : Demander l’exercice 4 après liste
+  - story: Exercice 4 après liste
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_4
+    - action: utter_exercice_4
+    - slot_was_set:
+        - current_exercise: "4"
+
+  # Histoire : Demander l’exercice 5 après liste
+  - story: Exercice 5 après liste
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_5
+    - action: utter_exercice_5
+    - slot_was_set:
+        - current_exercise: "5"
+
+  # Histoire : Demander l’exercice 6 après liste
+  - story: Exercice 6 après liste
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_6
+    - action: utter_exercice_6
+    - slot_was_set:
+        - current_exercise: "6"
+
+  # Histoire : Demander l’exercice 7 après liste
+  - story: Exercice 7 après liste
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_7
+    - action: utter_exercice_7
+    - slot_was_set:
+        - current_exercise: "7"
+
+  # Histoire : Demander l’exercice 8 après liste
+  - story: Exercice 8 après liste
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_8
+    - action: utter_exercice_8
+    - slot_was_set:
+        - current_exercise: "8"
+
+  # Histoire : Demander l’adressage IP
+  - story: Expliquer l’adressage IP
+    steps:
+    - intent: ask_ip_addressing
+    - action: utter_ask_ip_addressing
+
+  # Histoire : Adressage IP avec entité
+  - story: Adressage IP avec IP spécifique
+    steps:
+    - intent: ask_ip_addressing
+    - action: utter_ask_ip_addressing
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+
+  # Histoire : Demander le sous-réseautage
+  - story: Expliquer le sous-réseautage
+    steps:
+    - intent: ask_subnetting
+    - action: utter_ask_subnetting
+
+  # Histoire : Sous-réseautage avec masque
+  - story: Sous-réseautage avec masque
+    steps:
+    - intent: ask_subnetting
+    - action: utter_ask_subnetting
+    - slot_was_set:
+        - subnet_mask: "{{subnet_mask}}"
+
+  # Histoire : Demander CIDR
+  - story: Expliquer CIDR
+    steps:
+    - intent: ask_cidr
+    - action: utter_ask_cidr
+
+  # Histoire : CIDR avec entité
+  - story: CIDR avec notation
+    steps:
+    - intent: ask_cidr
+    - action: utter_ask_cidr
+    - slot_was_set:
+        - cidr: "{{cidr}}"
+
+  # Histoire : Demander la correspondance MAC-IP
+  - story: Expliquer la correspondance MAC-IP
+    steps:
+    - intent: ask_mac_ip_mapping
+    - action: utter_ask_mac_ip_mapping
+
+  # Histoire : Correspondance MAC-IP avec MAC
+  - story: Correspondance avec adresse MAC
+    steps:
+    - intent: ask_mac_ip_mapping
+    - action: utter_ask_mac_ip_mapping
+    - slot_was_set:
+        - mac_address: "{{mac_address}}"
+
+  # Histoire : Demander la fragmentation
+  - story: Expliquer la fragmentation
+    steps:
+    - intent: ask_fragmentation
+    - action: utter_ask_fragmentation
+
+  # Histoire : Fragmentation après adressage
+  - story: Fragmentation après adressage
+    steps:
+    - intent: ask_ip_addressing
+    - action: utter_ask_ip_addressing
+    - intent: ask_fragmentation
+    - action: utter_ask_fragmentation
+
+  # Histoire : Demander les équipements d’interconnexion
+  - story: Expliquer les équipements
+    steps:
+    - intent: ask_interconnection_devices
+    - action: utter_ask_interconnection_devices
+
+  # Histoire : Équipements avec entité
+  - story: Équipements avec dispositif
+    steps:
+    - intent: ask_interconnection_devices
+    - action: utter_ask_interconnection_devices
+    - slot_was_set:
+        - network_device: "{{network_device}}"
+
+  # Histoire : Demander les outils ICMP
+  - story: Expliquer les outils ICMP
+    steps:
+    - intent: ask_icmp_tools
+    - action: utter_ask_icmp_tools
+
+  # Histoire : Outils ICMP après fragmentation
+  - story: Outils ICMP après fragmentation
+    steps:
+    - intent: ask_fragmentation
+    - action: utter_ask_fragmentation
+    - intent: ask_icmp_tools
+    - action: utter_ask_icmp_tools
+
+  # Histoire : Demander le décodage de trames
+  - story: Expliquer le décodage de trames
+    steps:
+    - intent: ask_frame_decoding
+    - action: utter_ask_frame_decoding
+
+  # Histoire : Décodage avec trame Ethernet
+  - story: Décodage avec trame
+    steps:
+    - intent: ask_frame_decoding
+    - action: utter_ask_frame_decoding
+    - slot_was_set:
+        - ethernet_frame: "{{ethernet_frame}}"
+
+  # Histoire : Demander IPv6
+  - story: Expliquer IPv6
+    steps:
+    - intent: ask_ipv6
+    - action: utter_ask_ipv6
+
+  # Histoire : IPv6 après adressage
+  - story: IPv6 après adressage
+    steps:
+    - intent: ask_ip_addressing
+    - action: utter_ask_ip_addressing
+    - intent: ask_ipv6
+    - action: utter_ask_ipv6
+
+  # Histoire : Demander le service IP
+  - story: Expliquer le service IP
+    steps:
+    - intent: ask_ip_service
+    - action: utter_ask_ip_service
+
+  # Histoire : Service IP après TCP/IP
+  - story: Service IP après TCP/IP
+    steps:
+    - intent: ask_tcp_ip
+    - action: utter_tcp_ip
+    - intent: ask_ip_service
+    - action: utter_ask_ip_service
+
+  # Histoire : Demander le format des datagrammes
+  - story: Expliquer le format des datagrammes
+    steps:
+    - intent: ask_datagram_format
+    - action: utter_ask_datagram_format
+
+  # Histoire : Format après fragmentation
+  - story: Format après fragmentation
+    steps:
+    - intent: ask_fragmentation
+    - action: utter_ask_fragmentation
+    - intent: ask_datagram_format
+    - action: utter_ask_datagram_format
+
+  # Histoire : ICMP après outils
+  - story: ICMP après outils
+    steps:
+    - intent: ask_icmp_tools
+    - action: utter_ask_icmp_tools
+    - intent: ask_icmp_protocol
+    - action: utter_ask_icmp_protocol
+
+  # Histoire : Demander l’exercice 1 des principes
+  - story: Exercice 1 des principes
+    steps:
+    - intent: ask_exercise_1_principles
+    - action: utter_ask_exercise_1_principles
+    - slot_was_set:
+        - current_exercise: "1_principles"
+
+  # Histoire : Exercice 1 avec IP
+  - story: Exercice 1 avec IP
+    steps:
+    - intent: ask_exercise_1_principles
+    - action: utter_ask_exercise_1_principles
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "1_principles"
+
+  # Histoire : Demander l’exercice 2 des classes
+  - story: Exercice 2 des classes
+    steps:
+    - intent: ask_exercise_2_classes
+    - action: utter_ask_exercise_2_classes
+    - slot_was_set:
+        - current_exercise: "2_classes"
+
+  # Histoire : Exercice 2 avec IP
+  - story: Exercice 2 avec IP
+    steps:
+    - intent: ask_exercise_2_classes
+    - action: utter_ask_exercise_2_classes
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "2_classes"
+
+  # Histoire : Demander l’exercice 3 de configuration
+  - story: Exercice 3 de configuration
+    steps:
+    - intent: ask_exercise_3_config
+    - action: utter_ask_exercise_3_config
+    - slot_was_set:
+        - current_exercise: "3_config"
+
+  # Histoire : Exercice 3 avec IP
+  - story: Exercice 3 avec IP
+    steps:
+    - intent: ask_exercise_3_config
+    - action: utter_ask_exercise_3_config
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "3_config"
+
+  # Histoire : Demander l’exercice 4 de correspondance MAC-IP
+  - story: Exercice 4 de correspondance MAC-IP
+    steps:
+    - intent: ask_exercise_4_mac_ip
+    - action: utter_ask_exercise_4_mac_ip
+    - slot_was_set:
+        - current_exercise: "4_mac_ip"
+
+  # Histoire : Exercice 4 avec MAC
+  - story: Exercice 4 avec MAC adresse
+    steps:
+    - intent: ask_exercise_4_mac_ip
+    - action: utter_ask_exercise_4_mac_ip
+    - slot_was_set:
+        - mac_address: "{{mac_address}}"
+        - current_exercise: "4_mac_ip"
+
+  # Histoire : Demander l’exercice 5 de mappage
+  - story: Exercice 5 de mappage
+    steps:
+    - intent: ask_exercise_5_mapping
+    - action: utter_ask_exercise_5_mapping
+    - slot_was_set:
+        - current_exercise: "5_mapping"
+
+  # Histoire : Exercice 5 avec MAC
+  - story: Exercice 5 avec MAC
+    steps:
+    - intent: ask_exercise_5_mapping
+    - action: utter_ask_exercise_5_mapping
+    - slot_was_set:
+        - mac_address: "{{mac_address}}"
+        - current_exercise: "5_mapping"
+
+  # Histoire : Demander l’exercice 6 de sous-réseaux
+  - story: Exercice 6 de sous-réseaux
+    steps:
+    - intent: ask_exercise_6_subnets
+    - action: utter_ask_exercise_6_subnets
+    - slot_was_set:
+        - current_exercise: "6_subnets"
+
+  # Histoire : Exercice 6 avec masque
+  - story: Exercice 6 avec masque
+    steps:
+    - intent: ask_exercise_6_subnets
+    - action: utter_ask_exercise_6_subnets
+    - slot_was_set:
+        - subnet_mask: "{{subnet_mask}}"
+        - current_exercise: "6_subnets"
+
+  # Histoire : Demander l’exercice 7 de plan d’adressage
+  - story: Exercice 7 de plan d’adressage
+    steps:
+    - intent: ask_exercise_7_address_plan
+    - action: utter_ask_exercise_7_address_plan
+    - slot_was_set:
+        - current_exercise: "7_address_plan"
+
+  # Histoire : Exercice 7 avec CIDR
+  - story: Exercice 7 avec CIDR
+    steps:
+    - intent: ask_exercise_7_address_plan
+    - action: utter_ask_exercise_7_address_plan
+    - slot_was_set:
+        - cidr: "{{cidr}}"
+        - current_exercise: "7_address_plan"
+
+  # Histoire : Demander l’exercice 8 de plan spécifique
+  - story: Exercice 8 de plan spécifique
+    steps:
+    - intent: ask_exercise_8_specific_plan
+    - action: utter_ask_exercise_8_specific_plan
+    - slot_was_set:
+        - current_exercise: "8_specific_plan"
+
+  # Histoire : Exercice 8 avec CIDR
+  - story: Exercice 8 avec CIDR
+    steps:
+    - intent: ask_exercise_8_specific_plan
+    - action: utter_ask_exercise_8_specific_plan
+    - slot_was_set:
+        - cidr: "{{cidr}}"
+        - current_exercise: "8_specific_plan"
+
+  # Histoire : Demander l’exercice 9 de plan de sous-réseaux
+  - story: Exercice 9 de plan de sous-réseaux
+    steps:
+    - intent: ask_exercise_9_subnet_plan
+    - action: utter_ask_exercise_9_subnet_plan
+    - slot_was_set:
+        - current_exercise: "9_subnet_plan"
+
+  # Histoire : Exercice 9 avec masque
+  - story: Exercice 9 avec masque
+    steps:
+    - intent: ask_exercise_9_subnet_plan
+    - action: utter_ask_exercise_9_subnet_plan
+    - slot_was_set:
+        - subnet_mask: "{{subnet_mask}}"
+        - current_exercise: "9_subnet_plan"
+
+  # Histoire : Demander l’exercice 10 de CIDR
+  - story: Exercice 10 de CIDR
+    steps:
+    - intent: ask_exercise_10_cidr
+    - action: utter_ask_exercise_10_cidr
+    - slot_was_set:
+        - current_exercise: "10_cidr"
+
+  # Histoire : Exercice 10 avec CIDR
+  - story: Exercice 10 avec CIDR
+    steps:
+    - intent: ask_exercise_10_cidr
+    - action: utter_ask_exercise_10_cidr
+    - slot_was_set:
+        - cidr: "{{cidr}}"
+        - current_exercise: "10_cidr"
+
+  # Histoire : Demander l’exercice 11 de fragmentation
+  - story: Exercice 11 de fragmentation
+    steps:
+    - intent: ask_exercise_11_fragmentation
+    - action: utter_ask_exercise_11_fragmentation
+    - slot_was_set:
+        - current_exercise: "11_fragmentation"
+
+  # Histoire : Exercice 11 après format
+  - story: Exercice 11 après format
+    steps:
+    - intent: ask_datagram_format
+    - action: utter_ask_datagram_format
+    - intent: ask_exercise_11_fragmentation
+    - action: utter_ask_exercise_11_fragmentation
+    - slot_was_set:
+        - current_exercise: "11_fragmentation"
+
+  # Histoire : Demander l’exercice 12 d’interconnexion
+  - story: Exercice 12 d’interconnexion
+    steps:
+    - intent: ask_exercise_12_interconnection
+    - action: utter_ask_exercise_12_interconnection
+    - slot_was_set:
+        - current_exercise: "12_interconnection"
+
+  # Histoire : Exercice 12 avec dispositif
+  - story: Exercice 12 avec dispositif
+    steps:
+    - intent: ask_exercise_12_interconnection
+    - action: utter_ask_exercise_12_interconnection
+    - slot_was_set:
+        - network_device: "{{network_device}}"
+        - current_exercise: "12_interconnection"
+
+  # Histoire : Demander l’exercice 13 des équipements
+  - story: Exercice 13 des équipements
+    steps:
+    - intent: ask_exercise_13_devices
+    - action: utter_ask_exercise_13_devices
+    - slot_was_set:
+        - current_exercise: "13_devices"
+
+  # Histoire : Exercice 13 avec dispositif
+  - story: Exercice 13 avec dispositif
+    steps:
+    - intent: ask_exercise_13_devices
+    - action: utter_ask_exercise_13_devices
+    - slot_was_set:
+        - network_device: "{{network_device}}"
+        - current_exercise: "13_devices"
+
+  # Histoire : Demander l’exercice 14 de ping
+  - story: Exercice 14 de ping
+    steps:
+    - intent: ask_exercise_14_ping
+    - action: utter_ask_exercise_14_ping
+    - slot_was_set:
+        - current_exercise: "14_ping"
+
+  # Histoire : Exercice 14 avec IP
+  - story: Exercice 14 avec IP
+    steps:
+    - intent: ask_exercise_14_ping
+    - action: utter_ask_exercise_14_ping
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "14_ping"
+
+  # Histoire : Demander l’exercice 15 de traceroute
+  - story: Exercice 15 de traceroute
+    steps:
+    - intent: ask_exercise_15_traceroute
+    - action: utter_ask_exercise_15_traceroute
+    - slot_was_set:
+        - current_exercise: "15_traceroute"
+
+  # Histoire : Exercice 15 avec IP
+  - story: Exercice 15 avec IP
+    steps:
+    - intent: ask_exercise_15_traceroute
+    - action: utter_ask_exercise_15_traceroute
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "15_traceroute"
+
+  # Histoire : Demander l’exercice 16 de datagramme
+  - story: Exercice 16 de datagramme
+    steps:
+    - intent: ask_exercise_16_datagram
+    - action: utter_ask_exercise_16_datagram
+    - slot_was_set:
+        - current_exercise: "16_datagram"
+
+  # Histoire : Exercice 16 après format
+  - story: Exercice 16 après format
+    steps:
+    - intent: ask_datagram_format
+    - action: utter_ask_datagram_format
+    - intent: ask_exercise_16_datagram
+    - action: utter_ask_exercise_16_datagram
+    - slot_was_set:
+        - current_exercise: "16_datagram"
+
+  # Histoire : Demander l’exercice 17 d’Ethernet
+  - story: Exercice 17 d’Ethernet
+    steps:
+    - intent: ask_exercise_17_ethernet
+    - action: utter_ask_exercise_17_ethernet
+    - slot_was_set:
+        - current_exercise: "17_ethernet"
+
+  # Histoire : Exercice 17 avec trame
+  - story: Exercice 17 avec trame
+    steps:
+    - intent: ask_exercise_17_ethernet
+    - action: utter_ask_exercise_17_ethernet
+    - slot_was_set:
+        - ethernet_frame: "{{ethernet_frame}}"
+        - current_exercise: "17_ethernet"
+
+  # Histoire : Demander l’exercice 18 d’Ethernet ARP
+  - story: Exercice 18 d’Ethernet ARP
+    steps:
+    - intent: ask_exercise_18_ethernet_arp
+    - action: utter_ask_exercise_18_ethernet_arp
+    - slot_was_set:
+        - current_exercise: "18_ethernet_arp"
+
+  # Histoire : Exercice 18 avec trame
+  - story: Exercice 18 avec trame
+    steps:
+    - intent: ask_exercise_18_ethernet_arp
+    - action: utter_ask_exercise_18_ethernet_arp
+    - slot_was_set:
+        - ethernet_frame: "{{ethernet_frame}}"
+        - current_exercise: "18_ethernet_arp"
+
+  # Histoire : Conversation complexe avec exercices
+  - story: Liste puis exercice 14
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercise_14_ping
+    - action: utter_ask_exercise_14_ping
+    - slot_was_set:
+        - current_exercise: "14_ping"
+
+  # Histoire : Exercice avec entité et clarification
+  - story: Exercice 6 avec masque et clarification
+    steps:
+    - intent: ask_exercise_6_subnets
+    - action: utter_ask_exercise_6_subnets
+    - slot_was_set:
+        - subnet_mask: "{{subnet_mask}}"
+        - current_exercise: "6_subnets"
+    - intent: ask_subnetting
+    - action: utter_ask_subnetting
+
+  # Histoire : Demander plusieurs exercices
+  - story: Demander exercices 1 et 2
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+    - slot_was_set:
+        - requested_slot: exercise_number
+    - intent: ask_exercice_1
+    - action: utter_exercice_1
+    - slot_was_set:
+        - current_exercise: "1"
+    - intent: ask_exercice_2
+    - action: utter_exercice_2
+    - slot_was_set:
+        - current_exercise: "2"
+
+  # Histoire : Conversation avec IP et exercice
+  - story: Adressage puis exercice 2
+    steps:
+    - intent: ask_ip_addressing
+    - action: utter_ask_ip_addressing
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+    - intent: ask_exercise_2_classes
+    - action: utter_ask_exercise_2_classes
+    - slot_was_set:
+        - current_exercise: "2_classes"
+
+  # Histoire : Fallback pour intent non reconnu
+  - story: Gérer un intent non reconnu
+    steps:
+    - intent: nlu_fallback
+    - action: utter_nlu_fallback
+
+  # Histoire : Transition complexe avec CIDR
+  - story: CIDR puis exercice 10
+    steps:
+    - intent: ask_cidr
+    - action: utter_ask_cidr
+    - slot_was_set:
+        - cidr: "{{cidr}}"
+    - intent: ask_exercise_10_cidr
+    - action: utter_ask_exercise_10_cidr
+    - slot_was_set:
+        - current_exercise: "10_cidr"
+
+  # Histoire : Demander plusieurs concepts et exercice
+  - story: OSI, TCP/IP, puis exercice
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_modele_osi
+    - action: utter_modele_osi
+    - intent: ask_tcp_ip
+    - action: utter_tcp_ip
+    - intent: ask_exercice_1
+    - action: utter_exercice_1
+    - slot_was_set:
+        - current_exercise: "1"
+
+  # Histoire : Exercice 15 avec clarification
+  - story: Exercice 15 puis outils ICMP
+    steps:
+    - intent: ask_exercise_15_traceroute
+    - action: utter_ask_exercise_15_traceroute
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "15_traceroute"
+    - intent: ask_icmp_tools
+    - action: utter_ask_icmp_tools
+

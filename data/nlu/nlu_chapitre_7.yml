@@ -1,0 +1,474 @@
+version: "3.1"
+nlu:
+
+- intent: ask_transport_protocol
+  examples: |
+    - Qu'est-ce qu'un protocole de transport ?
+    - Protocole de transport ?
+    - couche trasport ?
+    - trasport ?
+    - À quoi sert le niveau transport ?
+    - Comment fonctionne la couche transport ?
+    - Quel est le rôle des protocoles de la couche transport ?
+    - Expliquez-moi la fonction de la couche transport.
+    - Parle-moi de la couche transport
+    - Décris la couche transport
+    - C'est quoi un protocole de transport ?
+    - Quel est l'objectif de la couche transport ?
+    - Pourquoi utilise-t-on des protocoles de transport ?
+    - Que fait la couche transport dans TCP/IP ?
+    - Niveau 4 du modèle OSI ?
+    - Services de la couche transport
+    - Caractéristiques des protocoles de transport
+    - Transport dans le modèle TCP/IP
+    - Rôle du niveau transport
+    - Fonction transport dans les réseaux
+    - La couche 4 OSI
+    - Transport dans les réseaux
+    - Protocoles niveau transport
+    - Niveau transport TCP/IP
+
+- intent: ask_port
+  examples: |
+    - Qu'est-ce qu'un port en informatique ?
+    - Notion de port
+    - Expliquer le port
+    - port
+    - Utilité du port
+    - A quoi sert un port
+    - À quoi servent les numéros de port ?
+    - Comment fonctionnent les ports TCP/UDP ?
+    - Pourquoi certains ports sont réservés ?
+    - Quelle est la différence entre ports connus et ports dynamiques ?
+
+- intent: ask_list_ports
+  examples: |
+    - Liste des ports
+    - Montre moi les ports courants
+    - Quels sont les ports standards ?
+    - Donne moi les numéros de ports
+    - Ports les plus utilisés
+    - Liste des ports réservés
+    - Ports TCP/UDP communs
+    - Ports bien connus
+    - Quels ports pour quels services ?
+    - Liste des ports standards
+
+  
+- intent: ask_socket
+  examples: |
+    - Qu'est-ce qu'un socket ?
+    - Explique un socket
+    - A quoi sert un socket
+    - Notion de socket
+    - Socket
+    - Notion d'interface reseau
+    - Une interface réseau
+    - Comment identifier une communication par socket ?
+    - Quelle est la composition d'un socket ?
+    - À quoi sert un socket dans le réseau ?
+    - Comment associer IP et port dans un socket ?
+- intent: ask_checksum
+  examples: |
+    - Qu'est-ce qu'un checksum ?
+    - Décris le checksum
+    - Notion de checksum
+    - Checksum
+    - Expliquer le checksum
+    - Comment calculer un total de contrôle ?
+    - À quoi sert le checksum dans TCP/UDP ?
+    - Expliquez le fonctionnement du total de contrôle.
+    - Comment vérifier l'intégrité par checksum ?
+- intent: ask_tcp_overview
+  examples: |
+    - TCP
+    - Protocole TCP
+    - Décris TCP
+    - Décris le protocole TCP
+    - Expliquer TCP
+    - Le protocole fiable de la couche de transport
+    - Le protocole de connexion de la couche transport
+    - Expliquer le protocole TCP
+    - Qu'est-ce que TCP ?
+    - Que fait le protocole TCP ?
+    - Expliquez TCP simplement.
+    - Quelles sont les principales caractéristiques de TCP ?
+    - Quel est le but de TCP ?
+- intent: ask_bout_en_bout
+  examples: |
+    - Connexion de bout en bout TCP
+    - TCP bout en bout
+    - Comment la couche transport assure la connexion
+    - Comment fonctionne une connexion TCP ?
+    - TCP est-il un protocole connecté ?
+    - Comment établir une connexion en TCP ?
+    - TCP peut-il connecter deux machines ?
+    - Est-ce que TCP crée des connexions directes ?
+- intent: ask_tcp_features
+  examples: |
+    - Fonctionnalités de TCP
+    - Comment fonctionne TCP
+    - Quelles sont les fonctionnalités de TCP ?
+    - Comment TCP assure-t-il la fiabilité ?
+    - TCP utilise-t-il des acquittements ?
+    - Comment TCP numérote-t-il les octets ?
+    - TCP garantit-il l'ordre des paquets ?
+
+
+- intent: ask_cycle_connexion_tcp
+  examples: |
+    - Explique moi le cycle de vie d'une connexion TCP
+    - Quelles sont les étapes d'une connexion TCP ?
+    - Comment fonctionne l'ouverture et la fermeture d'une connexion TCP ?
+    - cycle de connexion TCP
+    - Ouverture et fermeture d'une connexion TCP
+    - Les types de communication TCP
+    - processus TCP complet
+    - étapes d'une session TCP
+    - les états d'une connexion TCP
+
+- intent: ask_tcp_segment_format
+  examples: |
+    - Format de tcp
+    - En-tête tcp
+    - Header TCP
+    - Format de segment TCP
+    - Quel est le format d'un segment TCP ?
+    - Comment est structuré l'en-tête TCP ?
+    - Quels sont les champs d'un segment TCP ?
+    - Quelle est la taille d'un en-tête TCP ?
+    - Quelles options existent dans les segments TCP ?
+
+- intent: ask_tcp_comparatif_data_link_table
+  examples: |
+    - tcp et liaison de données
+    - compare TCP et la couche liaison
+    - quelle différence entre TCP et PPP
+    - compare moi TCP et la couche 2
+    - TCP vs couche liaison
+    - différence entre TCP et les protocoles de liaison
+
+- intent: ask_tcp_vs_ppp_example
+  examples: |
+    - donne un exemple concret TCP vs PPP
+    - explique avec un exemple TCP et liaison
+    - montre un cas pratique TCP vs PPP
+    - illustre la différence TCP et liaison
+    - exemple de TCP vs couche 2
+
+- intent: connexion_tcp
+  examples: |
+    - Comment s'établit une connexion TCP ?
+    - Qu'est-ce que le three-way handshake ?
+    - Expliquer le handshake TCP.
+    - Comment client et serveur établissent une connexion TCP ?
+    - Quelles étapes pour ouvrir une connexion TCP ?
+- intent: fermeture_tcp
+  examples: |
+    - Comment fermer une connexion TCP ?
+    - Expliquer le processus de fermeture TCP.
+    - Qu'est-ce qu'une fermeture TCP en quatre étapes ?
+    - À quoi sert le flag FIN en TCP ?
+    - Comment terminer proprement une session TCP ?
+- intent: etats_tcp
+  examples: |
+    - Quels sont les états d'une connexion TCP ?
+    - Expliquer l'automate TCP.
+    - Qu'est-ce que l'état ESTABLISHED en TCP ?
+    - Combien d'états a TCP ?
+    - Comment passer de l'état LISTEN à ESTABLISHED ?
+- intent: temporisation_tcp
+  examples: |
+    - Comment fonctionne la temporisation TCP ?
+    - Qu'est-ce que le RTT en TCP ?
+    - Comment TCP ajuste ses timers ?
+    - Temporisation et retransmission TCP.
+    - Comment TCP calcule-t-il les délais de timeout ?
+- intent: algorithmes_tcp
+  examples: |
+    - Quels algorithmes utilise TCP ?
+    - Expliquer l'algorithme de Jacobson.
+    - Qu'est-ce que l'algorithme de Karn ?
+    - Comment TCP calcule-t-il ses temporisations ?
+    - Algorithmes pour éviter les petits segments TCP ?
+
+- intent: ask_algorithm_jacobson
+  examples: |
+    - algorithme de Jacobson
+    - Jacobson
+    - explique l'algorithme de Jacobson
+    - comment fonctionne Jacobson
+    - parle moi de l'algorithme de Jacobson
+    - calcul du RTT avec Jacobson
+    - temporisation adaptative TCP
+
+- intent: ask_algorithm_karn
+  examples: |
+    - algorithme de Karn
+    - Karn
+    - explique l'algorithme de Karn
+    - comment fonctionne Karn
+    - que fait l'algorithme de Karn
+    - gestion des retransmissions avec Karn
+    - problème d'ambiguïté ACK
+
+- intent: ask_autres_temporisateurs_tcp
+  examples: |
+    - les temporisateurs TCP
+    - quels sont les autres temporisateurs TCP
+    - parle moi des timers TCP
+    - explique les différents temporisateurs
+    - liste des temporisateurs TCP
+    - autres types de timers TCP
+
+- intent: ask_algorithm_clark_nagle
+  examples: |
+    - Algorithme de Clark Nagle
+    - Clark Nagle
+    - explique les algorithmes de Clark et Nagle
+    - comment fonctionnent Clark et Nagle
+    - syndrome de la fenêtre stupide
+    - gestion des petits segments TCP
+    - optimisation des petits paquets TCP
+
+- intent: ask_controle_congestion_tcp
+  examples: |
+    - explique le contrôle de congestion TCP
+    - comment TCP gère la congestion
+    - mécanisme de congestion TCP
+    - slow start et congestion avoidance
+    - fenêtre de congestion TCP
+    - comment TCP évite la saturation
+
+- intent: interface_tcp_application
+  examples: |
+    - Comment les applications utilisent-elles TCP ?
+    - Quelles sont les primitives TCP ?
+    - Interface entre application et TCP ?
+    - Comment programmer avec des sockets TCP ?
+    - Primitives de service de TCP ?
+- intent: primitive_detail
+  examples: |
+    - Comment fonctionne la primitive bind ?
+    - À quoi sert la primitive listen ?
+    - Expliquer la primitive connect.
+    - Que fait la primitive accept ?
+    - Comment utiliser read/write avec TCP ?
+    - Rôle de la primitive close ?
+- intent: udp_intro
+  examples: |
+    - Qu'est-ce que UDP ?
+    - Définir le protocole UDP.
+    - Caractéristiques principales d'UDP.
+    - UDP est-il connecté ?
+    - Fonctionnement général d'UDP.
+- intent: udp_services
+  examples: |
+    - Quels services offre UDP ?
+    - Avantages d'UDP ?
+    - UDP pour quelles applications ?
+    - UDP est-il rapide ?
+    - Services minimaux d'UDP.
+- intent: udp_header_structure
+  examples: |
+    - Structure de l'en-tête UDP.
+    - Taille d'un en-tête UDP.
+    - Champs d'un datagramme UDP.
+    - Format UDP.
+    - Composition d'un paquet UDP.
+- intent: udp_vs_tcp
+  examples: |
+    - Différences entre UDP et TCP.
+    - UDP vs TCP.
+    - Pourquoi choisir UDP plutôt que TCP ?
+    - Fiabilité UDP comparée à TCP.
+    - Avantages d'UDP sur TCP.
+- intent: udp_socket_interface
+  examples: |
+    - Interface socket UDP
+    - Comment utiliser les sockets UDP ?
+    - Programmation avec UDP
+    - Primitives UDP
+    - Interface de programmation UDP
+    - Comment programmer avec UDP ?
+    - Sockets UDP vs TCP
+    - API socket pour UDP
+    - Fonctions socket UDP
+    - Comment créer un socket UDP ?
+- intent: udp_use_cases
+  examples: |
+    - Applications utilisant UDP.
+    - Cas d'usage d'UDP.
+    - Quand utiliser UDP ?
+    - Exemples de protocoles basés sur UDP.
+    - UDP pour quels services réseau ?
+- intent: transport_protocols_summary
+  examples: |
+    - Résumer les protocoles de transport.
+    - TCP et UDP en bref.
+    - Comparer TCP/UDP.
+    - Principaux protocoles de transport.
+    - Vue d'ensemble des protocoles transport.
+- intent: tcp_vs_udp
+  examples: |
+    - Quelle différence entre TCP et UDP ?
+    - Quand utiliser TCP plutôt qu'UDP ?
+    - TCP ou UDP pour mon application ?
+    - Avantages de TCP sur UDP ?
+    - Cas où UDP est préférable à TCP ?
+- intent: tcp_advantages
+  examples: |
+    - Quels sont les avantages de TCP ?
+    - Pourquoi TCP est-il fiable ?
+    - Forces de TCP.
+    - Bénéfices de TCP.
+    - TCP est-il meilleur qu'UDP ?
+- intent: udp_simplicity
+  examples: |
+    - Pourquoi UDP est-il simple ?
+    - Avantages de la simplicité d'UDP.
+    - UDP est-il vraiment minimaliste ?
+    - Bénéfices d'un protocole léger comme UDP ?
+    - UDP plus simple que TCP ?
+- intent: tcp_throughput
+  examples: |
+    - Quel est le débit réel de TCP sur Ethernet 10 Mbps ?
+    - Calcul de débit utile avec TCP/IP.
+    - Impact des en-têtes sur le débit TCP.
+    - Bande passante effective avec TCP.
+    - Overhead de TCP sur la bande passante.
+- intent: tcp_header_format
+  examples: |
+    - Pourquoi TCP n'a-t-il qu'un seul format de segment ?
+    - Avantages d'un format unique pour TCP.
+    - Format TCP pour connexion et données.
+    - TCP utilise-t-il différents formats ?
+    - Raisons du format unique de TCP.
+- intent: tcp_connection_context
+  examples: |
+    - Pourquoi TCP est-il en mode connecté ?
+    - Avantages du mode connecté pour TCP.
+    - Contexte de communication en TCP.
+    - Bénéfices d'établir une connexion.
+    - Pourquoi pas de mode non-connecté pour TCP ?
+- intent: tcp_segment_order
+  examples: |
+    - Comment TCP assure-t-il l'ordre des segments ?
+    - Pourquoi numéroter les octets en TCP ?
+    - TCP et problème d'ordre des paquets IP.
+    - Mécanisme de réordonnancement TCP.
+    - Comment TCP gère les segments arrivant dans le désordre ?
+- intent: tcp_multiple_connections
+  examples: |
+    - TCP peut-il gérer plusieurs connexions simultanées ?
+    - Comment identifier différentes connexions TCP ?
+    - TCP et connexions en parallèle.
+    - Plusieurs applications TCP sur une machine.
+    - Distinction des flux TCP.
+- intent: exemple_tcp_multiple_connections
+  examples: |
+    - Montre moi un exemple de connexions TCP multiples
+    - Donne un exemple concret de connexions TCP simultanées
+    - Comment gérer plusieurs connexions TCP en même temps
+    - Exemple de connexions TCP parallèles
+    - Comment TCP gère plusieurs connexions
+    - Illustre les connexions TCP multiples
+    - Cas pratique de connexions TCP simultanées
+    - Explique avec  un exemple les connexions TCP multiples
+    - Connexions TCP simultanées exemple
+    - Comment une machine peut avoir plusieurs connexions TCP
+    - Plusieurs connexions TCP sur un serveur
+    - Montre la gestion de multiples connexions TCP
+    - Comment fonctionne TCP avec plusieurs connexions
+    - Exemple de serveur avec plusieurs connexions TCP
+    - Différentes connexions TCP sur un même hôte
+- intent: tcp_connection_identification
+  examples: |
+    - Comment identifier client et serveur dans une connexion TCP ?
+    - Rôle des numéros de port dans TCP.
+    - Identifier la direction d'une connexion TCP.
+    - Client vs serveur par les ports TCP.
+    - Analyse d'une connexion TCP.
+- intent: tcp_ping_vs_tcp_connection
+  examples: |
+    - Pourquoi ma connexion TCP fonctionne alors que le ping échoue ?
+    - Relation entre ICMP et TCP.
+    - Ping impossible mais TCP ok, pourquoi ?
+    - TCP fonctionne malgré ping échoué.
+    - Firewall bloquant ping mais pas TCP.
+- intent: tcp_same_vs_different_networks
+  examples: |
+    - TCP fonctionne-t-il différemment entre réseaux ?
+    - Impact du routage sur TCP.
+    - TCP sur même réseau vs réseaux différents.
+    - Différence TCP local vs distant.
+    - TCP traverse-t-il les routeurs identiquement ?
+- intent: tcp_netstat_analysis
+  examples: |
+    - Que signifie le résultat de la commande netstat pour TCP ?
+    - Comment interpréter les statistiques TCP avec netstat ?
+    - netstat montre 7 connexions TCP, est-ce beaucoup ?
+    - Que penser des segments retransmis affichés par netstat ?
+    - Pourquoi netstat affiche des ouvertures actives et passives ?
+- intent: tcp_advanced_statistics
+  examples: |
+    - Que signifient les statistiques TCP détaillées ?
+    - Comment interpréter les valeurs avancées de netstat ?
+    - Quelle est la taille moyenne des segments TCP envoyés ?
+    - Pourquoi certains segments sont retransmis ?
+    - À quoi servent les paquets window update ?
+    - Que sont les paquets de contrôle TCP ?
+    - Combien de connexions ont échoué ?
+    - Qu’est-ce que l’activité Keepalive indique ?
+
+#- intent: ethernet_frame_analysis
+#  examples: |
+#    - Décode cette trame Ethernet : AA AA AA AA AA AA AA AB 08 00 ...
+#    - Analyse complète de la trame Ethernet suivante
+#    - Décodage hexadécimal d’une trame Ethernet
+#    - Que contient cette trame Ethernet en détail ?
+
+- intent: decode_tcp_segment
+  examples: |
+    - Peux-tu m'aider à décoder ce segment TCP ?
+    - Comment analyser un segment TCP en hexadécimal ?
+    - Je veux comprendre ce segment : 00 15 0F 87 9C CB 7E 01 27 E3 EA 01 50 12 10 00 DF 3D 00 00
+    - Explique-moi la structure d'un segment TCP
+    - Donne un exemple de décodage TCP
+    - Analyse ce segment TCP s’il te plaît
+
+- intent: ethernet_frame_full_analysis
+  examples: |
+    - Décode cette trame Ethernet complètement : AA AA AA AA AA AA AA AB ...
+    - Analyse détaillée de la trame Ethernet en hexadécimal
+    - Trame Ethernet avec contexte réseau
+    - Analyse réseau d'une trame Ethernet complète
+- intent: ask_primitive
+  examples: |
+    - Peux-tu m'expliquer la primitive Bind ?
+    - Qu'est-ce qu'une primitive socket ?
+- intent: nlu_fallback
+  examples: |
+    - Qu'est ce que un protocole de routage ?
+
+
+
+- intent: affirm
+  examples: |
+    - oui
+    - d'accord
+    - je veux bien
+    - vas-y
+    - ok
+    - absolument
+    - carrément
+    - bien sûr
+
+- intent: first
+  examples: |
+    - le premier
+    - la première question
+    - explique moi la première
+    - je veux le premier sujet
+    - la 1ère
+    - la première option

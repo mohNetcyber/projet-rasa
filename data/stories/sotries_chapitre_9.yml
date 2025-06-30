@@ -1,0 +1,72 @@
+version: "3.1"
+
+stories:
+  - story: Informations sur DHCP
+    steps:
+      - intent: ask_dhcp_definition
+      - action: utter_dhcp_definition
+      - intent: ask_dhcp_messages
+      - action: utter_dhcp_messages
+      - intent: ask_dhcp_ports
+      - action: utter_dhcp_ports
+
+  - story: Cas d'utilisation DHCP
+    steps:
+      - intent: ask_dhcp_use_cases
+      - action: utter_dhcp_use_cases
+      - intent: ask_dhcp_fixed_vs_dynamic
+      - action: utter_dhcp_fixed_vs_dynamic
+      - intent: ask_dhcp_bail
+      - action: utter_dhcp_bail
+
+  - story: Explications sur DNS
+    steps:
+      - intent: expliquer_dns
+      - action: utter_expliquer_dns
+      - intent: resolution_dns
+      - action: utter_resolution_dns
+      - intent: types_enregistrements_dns
+      - action: utter_types_enregistrements_dns
+
+  - story: Architecture DNS
+    steps:
+      - intent: dns_hierarchique
+      - action: utter_dns_hierarchique
+      - intent: differents_serveurs_dns
+      - action: utter_differents_serveurs_dns
+      - intent: cache_dns
+      - action: utter_cache_dns
+
+  - story: DNS et services d'annuaire
+    steps:
+      - intent: dns_vs_ldap
+      - action: utter_dns_vs_ldap
+      - intent: service_ldap
+      - action: utter_service_ldap
+      - intent: relation_dns_annuaire
+      - action: utter_relation_dns_annuaire
+
+  - story: Informations sur la messagerie électronique
+    steps:
+      - intent: definition_messagerie_electronique
+      - action: utter_definition_messagerie_electronique
+      - intent: fonctionnement_messagerie
+      - action: utter_fonctionnement_messagerie
+      - intent: protocoles_messagerie
+      - action: utter_protocoles_messagerie
+
+  - story: Détails des protocoles de messagerie
+    steps:
+      - intent: smtp_details
+      - action: utter_smtp_details
+      - intent: pop3_details
+      - action: utter_pop3_details
+      - intent: imap4_details
+      - action: utter_imap4_details
+
+  - story: Gestion des messages
+    steps:
+      - intent: etiquette_messages
+      - action: utter_etiquette_messages
+      - intent: liste_diffusion
+      - action: utter_liste_diffusion

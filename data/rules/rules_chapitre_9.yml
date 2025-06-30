@@ -1,0 +1,123 @@
+version: "3.1"
+
+rules:
+
+  - rule: Répondre à une question sur la définition DHCP
+    steps:
+      - intent: ask_dhcp_definition
+      - action: utter_dhcp_definition
+  
+  - rule: Répondre à une question sur les messages DHCP
+    steps:
+      - intent: ask_dhcp_messages
+      - action: utter_dhcp_messages
+  
+  - rule: Répondre à une question sur les ports DHCP
+    steps:
+      - intent: ask_dhcp_ports
+      - action: utter_dhcp_ports
+  
+  - rule: Répondre à une question sur les cas d'usage DHCP
+    steps:
+      - intent: ask_dhcp_use_cases
+      - action: utter_dhcp_use_cases
+  
+  - rule: Répondre à une question sur IP fixe vs dynamique
+    steps:
+      - intent: ask_dhcp_fixed_vs_dynamic
+      - action: utter_dhcp_fixed_vs_dynamic
+  
+  - rule: Répondre à une question sur le bail DHCP
+    steps:
+      - intent: ask_dhcp_bail
+      - action: utter_dhcp_bail
+  
+  - rule: Répondre à une question sur la sécurité DHCP
+    steps:
+      - intent: ask_dhcp_security
+      - action: utter_dhcp_security
+  
+  - rule: Répondre à une question sur le DNS
+    steps:
+      - intent: expliquer_dns
+      - action: utter_expliquer_dns
+  
+  - rule: Répondre à une question sur la résolution DNS
+    steps:
+      - intent: resolution_dns
+      - action: utter_resolution_dns
+  
+  - rule: Répondre à une question sur les types d'enregistrements DNS
+    steps:
+      - intent: types_enregistrements_dns
+      - action: utter_types_enregistrements_dns
+  
+  - rule: Répondre à une question sur la hiérarchie DNS
+    steps:
+      - intent: dns_hierarchique
+      - action: utter_dns_hierarchique
+  
+  - rule: Répondre à une question sur les serveurs DNS
+    steps:
+      - intent: differents_serveurs_dns
+      - action: utter_differents_serveurs_dns
+  
+  - rule: Répondre à une question sur le cache DNS
+    steps:
+      - intent: cache_dns
+      - action: utter_cache_dns
+  
+  - rule: Répondre à une question sur DNS vs LDAP
+    steps:
+      - intent: dns_vs_ldap
+      - action: utter_dns_vs_ldap
+  
+  - rule: Répondre à une question sur LDAP
+    steps:
+      - intent: service_ldap
+      - action: utter_service_ldap
+  
+  - rule: Répondre à une question sur DNS et annuaires
+    steps:
+      - intent: relation_dns_annuaire
+      - action: utter_relation_dns_annuaire
+  
+  - rule: Répondre à une question sur la définition de messagerie
+    steps:
+      - intent: definition_messagerie_electronique
+      - action: utter_definition_messagerie_electronique
+  
+  - rule: Répondre à une question sur le fonctionnement de la messagerie
+    steps:
+      - intent: fonctionnement_messagerie
+      - action: utter_fonctionnement_messagerie
+  
+  - rule: Répondre à une question sur les protocoles de messagerie
+    steps:
+      - intent: protocoles_messagerie
+      - action: utter_protocoles_messagerie
+  
+  - rule: Répondre à une question sur SMTP
+    steps:
+      - intent: smtp_details
+      - action: utter_smtp_details
+  
+  - rule: Répondre à une question sur POP3
+    steps:
+      - intent: pop3_details
+      - action: utter_pop3_details
+  
+  - rule: Répondre à une question sur IMAP4
+    steps:
+      - intent: imap4_details
+      - action: utter_imap4_details
+  
+  - rule: Répondre à une question sur l'étiquetage des messages
+    steps:
+      - intent: etiquette_messages
+      - action: utter_etiquette_messages
+  
+  - rule: Répondre à une question sur les listes de diffusion
+    steps:
+      - intent: liste_diffusion
+      - action: utter_liste_diffusion

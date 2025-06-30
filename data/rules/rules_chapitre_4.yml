@@ -1,0 +1,955 @@
+version: "3.1"
+
+rules:
+  # Règles pour les salutations et au revoir
+  - rule: Répondre à greet
+    steps:
+    - intent: greet
+    - action: utter_greet
+
+  - rule: Répondre à goodbye
+    steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+  # Règles pour les concepts réseau du chapitre 4
+  - rule: Expliquer l'architecture en couches
+    steps:
+    - intent: ask_architecture_couches
+    - action: utter_architecture_couches
+
+  - rule: Expliquer le modèle OSI
+    steps:
+    - intent: ask_modele_osi
+    - action: utter_modele_osi
+
+  - rule: Expliquer TCP/IP
+    steps:
+    - intent: ask_tcp_ip
+    - action: utter_tcp_ip
+
+  - rule: Expliquer la normalisation
+    steps:
+    - intent: ask_normalisation
+    - action: utter_normalisation
+
+  - rule: Expliquer l'encapsulation
+    steps:
+    - intent: ask_encapsulation
+    - action: utter_encapsulation
+
+  - rule: Expliquer les primitives OSI
+    steps:
+    - intent: ask_primitives
+    - action: utter_primitives
+
+  - rule: Comparer LAN et WAN
+    steps:
+    - intent: ask_lan_vs_wan
+    - action: utter_lan_vs_wan
+
+  - rule: Lister les exercices du chapitre 4
+    steps:
+    - intent: ask_exercices
+    - action: utter_exercices
+
+  # Règles pour les concepts réseau des chapitres 5 et 6
+  - rule: Expliquer l'adressage IP
+    steps:
+    - intent: ask_ip_addressing
+    - action: utter_ask_ip_addressing
+
+  - rule: Expliquer l'adressage IP avec entité ip_address
+    steps:
+    - intent: ask_ip_addressing
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+    - action: utter_ask_ip_addressing
+
+  - rule: Expliquer le sous-réseautage
+    steps:
+    - intent: ask_subnetting
+    - action: utter_ask_subnetting
+
+  - rule: Expliquer le sous-réseautage avec entité subnet_mask
+    steps:
+    - intent: ask_subnetting
+    - slot_was_set:
+        - subnet_mask: "{{subnet_mask}}"
+    - action: utter_ask_subnetting
+
+  - rule: Expliquer CIDR
+    steps:
+    - intent: ask_cidr
+    - action: utter_ask_cidr
+
+  - rule: Expliquer CIDR avec entité cidr
+    steps:
+    - intent: ask_cidr
+    - slot_was_set:
+        - cidr: "{{cidr}}"
+    - action: utter_ask_cidr
+
+  - rule: Expliquer la correspondance MAC-IP
+    steps:
+    - intent: ask_mac_ip_mapping
+    - action: utter_ask_mac_ip_mapping
+
+  - rule: Expliquer la correspondance MAC-IP avec entité mac_address
+    steps:
+    - intent: ask_mac_ip_mapping
+    - slot_was_set:
+        - mac_address: "{{mac_address}}"
+    - action: utter_ask_mac_ip_mapping
+
+  - rule: Expliquer la fragmentation
+    steps:
+    - intent: ask_fragmentation
+    - action: utter_ask_fragmentation
+
+  - rule: Expliquer les équipements d'interconnexion
+    steps:
+    - intent: ask_interconnection_devices
+    - action: utter_ask_interconnection_devices
+
+  - rule: Expliquer les équipements avec entité network_device
+    steps:
+    - intent: ask_interconnection_devices
+    - slot_was_set:
+        - network_device: "{{network_device}}"
+    - action: utter_ask_interconnection_devices
+
+  - rule: Expliquer les outils ICMP
+    steps:
+    - intent: ask_icmp_tools
+    - action: utter_ask_icmp_tools
+
+  - rule: Expliquer le décodage de trames
+    steps:
+    - intent: ask_frame_decoding
+    - action: utter_ask_frame_decoding
+
+  - rule: Expliquer IPv6
+    steps:
+    - intent: ask_ipv6
+    - action: utter_ask_ipv6
+
+  - rule: Expliquer le service IP
+    steps:
+    - intent: ask_ip_service
+    - action: utter_ask_ip_service
+
+  - rule: Expliquer le format des datagrammes
+    steps:
+    - intent: ask_datagram_format
+    - action: utter_ask_datagram_format
+
+  - rule: Expliquer le protocole ICMP
+    steps:
+    - intent: ask_icmp_protocol
+    - action: utter_ask_icmp_protocol
+
+  # Règles pour les exercices du chapitre 4
+  - rule: Expliquer l'exercice 1 du chapitre 4
+    steps:
+    - intent: ask_exercice_1
+    - action: utter_exercice_1
+    - slot_was_set:
+        - current_exercise: "1"
+
+  - rule: Expliquer l'exercice 2 du chapitre 4
+    steps:
+    - intent: ask_exercice_2
+    - action: utter_exercice_2
+    - slot_was_set:
+        - current_exercise: "2"
+
+  - rule: Expliquer l'exercice 3 du chapitre 4
+    steps:
+    - intent: ask_exercice_3
+    - action: utter_exercice_3
+    - slot_was_set:
+        - current_exercise: "3"
+
+  - rule: Expliquer l'exercice 4 du chapitre 4
+    steps:
+    - intent: ask_exercice_4
+    - action: utter_exercice_4
+    - slot_was_set:
+        - current_exercise: "4"
+
+  - rule: Expliquer l'exercice 5 du chapitre 4
+    steps:
+    - intent: ask_exercice_5
+    - action: utter_exercice_5
+    - slot_was_set:
+        - current_exercise: "5"
+
+  - rule: Expliquer l'exercice 6 du chapitre 4
+    steps:
+    - intent: ask_exercice_6
+    - action: utter_exercice_6
+    - slot_was_set:
+        - current_exercise: "6"
+
+  - rule: Expliquer l'exercice 7 du chapitre 4
+    steps:
+    - intent: ask_exercice_7
+    - action: utter_exercice_7
+    - slot_was_set:
+        - current_exercise: "7"
+
+  - rule: Expliquer l'exercice 8 du chapitre 4
+    steps:
+    - intent: ask_exercice_8
+    - action: utter_exercice_8
+    - slot_was_set:
+        - current_exercise: "8"
+
+  # Règles pour les exercices des chapitres 5 et 6
+  - rule: Expliquer l'exercice 1 des principes IP
+    steps:
+    - intent: ask_exercise_1_principles
+    - action: utter_ask_exercise_1_principles
+    - slot_was_set:
+        - current_exercise: "1_principles"
+
+  - rule: Expliquer l'exercice 1 avec entité ip_address
+    steps:
+    - intent: ask_exercise_1_principles
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "1_principles"
+    - action: utter_ask_exercise_1_principles
+
+  - rule: Expliquer l'exercice 2 des classes IP
+    steps:
+    - intent: ask_exercise_2_classes
+    - action: utter_ask_exercise_2_classes
+    - slot_was_set:
+        - current_exercise: "2_classes"
+
+  - rule: Expliquer l'exercice 2 avec entité ip_address
+    steps:
+    - intent: ask_exercise_2_classes
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "2_classes"
+    - action: utter_ask_exercise_2_classes
+
+  - rule: Expliquer l'exercice 3 de configuration
+    steps:
+    - intent: ask_exercise_3_config
+    - action: utter_ask_exercise_3_config
+    - slot_was_set:
+        - current_exercise: "3_config"
+
+  - rule: Expliquer l'exercice 3 avec entité ip_address
+    steps:
+    - intent: ask_exercise_3_config
+    - slot_was_set:
+        - ip_address: "{{ip_address}}"
+        - current_exercise: "3_config"
+    - action: utter_ask_exercise_3_config
+
+  - rule: Expliquer l'exercice 4 de correspondance MAC-IP
+    steps:
+    - intent: ask_exercise_4_mac_ip
+    - action: utter_ask_exercise_4_mac_ip
+    - slot_was_set:
+        - current_exercise: "4_mac_ip"
+
+  - rule: Expliquer l'exercice 4 avec entité mac_address
+    steps:
+    - intent: ask_exercise_4_mac_ip
+    - slot_was_set:
+        - mac_address: "{{mac_address}}"
+        - current_exercise: "4_mac_ip"
+    - action: utter_ask_exercise_4_mac_ip
+
+  - rule: Expliquer l'exercice 5 de mappage
+    steps:
+    - intent: ask_exercise_5_mapping
+    - action: utter_ask_exercise_5_mapping
+    - slot_was_set:
+        - current_exercise: "5_mapping"
+
+  - rule: Expliquer l'exercice 6 de sous-réseaux
+    steps:
+    - intent: ask_exercise_6_subnets
+    - action: utter_ask_exercise_6_subnets
+    - slot_was_set:
+        - current_exercise: "6_subnets"
+
+  - rule: Expliquer l'exercice 6 avec entité subnet_mask
+    steps:
+    - intent: ask_exercise_6_subnets
+    - slot_was_set:
+        - subnet_mask: "{{subnet_mask}}"
+        - current_exercise: "6_subnets"
+    - action: utter_ask_exercise_6_subnets
+
+  - rule: Expliquer l'exercice 7 de plan d'adressage
+    steps:
+    - intent: ask_exercise_7_address_plan
+    - action: utter_ask_exercise_7_address_plan
+    - slot_was_set:
+        - current_exercise: "7_address_plan"
+
+  - rule: Expliquer l'exercice 8 de plan spécifique
+    steps:
+    - intent: ask_exercise_8_specific_plan
+    - action: utter_ask_exercise_8_specific_plan
+    - slot_was_set:
+        - current_exercise: "8_specific_plan"
+
+  - rule: Expliquer l'exercice 9 de plan de sous-réseaux
+    steps:
+    - intent: ask_exercise_9_subnet_plan
+    - action: utter_ask_exercise_9_subnet_plan
+    - slot_was_set:
+        - current_exercise: "9_subnet_plan"
+
+  - rule: Expliquer l'exercice 10 de CIDR
+    steps:
+    - intent: ask_exercise_10_cidr
+    - action: utter_ask_exercise_10_cidr
+    - slot_was_set:
+        - current_exercise: "10_cidr"
+
+  - rule: Expliquer l'exercice 10 avec entité cidr
+    steps:
+    - intent: ask_exercise_10_cidr
+    - slot_was_set:
+        - cidr: "{{cidr}}"
+        - current_exercise: "10_cidr"
+    - action: utter_ask_exercise_10_cidr
+
+  - rule: Expliquer l'exercice 11 de fragmentation
+    steps:
+    - intent: ask_exercise_11_fragmentation
+    - action: utter_ask_exercise_11_fragmentation
+    - slot_was_set:
+        - current_exercise: "11_fragmentation"
+
+  - rule: Expliquer l'exercice 12 d'interconnexion
+    steps:
+    - intent: ask_exercise_12_interconnection
+    - action: utter_ask_exercise_12_interconnection
+    - slot_was_set:
+        - current_exercise: "12_interconnection"
+
+  - rule: Expliquer l'exercice 13 des équipements
+    steps:
+    - intent: ask_exercise_13_devices
+    - action: utter_ask_exercise_13_devices
+    - slot_was_set:
+        - current_exercise: "13_devices"
+
+  - rule: Expliquer l'exercice 14 de ping
+    steps:
+    - intent: ask_exercise_14_ping
+    - action: utter_ask_exercise_14_ping
+    - slot_was_set:
+        - current_exercise: "14_ping"
+
+  - rule: Expliquer l'exercice 15 de traceroute
+    steps:
+    - intent: ask_exercise_15_traceroute
+    - action: utter_ask_exercise_15_traceroute
+    - slot_was_set:
+        - current_exercise: "15_traceroute"
+
+  - rule: Expliquer l'exercice 16 de datagramme
+    steps:
+    - intent: ask_exercise_16_datagram
+    - action: utter_ask_exercise_16_datagram
+    - slot_was_set:
+        - current_exercise: "16_datagram"
+
+  - rule: Expliquer l'exercice 17 d'Ethernet
+    steps:
+    - intent: ask_exercise_17_ethernet
+    - action: utter_ask_exercise_17_ethernet
+    - slot_was_set:
+        - current_exercise: "17_ethernet"
+
+  - rule: Expliquer l'exercice 18 d'Ethernet ARP
+    steps:
+    - intent: ask_exercise_18_ethernet_arp
+    - action: utter_ask_exercise_18_ethernet_arp
+    - slot_was_set:
+        - current_exercise: "18_ethernet_arp"
+
+  # Règles pour gérer les transitions après la liste des exercices
+  - rule: Demander un exercice après la liste (chapitre 4)
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercice_1
+    - action: utter_exercice_1
+    - slot_was_set:
+        - current_exercise: "1"
+
+  - rule: Demander l'exercice 2 après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercice_2
+    - action: utter_exercice_2
+    - slot_was_set:
+        - current_exercise: "2"
+
+  - rule: Demander l'exercice 3 après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercice_3
+    - action: utter_exercice_3
+    - slot_was_set:
+        - current_exercise: "3"
+
+  - rule: Demander l'exercice 4 après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercice_4
+    - action: utter_exercice_4
+    - slot_was_set:
+        - current_exercise: "4"
+
+  - rule: Demander l'exercice 5 après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercice_5
+    - action: utter_exercice_5
+    - slot_was_set:
+        - current_exercise: "5"
+
+  - rule: Demander l'exercice 6 après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercice_6
+    - action: utter_exercice_6
+    - slot_was_set:
+        - current_exercise: "6"
+
+  - rule: Demander l'exercice 7 après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercice_7
+    - action: utter_exercice_7
+    - slot_was_set:
+        - current_exercise: "7"
+
+  - rule: Demander l'exercice 8 après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercice_8
+    - action: utter_exercice_8
+    - slot_was_set:
+        - current_exercise: "8"
+
+  # Règles pour les exercices des chapitres 5/6 après la liste
+  - rule: Demander l'exercice 1 des principes après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_1_principles
+    - action: utter_ask_exercise_1_principles
+    - slot_was_set:
+        - current_exercise: "1_principles"
+
+  - rule: Demander l'exercice 2 des classes après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_2_classes
+    - action: utter_ask_exercise_2_classes
+    - slot_was_set:
+        - current_exercise: "2_classes"
+
+  - rule: Demander l'exercice 3 de configuration après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_3_config
+    - action: utter_ask_exercise_3_config
+    - slot_was_set:
+        - current_exercise: "3_config"
+
+  - rule: Demander l'exercice 4 de correspondance MAC-IP après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_4_mac_ip
+    - action: utter_ask_exercise_4_mac_ip
+    - slot_was_set:
+        - current_exercise: "4_mac_ip"
+
+  - rule: Demander l'exercice 5 de mappage après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_5_mapping
+    - action: utter_ask_exercise_5_mapping
+    - slot_was_set:
+        - current_exercise: "5_mapping"
+
+  - rule: Demander l'exercice 6 de sous-réseaux après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_6_subnets
+    - action: utter_ask_exercise_6_subnets
+    - slot_was_set:
+        - current_exercise: "6_subnets"
+
+  - rule: Demander l'exercice 7 de plan d'adressage après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_7_address_plan
+    - action: utter_ask_exercise_7_address_plan
+    - slot_was_set:
+        - current_exercise: "7_address_plan"
+
+  - rule: Demander l'exercice 8 de plan spécifique après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_8_specific_plan
+    - action: utter_ask_exercise_8_specific_plan
+    - slot_was_set:
+        - current_exercise: "8_specific_plan"
+
+  - rule: Demander l'exercice 9 de plan de sous-réseaux après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_9_subnet_plan
+    - action: utter_ask_exercise_9_subnet_plan
+    - slot_was_set:
+        - current_exercise: "9_subnet_plan"
+
+  - rule: Demander l'exercice 10 de CIDR après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_10_cidr
+    - action: utter_ask_exercise_10_cidr
+    - slot_was_set:
+        - current_exercise: "10_cidr"
+
+  - rule: Demander l'exercice 11 de fragmentation après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_11_fragmentation
+    - action: utter_ask_exercise_11_fragmentation
+    - slot_was_set:
+        - current_exercise: "11_fragmentation"
+
+  - rule: Demander l'exercice 12 d'interconnexion après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_12_interconnection
+    - action: utter_ask_exercise_12_interconnection
+    - slot_was_set:
+        - current_exercise: "12_interconnection"
+
+  - rule: Demander l'exercice 13 des équipements après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_13_devices
+    - action: utter_ask_exercise_13_devices
+    - slot_was_set:
+        - current_exercise: "13_devices"
+
+  - rule: Demander l'exercice 14 de ping après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_14_ping
+    - action: utter_ask_exercise_14_ping
+    - slot_was_set:
+        - current_exercise: "14_ping"
+
+  - rule: Demander l'exercice 15 de traceroute après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_15_traceroute
+    - action: utter_ask_exercise_15_traceroute
+    - slot_was_set:
+        - current_exercise: "15_traceroute"
+
+  - rule: Demander l'exercice 16 de datagramme après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_16_datagram
+    - action: utter_ask_exercise_16_datagram
+    - slot_was_set:
+        - current_exercise: "16_datagram"
+
+  - rule: Demander l'exercice 17 d'Ethernet après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_17_ethernet
+    - action: utter_ask_exercise_17_ethernet
+    - slot_was_set:
+        - current_exercise: "17_ethernet"
+
+  - rule: Demander l'exercice 18 d'Ethernet ARP après la liste
+    condition:
+    - slot_was_set:
+        - requested_slot: exercise_number
+    steps:
+    - intent: ask_exercise_18_ethernet_arp
+    - action: utter_ask_exercise_18_ethernet_arp
+    - slot_was_set:
+        - current_exercise: "18_ethernet_arp"
+
+  # Règles pour gérer les cas où un slot est déjà défini
+  - rule: Réutiliser l'exercice courant pour exercice 1
+    condition:
+    - slot_was_set:
+        - current_exercise: "1"
+    steps:
+    - intent: ask_exercice_1
+    - action: utter_exercice_1
+
+  - rule: Réutiliser l'exercice courant pour exercice 2
+    condition:
+    - slot_was_set:
+        - current_exercise: "2"
+    steps:
+    - intent: ask_exercice_2
+    - action: utter_exercice_2
+
+  - rule: Réutiliser l'exercice courant pour exercice 3
+    condition:
+    - slot_was_set:
+        - current_exercise: "3"
+    steps:
+    - intent: ask_exercice_3
+    - action: utter_exercice_3
+
+  - rule: Réutiliser l'exercice courant pour exercice 4
+    condition:
+    - slot_was_set:
+        - current_exercise: "4"
+    steps:
+    - intent: ask_exercice_4
+    - action: utter_exercice_4
+
+  - rule: Réutiliser l'exercice courant pour exercice 5
+    condition:
+    - slot_was_set:
+        - current_exercise: "5"
+    steps:
+    - intent: ask_exercice_5
+    - action: utter_exercice_5
+
+  - rule: Réutiliser l'exercice courant pour exercice 6
+    condition:
+    - slot_was_set:
+        - current_exercise: "6"
+    steps:
+    - intent: ask_exercice_6
+    - action: utter_exercice_6
+
+  - rule: Réutiliser l'exercice courant pour exercice 7
+    condition:
+    - slot_was_set:
+        - current_exercise: "7"
+    steps:
+    - intent: ask_exercice_7
+    - action: utter_exercice_7
+
+  - rule: Réutiliser l'exercice courant pour exercice 8
+    condition:
+    - slot_was_set:
+        - current_exercise: "8"
+    steps:
+    - intent: ask_exercice_8
+    - action: utter_exercice_8
+
+  - rule: Réutiliser l'exercice courant pour exercice 1 des principes
+    condition:
+    - slot_was_set:
+        - current_exercise: "1_principles"
+    steps:
+    - intent: ask_exercise_1_principles
+    - action: utter_ask_exercise_1_principles
+
+  - rule: Réutiliser l'exercice courant pour exercice 2 des classes
+    condition:
+    - slot_was_set:
+        - current_exercise: "2_classes"
+    steps:
+    - intent: ask_exercise_2_classes
+    - action: utter_ask_exercise_2_classes
+
+  - rule: Réutiliser l'exercice courant pour exercice 3 de configuration
+    condition:
+    - slot_was_set:
+        - current_exercise: "3_config"
+    steps:
+    - intent: ask_exercise_3_config
+    - action: utter_ask_exercise_3_config
+
+  - rule: Réutiliser l'exercice courant pour exercice 4 de correspondance MAC-IP
+    condition:
+    - slot_was_set:
+        - current_exercise: "4_mac_ip"
+    steps:
+    - intent: ask_exercise_4_mac_ip
+    - action: utter_ask_exercise_4_mac_ip
+
+  - rule: Réutiliser l'exercice courant pour exercice 5 de mappage
+    condition:
+    - slot_was_set:
+        - current_exercise: "5_mapping"
+    steps:
+    - intent: ask_exercise_5_mapping
+    - action: utter_ask_exercise_5_mapping
+
+  - rule: Réutiliser l'exercice courant pour exercice 6 de sous-réseaux
+    condition:
+    - slot_was_set:
+        - current_exercise: "6_subnets"
+    steps:
+    - intent: ask_exercise_6_subnets
+    - action: utter_ask_exercise_6_subnets
+
+  - rule: Réutiliser l'exercice courant pour exercice 7 de plan d'adressage
+    condition:
+    - slot_was_set:
+        - current_exercise: "7_address_plan"
+    steps:
+    - intent: ask_exercise_7_address_plan
+    - action: utter_ask_exercise_7_address_plan
+
+  - rule: Réutiliser l'exercice courant pour exercice 8 de plan spécifique
+    condition:
+    - slot_was_set:
+        - current_exercise: "8_specific_plan"
+    steps:
+    - intent: ask_exercise_8_specific_plan
+    - action: utter_ask_exercise_8_specific_plan
+
+  - rule: Réutiliser l'exercice courant pour exercice 9 de plan de sous-réseaux
+    condition:
+    - slot_was_set:
+        - current_exercise: "9_subnet_plan"
+    steps:
+    - intent: ask_exercise_9_subnet_plan
+    - action: utter_ask_exercise_9_subnet_plan
+
+  - rule: Réutiliser l'exercice courant pour exercice 10 de CIDR
+    condition:
+    - slot_was_set:
+        - current_exercise: "10_cidr"
+    steps:
+    - intent: ask_exercise_10_cidr
+    - action: utter_ask_exercise_10_cidr
+
+  - rule: Réutiliser l'exercice courant pour exercice 11 de fragmentation
+    condition:
+    - slot_was_set:
+        - current_exercise: "11_fragmentation"
+    steps:
+    - intent: ask_exercise_11_fragmentation
+    - action: utter_ask_exercise_11_fragmentation
+
+  - rule: Réutiliser l'exercice courant pour exercice 12 d'interconnexion
+    condition:
+    - slot_was_set:
+        - current_exercise: "12_interconnection"
+    steps:
+    - intent: ask_exercise_12_interconnection
+    - action: utter_ask_exercise_12_interconnection
+
+  - rule: Réutiliser l'exercice courant pour exercice 13 des équipements
+    condition:
+    - slot_was_set:
+        - current_exercise: "13_devices"
+    steps:
+    - intent: ask_exercise_13_devices
+    - action: utter_ask_exercise_13_devices
+
+  - rule: Réutiliser l'exercice courant pour exercice 14 de ping
+    condition:
+    - slot_was_set:
+        - current_exercise: "14_ping"
+    steps:
+    - intent: ask_exercise_14_ping
+    - action: utter_ask_exercise_14_ping
+
+  - rule: Réutiliser l'exercice courant pour exercice 15 de traceroute
+    condition:
+    - slot_was_set:
+        - current_exercise: "15_traceroute"
+    steps:
+    - intent: ask_exercise_15_traceroute
+    - action: utter_ask_exercise_15_traceroute
+
+  - rule: Réutiliser l'exercice courant pour exercice 16 de datagramme
+    condition:
+    - slot_was_set:
+        - current_exercise: "16_datagram"
+    steps:
+    - intent: ask_exercise_16_datagram
+    - action: utter_ask_exercise_16_datagram
+
+  - rule: Réutiliser l'exercice courant pour exercice 17 d'Ethernet
+    condition:
+    - slot_was_set:
+        - current_exercise: "17_ethernet"
+    steps:
+    - intent: ask_exercise_17_ethernet
+    - action: utter_ask_exercise_17_ethernet
+
+  - rule: Réutiliser l'exercice courant pour exercice 18 d'Ethernet ARP
+    condition:
+    - slot_was_set:
+        - current_exercise: "18_ethernet_arp"
+    steps:
+    - intent: ask_exercise_18_ethernet_arp
+    - action: utter_ask_exercise_18_ethernet_arp
+
+  # Règles pour le fallback
+  - rule: Gérer les intents non reconnus
+    steps:
+    - intent: nlu_fallback
+    - action: utter_nlu_fallback
+
+  # Règles supplémentaires pour transitions complexes
+  - rule: Demander un exercice après avoir défini une adresse IP
+    condition:
+    - slot_was_set:
+        - ip_address
+    steps:
+    - intent: ask_exercise_2_classes
+    - action: utter_ask_exercise_2_classes
+    - slot_was_set:
+        - current_exercise: "2_classes"
+
+  - rule: Demander un exercice après avoir défini un masque
+    condition:
+    - slot_was_set:
+        - subnet_mask
+    steps:
+    - intent: ask_exercise_6_subnets
+    - action: utter_ask_exercise_6_subnets
+    - slot_was_set:
+        - current_exercise: "6_subnets"
+
+  - rule: Demander un exercice après avoir défini une adresse MAC
+    condition:
+    - slot_was_set:
+        - mac_address
+    steps:
+    - intent: ask_exercise_4_mac_ip
+    - action: utter_ask_exercise_4_mac_ip
+    - slot_was_set:
+        - current_exercise: "4_mac_ip"
+
+  - rule: Demander un exercice après avoir défini un CIDR
+    condition:
+    - slot_was_set:
+        - cidr
+    steps:
+    - intent: ask_exercise_10_cidr
+    - action: utter_ask_exercise_10_cidr
+    - slot_was_set:
+        - current_exercise: "10_cidr"
+
+  # Règles pour gérer les répétitions d'exercices avec entités
+  - rule: Répéter l'exercice 1 avec une nouvelle adresse IP
+    condition:
+    - slot_was_set:
+        - current_exercise: "1_principles"
+        - ip_address
+    steps:
+    - intent: ask_exercise_1_principles
+    - action: utter_ask_exercise_1_principles
+
+  - rule: Répéter l'exercice 2 avec une nouvelle adresse IP
+    condition:
+    - slot_was_set:
+        - current_exercise: "2_classes"
+        - ip_address
+    steps:
+    - intent: ask_exercise_2_classes
+    - action: utter_ask_exercise_2_classes
+
+  - rule: Répéter l'exercice 3 avec une nouvelle adresse IP
+    condition:
+    - slot_was_set:
+        - current_exercise: "3_config"
+        - ip_address
+    steps:
+    - intent: ask_exercise_3_config
+    - action: utter_ask_exercise_3_config
+
+  - rule: Répéter l'exercice 4 avec une nouvelle adresse MAC
+    condition:
+    - slot_was_set:
+        - current_exercise: "4_mac_ip"
+        - mac_address
+    steps:
+    - intent: ask_exercise_4_mac_ip
+    - action: utter_ask_exercise_4_mac_ip
+
+  - rule: Répéter l'exercice 6 avec un nouveau masque
+    condition:
+    - slot_was_set:
+        - current_exercise: "6_subnets"
+        - subnet_mask
+    steps:
+    - intent: ask_exercise_6_subnets
+    - action: utter_ask_exercise_6_subnets
+
+  - rule: Répéter l'exercice 10 avec un nouveau CIDR
+    condition:
+    - slot_was_set:
+        - current_exercise: "10_cidr"
+        - cidr
+    steps:
+    - intent: ask_exercise_10_cidr
+    - action: utter_ask_exercise_10_cidr

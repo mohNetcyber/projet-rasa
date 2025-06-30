@@ -1,0 +1,783 @@
+version: "3.1"
+nlu:
+
+  - intent: demander_supports_transmission
+    examples: |
+      - Quels sont les supports de transmission ?
+      - Peux-tu me donner les types de supports utilisés en transmission ?
+      - C'est quoi un support de transmission ?
+
+  - intent: demander_caracteristiques_support
+    examples: |
+      - Quelles sont les caractéristiques d’un support de transmission ?
+      - Quelles propriétés définissent un support ?
+      - Donne-moi les caractéristiques des câbles utilisés
+
+  - intent: demander_pertes_transmission
+    examples: |
+      - Quelles sont les pertes en transmission ?
+      - Est-ce qu’il y a des pertes dans un support de transmission ?
+      - Explique-moi les pertes pendant la transmission d’un signal
+
+  - intent: demander_affaiblissement
+    examples: |
+      - Qu'est-ce que l'affaiblissement ?
+      - C’est quoi l’atténuation d’un signal ?
+      - Comment expliquer l’affaiblissement dans un câble ?
+
+  - intent: comparer_supports
+    examples: |
+      - Quelle est la différence entre la fibre et le cuivre ?
+      - Comparaison entre paire torsadée et fibre optique ?
+      - Quel est le meilleur support entre coaxial et fibre ?
+
+  - intent: demander_bande_passante
+    examples: |
+      - C'est quoi la bande passante ?
+      - Comment déterminer la bande passante ?
+      - Quelle est la bande passante d’un câble coaxial ?
+
+  - intent: demander_impédance
+    examples: |
+      - Qu'est-ce que l'impédance d’un câble ?
+      - Peux-tu expliquer l’impédance caractéristique ?
+      - Pourquoi l’impédance est-elle importante ?
+
+  - intent: demander_crosstalk
+    examples: |
+      - Qu'est-ce que le crosstalk ?
+      - C’est quoi la diaphonie entre câbles ?
+      - Comment éviter le crosstalk ?
+
+  - intent: demander_diaphonie
+    examples: |
+      - Peux-tu m’expliquer la diaphonie ?
+      - Qu’est-ce que la diaphonie dans les supports ?
+      - Pourquoi la diaphonie est-elle un problème ?
+
+  - intent: demander_adaptation_impédance
+    examples: |
+      - Qu’est-ce que l’adaptation d’impédance ?
+      - Pourquoi adapter l’impédance ?
+      - Comment faire l’adaptation d’impédance ?
+
+  - intent: demander_adsl
+    examples: |
+      - C'est quoi l'ADSL ?
+      - Comment fonctionne l’ADSL ?
+      - Quelle technologie utilise l’ADSL ?
+
+  - intent: demander_modulation
+    examples: |
+      - Qu’est-ce que la modulation ?
+      - Pourquoi utilise-t-on la modulation ?
+      - Explique-moi le principe de modulation
+
+  - intent: demander_debit
+    examples: |
+      - C'est quoi le débit d'une transmission ?
+      - Quelle est la différence entre débit binaire et débit utile ?
+      - Comment mesurer le débit ?
+
+  - intent: demander_latence
+    examples: |
+      - Qu'est-ce que la latence ?
+      - Quelle est la cause de la latence ?
+      - Comment réduire la latence ?
+
+  - intent: demander_fibre
+    examples: |
+      - Peux-tu me parler de la fibre optique ?
+      - Comment fonctionne la fibre ?
+      - Quels sont les avantages de la fibre optique ?
+
+  - intent: demander_equipement
+    examples: |
+      - Quels équipements sont utilisés en transmission ?
+      - C’est quoi les équipements actifs et passifs ?
+      - Quel équipement est utilisé pour la fibre ?
+
+  - intent: demander_paire_torsadee
+    examples: |
+      - C’est quoi la paire torsadée ?
+      - À quoi sert une paire torsadée ?
+      - Quels sont les types de paires torsadées ?
+
+  - intent: demander_cable_coaxial
+    examples: |
+      - Explique-moi le câble coaxial
+      - Quelle est la structure du câble coaxial ?
+      - À quoi sert un câble coaxial ?
+
+  - intent: demander_bruit
+    examples: |
+      - Qu'est-ce que le bruit en transmission ?
+      - Comment le bruit affecte-t-il la transmission ?
+      - D’où vient le bruit dans un signal ?
+
+  - intent: demander_distorsion
+    examples: |
+      - Qu'est-ce que la distorsion ?
+      - C’est quoi une distorsion de signal ?
+      - Quels sont les effets de la distorsion ?
+
+  - intent: demander_bande_frequence
+    examples: |
+      - Qu’est-ce qu’une bande de fréquence ?
+      - Quelle est la bande de fréquence utilisée ?
+      - À quoi sert la bande de fréquence ?
+
+  - intent: demander_type_bruit
+    examples: |
+      - Quels sont les types de bruit ?
+      - Peux-tu me citer les différents bruits possibles ?
+      - C’est quoi le bruit thermique ?
+
+  - intent: demander_type_distorsion
+    examples: |
+      - Quels sont les types de distorsion ?
+      - Peux-tu expliquer les différentes distorsions ?
+      - Donne-moi les types de distorsion en transmission
+
+  - intent: demander_categorie_paire_torsadee
+    examples: |
+      - Quelles sont les catégories de paire torsadée ?
+      - C’est quoi la catégorie 5e ?
+      - Quelle est la différence entre Cat5e et Cat6 ?
+
+  - intent: demander_avantage_fibre
+    examples: |
+      - Quels sont les avantages de la fibre ?
+      - Pourquoi choisir la fibre optique ?
+      - Quels bénéfices offre la fibre optique ?
+
+  - intent: demander_frequence_porteuse
+    examples: |
+      - Qu’est-ce qu’une fréquence porteuse ?
+      - Pourquoi utilise-t-on une fréquence porteuse ?
+      - Explique-moi le rôle de la fréquence porteuse
+
+  - intent: demander_vdsl
+    examples: |
+      - C'est quoi le VDSL ?
+      - Quelle est la différence entre VDSL et ADSL ?
+      - Comment fonctionne la technologie VDSL ?
+      - Quel est le débit du VDSL ?
+      - Le VDSL utilise quel type de câble ?
+      - Qu'est-ce que le VDSL2 ?
+      - Est-ce que le VDSL est plus rapide que l'ADSL ?
+      - Avantages et inconvénients du VDSL ?
+
+  - intent: demander_xdsl
+    examples: |
+      - Qu’est-ce que le xDSL ?
+      - Que signifie le x dans xDSL ?
+      - Peux-tu m’expliquer les différentes variantes de xDSL ?
+      - Quelles sont les différences entre ADSL, VDSL et SDSL ?
+      - Est-ce que le xDSL utilise la paire torsadée ?
+      - Quels sont les protocoles xDSL ?
+      - Le xDSL fait-il partie des technologies haut débit ?
+
+  - intent: demander_cable
+    examples: |
+      - C’est quoi l’accès Internet par câble ?
+      - Comment fonctionne la transmission via câble coaxial ?
+      - Quelle est la technologie derrière le câble utilisé pour Internet ?
+      - Quelle est la différence entre câble coaxial et fibre ?
+      - Quel débit peut-on atteindre avec le câble ?
+      - Quels sont les avantages de l’Internet par câble ?
+      - Quels sont les inconvénients de la technologie câble ?
+
+  - intent: demander_ethernet
+    examples: |
+      - C’est quoi l’Ethernet ?
+      - Comment fonctionne le protocole Ethernet ?
+      - Quelle est la différence entre Ethernet et Wi-Fi ?
+      - Qu’est-ce qu’un câble Ethernet ?
+      - Quels sont les types d’Ethernet ?
+      - Quelle est la vitesse de l’Ethernet ?
+      - L’Ethernet utilise quel type de support ?
+      - Quels sont les avantages de l’Ethernet ?
+
+  - intent: demander_pon
+    examples: |
+      - Qu’est-ce que la technologie PON ?
+      - Comment fonctionne un réseau PON ?
+      - Quelle est la différence entre PON et point-à-point ?
+      - Le PON est-il utilisé dans la fibre ?
+      - Quels sont les types de PON (GPON, EPON, etc.) ?
+      - C’est quoi un réseau optique passif ?
+      - Quels sont les avantages d’un PON ?
+      - Quelle est l’architecture d’un PON ?
+
+  - intent: demander_fibre_channel
+    examples: |
+      - C’est quoi Fibre Channel ?
+      - Quelle est la différence entre Fibre Channel et Ethernet ?
+      - Fibre Channel est utilisé dans quel contexte ?
+      - Est-ce que Fibre Channel sert à connecter des serveurs ?
+      - Quelles sont les vitesses supportées par Fibre Channel ?
+      - Fibre Channel vs iSCSI ?
+      - Quel type de câble est utilisé en Fibre Channel ?
+      - Fibre Channel est-il rapide ?
+
+  - intent: demander_infiniband
+    examples: |
+      - Qu’est-ce qu’InfiniBand ?
+      - Dans quel domaine utilise-t-on InfiniBand ?
+      - Quelle est la vitesse maximale d’InfiniBand ?
+      - InfiniBand est-il plus rapide que l’Ethernet ?
+      - InfiniBand est-il utilisé dans les centres de données ?
+      - Quelle est la topologie d’un réseau InfiniBand ?
+      - Est-ce que InfiniBand utilise la fibre optique ?
+      - Quels sont les avantages d'InfiniBand ?
+
+  - intent: demander_sonet_sdh
+    examples: |
+      - Qu’est-ce que SONET et SDH ?
+      - Quelle est la différence entre SONET et SDH ?
+      - À quoi servent les réseaux SONET/SDH ?
+      - Est-ce que SONET est toujours utilisé aujourd’hui ?
+      - SDH est-il un standard européen ?
+      - Quelle est la structure d’un trame SDH ?
+      - SONET/SDH supportent quels débits ?
+      - Dans quels réseaux utilise-t-on SONET et SDH ?
+
+  - intent: demander_otn
+    examples: |
+      - C’est quoi OTN ?
+      - Qu’est-ce que le réseau de transport optique ?
+      - OTN signifie quoi ?
+      - Quelle est la différence entre OTN et SDH ?
+      - À quoi sert l’OTN dans les réseaux modernes ?
+      - Quels sont les avantages d’un OTN ?
+      - L’OTN transporte quel type de signal ?
+      - Est-ce que l’OTN est utilisé pour les connexions longue distance ?
+
+  - intent: demander_wifi
+    examples: |
+      - C’est quoi le Wi-Fi ?
+      - Quelle est la portée du Wi-Fi ?
+      - Quels sont les standards Wi-Fi ?
+
+  - intent: demander_5g
+    examples: |
+      - C’est quoi la 5G ?
+      - Quelle est la différence entre 4G et 5G ?
+      - Quels sont les avantages de la 5G ?
+
+  - intent: demander_bluetooth
+    examples: |
+      - Qu’est-ce que le Bluetooth ?
+      - Quelle est la portée du Bluetooth ?
+      - Quelle est la différence entre Bluetooth et Wi-Fi ?
+
+  - intent: demander_lora
+    examples: |
+      - C’est quoi LoRa ?
+      - Quelle est la portée de LoRa ?
+      - Quelle est la différence entre LoRa et Sigfox ?
+
+  - intent: demander_nfc
+    examples: |
+      - C’est quoi la technologie NFC ?
+      - Quelle est la portée du NFC ?
+      - NFC est-il utilisé pour le paiement sans contact ?
+
+  - intent: demander_rfid
+    examples: |
+      - Qu’est-ce que la RFID ?
+      - Quelle est la différence entre NFC et RFID ?
+      - Quelle est la portée de la RFID ?
+
+  - intent: demander_zigbee
+    examples: |
+      - C’est quoi Zigbee ?
+      - Zigbee est utilisé pour quoi ?
+      - Quelle est la différence entre Zigbee et Wi-Fi ?
+
+  - intent: demander_z-wave
+    examples: |
+      - Qu’est-ce que Z-Wave ?
+      - Quelle est la portée de Z-Wave ?
+      - Quelle est la différence entre Z-Wave et Zigbee ?
+
+  - intent: demander_sigfox
+    examples: |
+      - C’est quoi Sigfox ?
+      - Quelle est la portée de Sigfox ?
+      - Quelle est la différence entre Sigfox et LoRa ?
+
+  - intent: demander_wimax
+    examples: |
+      - C’est quoi le WiMAX ?
+      - Quelle est la différence entre WiMAX et Wi-Fi ?
+      - Quels sont les avantages de la technologie WiMAX ?
+
+  - intent: demander_protocole
+    examples: |
+      - C’est quoi un protocole réseau ?
+      - À quoi servent les protocoles ?
+      - Donne des exemples de protocoles utilisés sur Internet
+
+  - intent: demander_http_https
+    examples: |
+      - Quelle est la différence entre HTTP et HTTPS ?
+      - À quoi sert le protocole HTTPS ?
+      - HTTP utilise quel port ?
+
+  - intent: demander_dns
+    examples: |
+      - C’est quoi le DNS ?
+      - À quoi sert un serveur DNS ?
+      - Comment fonctionne le DNS ?
+
+  - intent: demander_dhcp
+    examples: |
+      - Qu’est-ce que le protocole DHCP ?
+      - Quel est le rôle du DHCP dans un réseau ?
+      - DHCP attribue-t-il une adresse IP automatiquement ?
+
+  - intent: demander_voip
+    examples: |
+      - C’est quoi la VoIP ?
+      - Quels protocoles utilise la VoIP ?
+      - Comment fonctionne la voix sur IP ?
+
+  - intent: demander_ftp_sftp
+    examples: |
+      - Quelle est la différence entre FTP et SFTP ?
+      - À quoi sert le protocole FTP ?
+      - SFTP est-il sécurisé ?
+
+  - intent: demander_smtp
+    examples: |
+      - C’est quoi SMTP ?
+      - Quel protocole est utilisé pour envoyer des mails ?
+      - SMTP utilise quel port ?
+
+  - intent: demander_imap_pop3
+    examples: |
+      - Quelle est la différence entre IMAP et POP3 ?
+      - IMAP permet-il de garder les mails sur le serveur ?
+      - Quel protocole est le plus utilisé pour lire les mails ?
+
+  - intent: demander_bgp
+    examples: |
+      - C’est quoi le protocole BGP ?
+      - BGP est utilisé dans quel type de réseau ?
+      - Quelle est la fonction principale du BGP ?
+
+  - intent: demander_ospf
+    examples: |
+      - Qu’est-ce que le protocole OSPF ?
+      - OSPF est un protocole de routage interne ?
+      - Quelle est la différence entre OSPF et RIP ?
+
+  - intent: demander_rip
+    examples: |
+      - C’est quoi le protocole RIP ?
+      - Quelle est la limite du protocole RIP ?
+      - RIP utilise quelle métrique pour le routage ?
+
+  - intent: demander_icmp
+    examples: |
+      - À quoi sert le protocole ICMP ?
+      - Qu’est-ce que le message echo ICMP ?
+      - ICMP est-il utilisé pour le ping ?
+
+  - intent: demander_arp
+    examples: |
+      - C’est quoi ARP ?
+      - À quoi sert le protocole ARP ?
+      - Quelle est la différence entre ARP et RARP ?
+
+  # --- Protocoles et mécanismes de la couche liaison ---
+
+  - intent: demander_protocole_liaison
+    examples: |
+      - Quels sont les protocoles de la couche liaison ?
+      - C’est quoi un protocole de liaison de données ?
+      - Donne-moi un exemple de protocole de liaison
+
+  - intent: demander_hdlc
+    examples: |
+      - C’est quoi le protocole HDLC ?
+      - Quelle est la structure d’une trame HDLC ?
+      - HDLC fonctionne en mode connecté ?
+
+  - intent: demander_ppp
+    examples: |
+      - C’est quoi PPP ?
+      - PPP est utilisé dans quel contexte ?
+      - Quelle est la différence entre PPP et HDLC ?
+
+  - intent: demander_acquittement
+    examples: |
+      - C’est quoi l’acquittement dans les communications ?
+      - Pourquoi utilise-t-on un accusé de réception ?
+      - Quelle est la différence entre ACK et NAK ?
+
+  - intent: demander_controle_flux
+    examples: |
+      - Qu’est-ce que le contrôle de flux ?
+      - Pourquoi contrôler le flux de données ?
+      - Comment fonctionne le contrôle de flux dans TCP ?
+
+  - intent: demander_trame
+    examples: |
+      - C’est quoi une trame en réseau ?
+      - Quelle est la structure d’une trame ?
+      - Quelle est la différence entre trame et paquet ?
+
+  - intent: demander_erreur
+    examples: |
+      - Comment détecte-t-on les erreurs dans une trame ?
+      - Quels sont les types d’erreurs en transmission ?
+      - Quelle technique utilise-t-on pour corriger les erreurs ?
+
+  - intent: demander_fenetre
+    examples: |
+      - C’est quoi le protocole à fenêtre glissante ?
+      - Pourquoi utilise-t-on une fenêtre d’émission ?
+      - Quelle est la taille optimale de la fenêtre ?
+
+  - intent: demander_trame_information
+    examples: |
+      - Que contient une trame d’information ?
+      - Quel est le rôle d’une trame I dans HDLC ?
+      - Les données utiles sont-elles dans la trame I ?
+
+  - intent: demander_trame_supervision
+    examples: |
+      - À quoi sert une trame de supervision ?
+      - C’est quoi une trame S dans HDLC ?
+      - Quels types de supervision existent ?
+
+  - intent: demander_trame_non_numerotee
+    examples: |
+      - C’est quoi une trame non numérotée ?
+      - À quoi servent les trames U dans HDLC ?
+      - Quel est le rôle d’une trame de commande ?
+
+  - intent: demander_bit_stuffing
+    examples: |
+      - Qu’est-ce que le bit stuffing ?
+      - Pourquoi utilise-t-on le bourrage de bits ?
+      - Le bit stuffing permet-il d’éviter les collisions ?
+
+  - intent: demander_mode_connexion_hdlc
+    examples: |
+      - Quels sont les modes de connexion de HDLC ?
+      - C’est quoi le mode normal réponse (NRM) ?
+      - Quelle est la différence entre les modes NRM et ABM ?
+
+  - intent: demander_controle_erreur_crc
+    examples: |
+      - C’est quoi le contrôle d’erreur par CRC ?
+      - Comment fonctionne le CRC ?
+      - Le CRC est-il plus fiable que la parité ?
+
+  - intent: demander_controle_erreur_vrc
+    examples: |
+      - C’est quoi le VRC ?
+      - Quelle est la méthode de contrôle d’erreur VRC ?
+      - Le VRC détecte-t-il toutes les erreurs ?
+
+  - intent: demander_controle_erreur_lrc
+    examples: |
+      - Qu’est-ce que le LRC ?
+      - Quelle est la différence entre VRC et LRC ?
+      - Le LRC est-il encore utilisé ?
+
+  - intent: demander_piggy_backing
+    examples: |
+      - C’est quoi le piggybacking en transmission ?
+      - Pourquoi utilise-t-on le piggybacking ?
+      - Quels sont les avantages du piggybacking ?
+
+  - intent: demander_lcp_ppp
+    examples: |
+      - C’est quoi LCP dans le protocole PPP ?
+      - Quel est le rôle de LCP ?
+      - LCP gère-t-il l’authentification ?
+
+  - intent: demander_ncp_ppp
+    examples: |
+      - À quoi sert NCP dans PPP ?
+      - C’est quoi la différence entre LCP et NCP ?
+      - NCP permet-il de configurer IP ?
+
+  - intent: demander_securite
+    examples: |
+      - C’est quoi la sécurité réseau ?
+      - Pourquoi la sécurité est-elle importante ?
+      - Quels sont les mécanismes de sécurité informatique ?
+
+  - intent: demander_chiffrement
+    examples: |
+      - C’est quoi le chiffrement ?
+      - Quelle est la différence entre chiffrement symétrique et asymétrique ?
+      - Pourquoi chiffre-t-on les données ?
+
+  - intent: demander_vpn
+    examples: |
+      - Qu’est-ce qu’un VPN ?
+      - À quoi sert un VPN ?
+      - Un VPN protège-t-il mes données ?
+
+  - intent: demander_firewall
+    examples: |
+      - C’est quoi un pare-feu ?
+      - Comment fonctionne un firewall ?
+      - Quelle est la différence entre firewall matériel et logiciel ?
+
+  - intent: demander_ids_ips
+    examples: |
+      - Quelle est la différence entre IDS et IPS ?
+      - C’est quoi un système de détection d’intrusion ?
+      - Est-ce que l’IPS peut bloquer une attaque ?
+
+  - intent: demander_zero_trust
+    examples: |
+      - C’est quoi le modèle Zero Trust ?
+      - Pourquoi parle-t-on de sécurité Zero Trust ?
+      - Quels sont les principes du Zero Trust ?
+
+  - intent: demander_pki
+    examples: |
+      - C’est quoi une PKI ?
+      - À quoi sert une infrastructure à clé publique ?
+      - Quels sont les composants d’une PKI ?
+
+  - intent: demander_ssl_tls
+    examples: |
+      - Quelle est la différence entre SSL et TLS ?
+      - TLS est-il sécurisé ?
+      - À quoi sert le protocole TLS ?
+
+  - intent: demander_kerberos
+    examples: |
+      - Qu’est-ce que Kerberos ?
+      - Comment fonctionne l’authentification Kerberos ?
+      - Kerberos est-il utilisé dans les réseaux Windows ?
+
+  - intent: demander_radius
+    examples: |
+      - C’est quoi le protocole RADIUS ?
+      - Quel est le rôle de RADIUS dans l’authentification ?
+      - Quelle est la différence entre RADIUS et TACACS+ ?
+
+  - intent: demander_tacacs
+    examples: |
+      - C’est quoi TACACS ?
+      - Quelle est la différence entre TACACS et RADIUS ?
+      - TACACS est-il sécurisé ?
+
+  - intent: demander_802.1x
+    examples: |
+      - C’est quoi 802.1X ?
+      - À quoi sert le protocole 802.1X ?
+      - Quelle est la relation entre 802.1X et l’authentification réseau ?
+
+  # --- Cloud Computing (Chapitre 3) ---
+
+  - intent: demander_cloud
+    examples: |
+      - C’est quoi le cloud computing ?
+      - Quels sont les avantages du cloud ?
+      - Le cloud est-il sécurisé ?
+
+  - intent: demander_iaas
+    examples: |
+      - C’est quoi IaaS ?
+      - Quelle est la différence entre IaaS et PaaS ?
+      - IaaS fournit quels services ?
+
+  - intent: demander_paas
+    examples: |
+      - Que signifie PaaS ?
+      - Quels services sont inclus dans PaaS ?
+      - PaaS est-il destiné aux développeurs ?
+
+  - intent: demander_saas
+    examples: |
+      - C’est quoi le modèle SaaS ?
+      - Des exemples d'applications SaaS ?
+      - Quelle est la différence entre SaaS et PaaS ?
+
+  - intent: demander_serverless
+    examples: |
+      - C’est quoi le serverless ?
+      - Comment fonctionne l’architecture serverless ?
+      - Le serverless supprime-t-il les serveurs ?
+
+  - intent: demander_edge
+    examples: |
+      - C’est quoi l’edge computing ?
+      - Quelle est la différence entre edge et cloud ?
+      - Pourquoi utiliser l’edge computing ?
+
+  - intent: demander_fog
+    examples: |
+      - C’est quoi le fog computing ?
+      - Quelle est la différence entre fog et edge ?
+      - À quoi sert le fog dans les réseaux IoT ?
+
+  - intent: demander_multicloud
+    examples: |
+      - C’est quoi une stratégie multicloud ?
+      - Quels sont les avantages du multicloud ?
+      - Multicloud ou cloud hybride ?
+
+  - intent: demander_hybrid_cloud
+    examples: |
+      - Qu’est-ce qu’un cloud hybride ?
+      - Quelle est la différence entre cloud public et hybride ?
+      - Quels sont les cas d’usage du cloud hybride ?
+
+  - intent: demander_cloud_natif
+    examples: |
+      - C’est quoi une application cloud native ?
+      - Quels sont les avantages du cloud natif ?
+      - Le cloud natif utilise-t-il les conteneurs ?
+
+  # --- Opérations réseau (Chapitre 3) ---
+
+  - intent: demander_qos
+    examples: |
+      - C’est quoi la QoS ?
+      - À quoi sert la qualité de service ?
+      - Comment fonctionne la QoS dans un réseau IP ?
+
+  - intent: demander_monitoring
+    examples: |
+      - Comment surveiller un réseau ?
+      - C’est quoi le monitoring réseau ?
+      - Quels outils de supervision peut-on utiliser ?
+
+  - intent: demander_snmp
+    examples: |
+      - C’est quoi le protocole SNMP ?
+      - À quoi sert SNMP ?
+      - SNMP permet-il de configurer un équipement ?
+
+  - intent: demander_troubleshooting
+    examples: |
+      - Comment diagnostiquer un problème réseau ?
+      - C’est quoi le troubleshooting ?
+      - Quelles sont les étapes du dépannage réseau ?
+
+  - intent: demander_automatisation
+    examples: |
+      - C’est quoi l’automatisation réseau ?
+      - Pourquoi automatiser les tâches réseau ?
+      - Quels outils sont utilisés pour l’automatisation réseau ?
+
+  - intent: demander_sdn
+    examples: |
+      - C’est quoi le SDN ?
+      - Quels sont les avantages du SDN ?
+      - Quelle est la différence entre SDN et réseau traditionnel ?
+
+  - intent: demander_nfv
+    examples: |
+      - Qu’est-ce que la virtualisation des fonctions réseau (NFV) ?
+      - Quelle est la différence entre NFV et SDN ?
+      - NFV permet-il de remplacer les équipements physiques ?
+
+  - intent: demander_netconf
+    examples: |
+      - C’est quoi le protocole NETCONF ?
+      - NETCONF est-il utilisé pour configurer les routeurs ?
+      - Quelle est la différence entre NETCONF et SNMP ?
+
+  - intent: demander_restconf
+    examples: |
+      - Qu’est-ce que RESTCONF ?
+      - RESTCONF est-il basé sur HTTP ?
+      - Quelle est la différence entre NETCONF et RESTCONF ?
+
+  - intent: demander_ansible
+    examples: |
+      - C’est quoi Ansible ?
+      - Ansible permet-il l’automatisation réseau ?
+      - Quelle est la différence entre Ansible et Puppet ?
+
+  - intent: demander_chef
+    examples: |
+      - Qu’est-ce que Chef ?
+      - Chef est-il un outil d’automatisation ?
+      - Quelle est la différence entre Chef et Ansible ?
+
+  - intent: demander_puppet
+    examples: |
+      - C’est quoi Puppet ?
+      - Puppet est utilisé dans quel domaine ?
+      - Quelle est la différence entre Puppet et Chef ?
+
+  # --- Adressage et translation ---
+
+  - intent: demander_subnetting
+    examples: |
+      - C’est quoi le subnetting ?
+      - Pourquoi fait-on du subnetting ?
+      - Comment fonctionne le masque de sous-réseau ?
+
+  - intent: demander_nat
+    examples: |
+      - C’est quoi le NAT ?
+      - Quelle est la différence entre NAT statique et dynamique ?
+      - Le NAT permet-il d’économiser des adresses IP ?
+
+  - intent: demander_mac_adressage
+    examples: |
+      - C’est quoi une adresse MAC ?
+      - Quelle est la différence entre adresse MAC et IP ?
+      - Comment se fait l’adressage MAC ?
+
+  # --- Réseaux virtuels et segmentation ---
+
+  - intent: demander_vlan
+    examples: |
+      - C’est quoi un VLAN ?
+      - Pourquoi utilise-t-on les VLANs ?
+      - Quelle est la différence entre VLAN statique et dynamique ?
+
+  - intent: demander_q_in_q
+    examples: |
+      - C’est quoi le Q-in-Q ?
+      - Quelle est l’utilité de l’encapsulation 802.1ad ?
+      - Le Q-in-Q est utilisé dans quels réseaux ?
+
+  - intent: demander_vxlan
+    examples: |
+      - C’est quoi VXLAN ?
+      - Quelle est la différence entre VLAN et VXLAN ?
+      - VXLAN fonctionne-t-il sur IP ?
+
+  - intent: demander_geneve
+    examples: |
+      - C’est quoi GENEVE ?
+      - Quelle est la différence entre GENEVE et VXLAN ?
+      - GENEVE est-il un protocole de virtualisation réseau ?
+
+  # --- Routage et commutation ---
+
+  - intent: demander_routage
+    examples: |
+      - C’est quoi le routage dans un réseau ?
+      - Quelle est la différence entre routage statique et dynamique ?
+      - Quels protocoles sont utilisés pour le routage ?
+
+  - intent: demander_commutation
+    examples: |
+      - C’est quoi la commutation ?
+      - Quelle est la différence entre commutation et routage ?
+      - Comment fonctionne un switch ?
+
+  - intent: demander_mpls
+    examples: |
+      - C’est quoi MPLS ?
+      - MPLS est-il un protocole de routage ?
+      - Pourquoi utiliser MPLS dans un backbone ?

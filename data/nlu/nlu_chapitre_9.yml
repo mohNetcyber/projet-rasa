@@ -1,0 +1,197 @@
+version: "3.1"
+
+nlu:
+
+  
+  # Network services (Ch9)
+  - intent: ask_dhcp_definition
+    examples: |
+      - Qu'est-ce que DHCP ?
+      - Comment fonctionne le DHCP ?
+      - Expliquez le protocole DHCP.
+      - À quoi sert le service DHCP ?
+      - Définir DHCP.
+
+  - intent: ask_dhcp_messages
+    examples: |
+      - Quels messages utilise DHCP ?
+      - Comment s'échangent les messages DHCP ?
+      - Quels sont les types de paquets DHCP ?
+      - DHCPDiscover, DHCPOffer, c'est quoi ?
+      - Étapes de communication DHCP.
+
+  - intent: ask_dhcp_ports
+    examples: |
+      - Quels ports utilise DHCP ?
+      - Sur quel port fonctionne le serveur DHCP ?
+      - Port client DHCP ?
+      - Ports UDP pour DHCP ?
+      - Numéros de port pour client et serveur DHCP ?
+
+  - intent: ask_dhcp_use_cases
+    examples: |
+      - Pourquoi utiliser DHCP ?
+      - Avantages du DHCP ?
+      - Cas d'utilisation de DHCP ?
+      - DHCP est utile pour quoi ?
+      - Bénéfices d'un serveur DHCP ?
+
+  - intent: ask_dhcp_fixed_vs_dynamic
+    examples: |
+      - Différence entre IP fixe et dynamique ?
+      - DHCP peut-il attribuer des adresses fixes ?
+      - IP statique vs IP dynamique avec DHCP ?
+      - Comment configurer une IP fixe avec DHCP ?
+      - DHCP pour adresses permanentes ?
+
+  - intent: ask_dhcp_bail
+    examples: |
+      - Qu'est-ce qu'un bail DHCP ?
+      - Durée d'attribution d'une adresse DHCP ?
+      - Comment renouveler un bail DHCP ?
+      - Expiration d'un bail DHCP ?
+      - Fonctionnement du lease time en DHCP ?
+
+  - intent: ask_dhcp_security
+    examples: |
+      - DHCP est-il sécurisé ?
+      - Risques de sécurité avec DHCP ?
+      - Comment protéger DHCP ?
+      - Attaques possibles sur DHCP ?
+      - Sécurisation d'un serveur DHCP ?
+
+  - intent: expliquer_dns
+    examples: |
+      - Qu'est-ce que le DNS ?
+      - Comment fonctionne DNS ?
+      - À quoi sert le système DNS ?
+      - Explication du Domain Name System.
+      - Rôle du DNS sur Internet.
+
+  - intent: resolution_dns
+    examples: |
+      - Comment fonctionne la résolution DNS ?
+      - Étapes pour résoudre un nom de domaine.
+      - Processus de requête DNS.
+      - Comment un nom devient une adresse IP ?
+      - Mécanisme de résolution DNS.
+
+  - intent: types_enregistrements_dns
+    examples: |
+      - Quels sont les types d'enregistrements DNS ?
+      - Différence entre A, CNAME, MX ?
+      - Types de records DNS.
+      - À quoi sert l'enregistrement MX ?
+      - Enregistrements DNS pour les serveurs web.
+
+  - intent: dns_hierarchique
+    examples: |
+      - Comment fonctionne la hiérarchie DNS ?
+      - Structure hiérarchique du DNS.
+      - Niveaux dans l'arborescence DNS.
+      - Serveurs racine DNS.
+      - Organisation des domaines DNS.
+
+  - intent: differents_serveurs_dns
+    examples: |
+      - Quels sont les différents types de serveurs DNS ?
+      - Rôle d'un serveur DNS autoritaire.
+      - Qu'est-ce qu'un résolveur DNS ?
+      - Serveurs TLD en DNS.
+      - Différence entre serveur cache et autoritaire.
+
+  - intent: cache_dns
+    examples: |
+      - Comment fonctionne le cache DNS ?
+      - Pourquoi mettre en cache les requêtes DNS ?
+      - TTL dans le DNS.
+      - Durée de vie d'une entrée DNS en cache.
+      - Avantages du cache DNS.
+
+  - intent: dns_vs_ldap
+    examples: |
+      - Différence entre DNS et LDAP ?
+      - DNS vs LDAP : que choisir ?
+      - Comparer DNS et LDAP.
+      - Usages différents de DNS et LDAP.
+      - LDAP peut-il remplacer DNS ?
+
+  - intent: service_ldap
+    examples: |
+      - Qu'est-ce que LDAP ?
+      - Comment fonctionne un service LDAP ?
+      - À quoi sert LDAP ?
+      - Utilisation de LDAP en entreprise.
+      - LDAP pour l'authentification.
+
+  - intent: relation_dns_annuaire
+    examples: |
+      - Relation entre DNS et service d'annuaire ?
+      - DNS est-il un service d'annuaire ?
+      - Comparaison entre DNS et annuaires.
+      - DNS comme annuaire spécialisé ?
+      - Différence fondamentale entre DNS et annuaires.
+
+  - intent: definition_messagerie_electronique
+    examples: |
+      - Qu'est-ce que la messagerie électronique ?
+      - Définition d'un système de messagerie.
+      - Comment fonctionne l'email ?
+      - Principes du courrier électronique.
+      - Composants d'un système de messagerie.
+
+  - intent: fonctionnement_messagerie
+    examples: |
+      - Comment fonctionne un système de messagerie ?
+      - Processus d'envoi d'un email.
+      - Chemin parcouru par un mail.
+      - Rôle des serveurs de messagerie.
+      - Étapes de traitement d'un email.
+
+  - intent: protocoles_messagerie
+    examples: |
+      - Quels sont les protocoles de messagerie ?
+      - Différence entre SMTP, POP et IMAP.
+      - Protocoles pour envoyer et recevoir des emails.
+      - SMTP vs POP3 vs IMAP4.
+      - Rôle de chaque protocole email.
+
+  - intent: smtp_details
+    examples: |
+      - Comment fonctionne SMTP ?
+      - Port utilisé par SMTP.
+      - Commandes SMTP principales.
+      - Étapes d'envoi avec SMTP.
+      - SMTP pour la transmission des emails.
+
+  - intent: pop3_details
+    examples: |
+      - Détails du fonctionnement de POP3.
+      - Port utilisé par POP3.
+      - États d'une session POP3.
+      - Comment POP3 récupère les emails.
+      - Limites de POP3.
+
+  - intent: imap4_details
+    examples: |
+      - Comment fonctionne IMAP4 ?
+      - Avantages d'IMAP sur POP3.
+      - Port utilisé par IMAP.
+      - États d'une session IMAP.
+      - IMAP pour la gestion des emails.
+
+  - intent: etiquette_messages
+    examples: |
+      - Comment étiqueter les messages email ?
+      - Types de marqueurs pour emails.
+      - Flags dans les protocoles email.
+      - Marquer un message comme lu.
+      - Gestion des statuts des emails.
+
+  - intent: liste_diffusion
+    examples: |
+      - Qu'est-ce qu'une liste de diffusion ?
+      - Types de listes d'emails.
+      - Différence entre liste ouverte et fermée.
+      - Rôle d'un modérateur de liste.
+      - Gestion d'une liste de diffusion.

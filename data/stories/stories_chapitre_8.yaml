@@ -1,0 +1,70 @@
+version: "3.1"
+
+stories:
+  - story: Description générale du routage
+    steps:
+      - intent: objectifs_du_routage
+      - action: utter_objectifs_du_routage
+
+  - story: Détails sur les pannes et boucles
+    steps:
+      - intent: boucles_de_routage
+      - action: utter_boucles_de_routage
+      - intent: panne_et_recalcul
+      - action: utter_panne_et_recalcul
+
+  - story: Protocoles et architecture du routage
+    steps:
+      - intent: protocoles_routage
+      - action: utter_protocoles_routage
+      - intent: hierarchisation_reseau
+      - action: utter_hierarchisation_reseau
+      - intent: systeme_autonome
+      - action: utter_systeme_autonome
+      - intent: difference_igp_egp
+      - action: utter_difference_igp_egp
+
+  - story: RIP fonctionnement et limites
+    steps:
+      - intent: fonctionnement_rip
+      - action: utter_fonctionnement_rip
+      - intent: limites_rip
+      - action: utter_limites_rip
+
+  - story: Variantes et exemple RIP
+    steps:
+      - intent: variantes_rip
+      - action: utter_variantes_rip
+      - intent: exemple_rip
+      - action: utter_exemple_rip
+
+  - story: RIPv2 et transport UDP
+    steps:
+      - intent: ripv2
+      - action: utter_ripv2
+      - intent: rip_udp
+      - action: utter_rip_udp
+
+  - story: Améliorations et passage à OSPF
+    steps:
+      - intent: ameliorations_rip
+      - action: utter_ameliorations_rip
+
+  - story: demande simple sur OSPF
+    steps:
+      - intent: protocole_ospf
+      - action: utter_protocole_ospf
+
+  - story: utilisateur demande les types de messages OSPF
+    steps:
+      - intent: protocole_ospf
+      - action: utter_protocole_ospf
+      - intent: messages_ospf
+      - action: utter_messages_ospf
+
+  - story: utilisateur s'interroge sur la sécurité OSPF
+    steps:
+      - intent: protocole_ospf
+      - action: utter_protocole_ospf
+      - intent: securite_ospf
+      - action: utter_securite_ospf

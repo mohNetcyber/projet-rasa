@@ -1,0 +1,241 @@
+version: "3.1"
+
+nlu:
+  - intent: objectifs_du_routage
+    examples: |
+      - Quels sont les **objectifs du routage** ?
+      - À quoi sert le **routage** ?
+      - Pourquoi a-t-on besoin du **routage** dans un réseau ?
+      - Quel est le but principal du **routage** ?
+      - Parle-moi des **objectifs** du routage réseau.
+
+  - intent: boucles_de_routage
+    examples: |
+      - Qu'est-ce qu'une **boucle de routage** ?
+      - Comment éviter les **boucles de routage** ?
+      - Quelles sont les conséquences des **boucles de routage** ?
+      - Explique-moi le problème des **boucles de routage**.
+      - Comment fonctionnent les **boucles de routage** ?
+
+  - intent: panne_et_recalcul
+    examples: |
+      - Que se passe-t-il en cas de **panne** et de **recalcul de routes** ?
+      - Comment les routeurs gèrent-ils les **pannes** et le **recalcul** ?
+      - Décris le processus de **recalcul des routes** après une panne.
+      - Quel est l'impact d'une **panne** sur le routage et le **recalcul** ?
+      - Le **recalcul** après une **panne**, c'est quoi ?
+
+  - intent: protocoles_routage
+    examples: |
+      - Cite des **protocoles de routage**.
+      - Quels sont les différents **protocoles de routage** existants ?
+      - Peux-tu me donner une liste des **protocoles de routage** ?
+      - Parle-moi des **protocoles de routage**.
+      - Quels sont les **protocoles** utilisés pour le routage ?
+
+  - intent: hierarchisation_reseau
+    examples: |
+      - Pourquoi la **hiérarchisation** est-elle importante dans un réseau ?
+      - Explique la **hiérarchisation du réseau**.
+      - Quel est le rôle de la **hiérarchisation** dans l'architecture réseau ?
+      - Comment fonctionne la **hiérarchisation** d'un réseau ?
+      - Qu'est-ce que la **hiérarchisation** ?
+
+  - intent: systeme_autonome
+    examples: |
+      - Qu'est-ce qu'un **système autonome** (AS) ?
+      - Donne-moi une définition d'un **système autonome**.
+      - À quoi sert un **système autonome** ?
+      - Parle-moi des **systèmes autonomes** en routage.
+      - C'est quoi un **AS** ?
+
+  - intent: difference_igp_egp
+    examples: |
+      - Quelle est la **différence entre IGP et EGP** ?
+      - Distingue les **protocoles IGP et EGP**.
+      - Quand utilise-t-on un **IGP** ou un **EGP** ?
+      - Quelles sont les caractéristiques des **IGP et EGP** ?
+      - Explique la **différence entre protocoles de routage internes et externes**.
+
+  - intent: protocole_rip
+    examples: |
+      - Qu'est-ce que le **protocole RIP** ?
+      - Décris le **protocole RIP**.
+      - Parle-moi de **RIP**.
+      - C'est quoi le **RIP** en routage ?
+      - Donnes-moi des informations sur le **protocole RIP**.
+
+  - intent: fonctionnement_rip
+    examples: |
+      - Comment fonctionne le **protocole RIP** ?
+      - Explique le **fonctionnement de RIP**.
+      - Quel est le principe de **fonctionnement de RIP** ?
+      - Décris-moi le **fonctionnement de RIP**.
+      - Comment **RIP** route-t-il les paquets ?
+
+  - intent: limites_rip
+    examples: |
+      - Quelles sont les **limites du protocole RIP** ?
+      - Quels sont les inconvénients de **RIP** ?
+      - Pourquoi **RIP** n'est-il pas toujours utilisé ?
+      - Quelles sont les **restrictions de RIP** ?
+      - Les **limites de RIP**, c'est quoi ?
+
+  - intent: variantes_rip
+    examples: |
+      - Quelles sont les **variantes de RIP** ?
+      - Existe-t-il différentes versions de **RIP** ?
+      - Parle-moi de **RIPv1, RIPv2 et RIPng**.
+      - Quelles sont les déclinaisons du **protocole RIP** ?
+      - Les **variantes de RIP**, tu connais ?
+
+  - intent: exemple_rip
+    examples: |
+      - Donne-moi un **exemple d'utilisation de RIP**.
+      - Peux-tu me montrer un cas pratique avec **RIP** ?
+      - Où peut-on voir un **exemple de RIP** ?
+      - Comment configurer **RIP** concrètement ?
+      - Un **exemple** simple de **RIP** ?
+
+  - intent: ripv2
+    examples: |
+      - Quelles sont les améliorations de **RIPv2** par rapport à **RIPv1** ?
+      - Parle-moi de **RIPv2**.
+      - C'est quoi la **différence entre RIPv1 et RIPv2** ?
+      - Quels sont les avantages de **RIPv2** ?
+      - Explique **RIPv2**.
+
+  - intent: rip_udp
+    examples: |
+      - Pourquoi **RIP** utilise-t-il **UDP** ?
+      - Quel est le rôle d'**UDP** dans **RIP** ?
+      - La connexion **RIP sur UDP**, comment ça marche ?
+      - **RIP** et **UDP**, c'est lié comment ?
+      - **RIP** utilise quel protocole de transport ?
+
+  - intent: ameliorations_rip
+    examples: |
+      - Quelles **améliorations** ont été apportées à **RIP** ?
+      - Comment le **protocole RIP** a-t-il évolué ?
+      - Y a-t-il eu des **améliorations pour RIP** ?
+      - Qu'est-ce qui a été **amélioré dans RIP** ?
+      - Les **améliorations de RIP** sont-elles significatives ?
+
+  - intent: protocole_ospf
+    examples: |
+      - Qu'est-ce que le **protocole OSPF** ?
+      - Décris le **protocole OSPF**.
+      - Parle-moi d'**OSPF**.
+      - C'est quoi l'**OSPF** en routage ?
+      - Donnes-moi des informations sur le **protocole OSPF**.
+
+  - intent: fonctionnement_ospf
+    examples: |
+      - Comment fonctionne le **protocole OSPF** ?
+      - Explique le **fonctionnement d'OSPF**.
+      - Quel est le principe de **fonctionnement d'OSPF** ?
+      - Décris-moi le **fonctionnement d'OSPF**.
+      - Comment **OSPF** route-t-il les paquets ?
+
+  - intent: messages_ospf
+    examples: |
+      - Quels sont les différents **messages OSPF** ?
+      - Parle-moi des types de **messages** utilisés par **OSPF**.
+      - Quels **messages OSPF** sont échangés entre routeurs ?
+      - Décris les **messages OSPF**.
+      - Liste les **messages OSPF**.
+
+  - intent: securite_ospf
+    examples: |
+      - Comment sécuriser le **protocole OSPF** ?
+      - Quelles sont les mesures de **sécurité** pour **OSPF** ?
+      - Existe-t-il des vulnérabilités dans la **sécurité d'OSPF** ?
+      - Parle-moi de la **sécurité OSPF**.
+      - Comment protéger une topologie **OSPF** ?
+
+  - intent: protocole_bgp
+    examples: |
+      - Qu'est-ce que le **protocole BGP** ?
+      - Décris le **protocole BGP**.
+      - Parle-moi de **BGP**.
+      - C'est quoi le **BGP** en routage ?
+      - Donnes-moi des informations sur le **protocole BGP**.
+
+  - intent: fonctionnement_bgp
+    examples: |
+      - Comment fonctionne le **protocole BGP** ?
+      - Explique le **fonctionnement de BGP**.
+      - Quel est le principe de **fonctionnement de BGP** ?
+      - Décris-moi le **fonctionnement de BGP**.
+      - Comment **BGP** route-t-il les paquets ?
+
+  - intent: routeur_bgp
+    examples: |
+      - Quel est le rôle d'un **routeur BGP** ?
+      - Comment configurer un **routeur BGP** ?
+      - Parle-moi des **routeurs BGP**.
+      - C'est quoi un **routeur BGP** ?
+      - Un **routeur BGP**, c'est quoi ?
+
+  - intent: comparaison_algorithmes
+    examples: |
+      - Compare les **algorithmes de routage** (RIP, OSPF, BGP).
+      - Quelles sont les **différences entre RIP, OSPF et BGP** ?
+      - Fais une **comparaison des protocoles de routage**.
+      - Quels sont les avantages et inconvénients de chaque **algorithme de routage** ?
+      - Peux-tu **comparer RIP, OSPF et BGP** ?
+  
+  - intent: comparaison_algorithmes
+    examples: |
+      - Compare les **algorithmes de routage** (RIP, OSPF, BGP).
+      - Quelles sont les **différences entre RIP, OSPF et BGP** ?
+      - Fais une **comparaison des protocoles de routage**.
+      - Quels sont les avantages et inconvénients de chaque **algorithme de routage** ?
+      - Peux-tu **comparer RIP, OSPF et BGP** ?
+
+  - intent: diffusion_multicast
+    examples: |
+      - C'est quoi la **diffusion multicast** ?
+      - Explique le concept de **multicast**.
+      - Comment fonctionne le **multicast** en réseau ?
+      - À quoi sert la **diffusion multicast** ?
+      - Parle-moi du **multicast**.
+
+  - intent: routage_multicast
+    examples: |
+      - Comment fonctionne le **routage multicast** ?
+      - Quel est le principe du **routage multicast** ?
+      - Quels protocoles sont utilisés pour le **routage multicast** ?
+      - Explique le **routage multicast**.
+      - C'est quoi le **routage multicast** ?
+
+  - intent: igmp_gestion_groupes
+    examples: |
+      - Quel est le rôle d'**IGMP** dans la **gestion des groupes multicast** ?
+      - Comment **IGMP** gère-t-il les groupes ?
+      - À quoi sert **IGMP** ?
+      - Parle-moi d'**IGMP** et des groupes.
+      - Le protocole **IGMP** pour les groupes, c'est quoi ?
+
+  - intent: routage_mobilite
+    examples: |
+      - Qu'est-ce que le **routage à mobilité** ?
+      - Comment le **routage gère-t-il la mobilité** des nœuds ?
+      - Explique le **routage mobile**.
+      - Quels sont les défis du **routage en mobilité** ?
+      - Parle-moi du **routage pour les appareils mobiles**.
+
+  - intent: peer_to_peer
+    examples: |
+      - Comment fonctionne le **peer-to-peer** ?
+      - Qu'est-ce qu'un réseau **P2P** ?
+      - Explique le concept de **pair-à-pair**.
+      - Quels sont les avantages du **peer-to-peer** ?
+      - Le **P2P**, c'est quoi ?
+
+  - intent: types_routage
+    examples: |
+      - Quels sont les différents **types de routage** ?
+      - Peux-tu me lister les **types de routage** existants ?
+      - Parle-moi du **routage statique, dynamique, par défaut**.
+      - Quels sont les modes de **routage** ?

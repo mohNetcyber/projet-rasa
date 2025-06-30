@@ -1,0 +1,868 @@
+version: "3.1"
+
+nlu:
+# Intent: greet
+- intent: greet
+  examples: |
+    - Bonjour
+    - Salut
+    - Hello
+    - Bonsoir
+    - Coucou
+    - Yo
+    - Salutations
+    - Bonjour, comment vas-tu ?
+    - Salut, prêt à discuter ?
+    - Hello, je veux parler réseaux
+    - Bonsoir, on commence ?
+    - Coucou, t’es là ?
+    - Yo, let’s talk réseaux !
+    - Salutations, je suis prêt
+    - Bonjour, peux-tu m’aider ?
+    - Salut, je veux apprendre
+    - Hello, on parle OSI ?
+    - Bonsoir, réseaux time !
+    - Coucou, je veux des infos
+    - Yo, c’est parti !
+
+# Intent: goodbye
+- intent: goodbye
+  examples: |
+    - Au revoir
+    - Bye
+    - Tchao
+    - À bientôt
+    - Ciao
+    - Merci, à plus
+    - Salut, je me casse
+    - Au revoir, à demain
+    - Bye bye
+    - Tchao, bonne soirée
+    - À bientôt, merci
+    - Ciao, à plus tard
+    - Merci, je pars
+    - Salut, à la prochaine
+    - Au revoir, bonne nuit
+    - Bye, on se revoit
+    - Tchao, à un de ces jours
+    - À bientôt, c’était cool
+    - Ciao, je reviens vite
+    - Merci, à bientôt
+
+# Intent: ask_architecture_couches
+- intent: ask_architecture_couches
+  examples: |
+    - Qu’est-ce qu’une architecture en couches ?
+    - Explique l’architecture en couches
+    - Pourquoi utilise-t-on des couches en réseau ?
+    - Comment fonctionnent les couches réseau ?
+    - C’est quoi une architecture réseau ?
+    - Donne-moi des détails sur les couches réseau
+    - À quoi servent les couches en informatique ?
+    - Explique les avantages des couches
+    - Comment les couches réseau sont organisées ?
+    - Quels sont les principes des couches ?
+    - Parle-moi de l’architecture en couches
+    - Pourquoi les réseaux sont en couches ?
+    - C’est quoi le concept de couches réseau ?
+    - Explique la modularité des couches
+    - Comment les couches simplifient les réseaux ?
+    - Donne-moi un exemple de couches réseau
+    - Quels sont les bénéfices des couches ?
+    - Comment les couches interagissent-elles ?
+    - Parle-moi des interfaces entre couches
+    - Pourquoi les couches sont standardisées ?
+
+# Intent: ask_modele_osi
+- intent: ask_modele_osi
+  examples: |
+    - C’est quoi le modèle OSI ?
+    - Explique le modèle OSI
+    - Quelles sont les couches du modèle OSI ?
+    - Comment fonctionne le modèle OSI ?
+    - Donne-moi les détails du modèle OSI
+    - À quoi sert le modèle OSI ?
+    - Parle-moi des 7 couches OSI
+    - Qu’est-ce que la couche physique ?
+    - Explique la couche liaison
+    - Comment la couche réseau fonctionne ?
+    - C’est quoi la couche transport ?
+    - Donne-moi un exemple de couche OSI
+    - Pourquoi OSI a 7 couches ?
+    - Quels protocoles dans la couche application ?
+    - Explique la couche session
+    - Comment la couche présentation fonctionne ?
+    - Parle-moi de l’interaction des couches OSI
+    - Pourquoi le modèle OSI est important ?
+    - Donne-moi les rôles des couches OSI
+    - Comment OSI standardise les réseaux ?
+
+# Intent: ask_tcp_ip
+- intent: ask_tcp_ip
+  examples: |
+    - C’est quoi le modèle TCP/IP ?
+    - Explique TCP/IP
+    - Quelles sont les couches de TCP/IP ?
+    - Comment TCP/IP diffère d’OSI ?
+    - Donne-moi les détails de TCP/IP
+    - À quoi sert la couche IP ?
+    - Qu’est-ce que TCP par rapport à UDP ?
+    - Explique la couche réseau physique
+    - Comment fonctionne la couche application ?
+    - Donne-moi un exemple de protocole TCP/IP
+    - Pourquoi TCP/IP est utilisé sur Internet ?
+    - Quels sont les avantages de TCP/IP ?
+    - Explique la différence entre TCP et UDP
+    - Comment TCP/IP gère le routage ?
+    - Parle-moi des protocoles de TCP/IP
+    - Pourquoi TCP/IP est plus simple qu’OSI ?
+    - Donne-moi les rôles des couches TCP/IP
+    - Comment TCP/IP est implémenté ?
+
+# Intent: ask_normalisation
+- intent: ask_normalisation
+  examples: |
+    - C’est quoi la normalisation réseau ?
+    - Explique le processus de normalisation
+    - Qui gère les normes réseau ?
+    - À quoi sert la normalisation ?
+    - Parle-moi de l’IETF
+    - Qu’est-ce que l’ISO fait pour les réseaux ?
+    - Donne-moi des exemples de normes réseau
+    - Comment l’IEEE standardise les LAN ?
+    - Pourquoi les normes sont importantes ?
+    - Explique les RFC de l’IETF
+    - Comment une norme est créée ?
+    - Quels organismes normalisent les réseaux ?
+    - Parle-moi du rôle de l’ISO
+    - Donne-moi un exemple de norme IEEE
+    - Pourquoi la normalisation garantit l’interopérabilité ?
+    - Explique le processus de draft
+    - Comment les normes évoluent-elles ?
+    - Quels sont les standards pour Ethernet ?
+    - Parle-moi des normes Wi-Fi
+    - Pourquoi les RFC sont publiques ?
+
+# Intent: ask_encapsulation
+- intent: ask_encapsulation
+  examples: |
+    - C’est quoi l’encapsulation ?
+    - Explique l’encapsulation réseau
+    - Comment fonctionne l’encapsulation ?
+    - À quoi sert l’encapsulation ?
+    - Donne-moi un exemple d’encapsulation
+    - Parle-moi des PDU et SDU
+    - Qu’est-ce qu’une PDU ?
+    - Explique la différence entre PDU et SDU
+    - Comment les données sont encapsulées ?
+    - Pourquoi les couches encapsulent les données ?
+    - Comment un paquet IP est encapsulé ?
+    - Parle-moi des en-têtes ajoutés
+    - Quels sont les rôles des en-têtes ?
+    - Explique l’encapsulation dans TCP/IP
+    - Comment une trame transporte un paquet ?
+    - Pourquoi l’encapsulation est structurée ?
+    - Donne-moi un exemple avec HTTP
+    - Comment les couches gèrent l’encapsulation ?
+    - Parle-moi de l’encapsulation dans OSI
+
+# Intent: ask_primitives
+- intent: ask_primitives
+  examples: |
+    - C’est quoi les primitives OSI ?
+    - Explique les primitives réseau
+    - Quelles sont les primitives OSI ?
+    - À quoi servent les primitives ?
+    - Donne-moi un exemple de primitive
+    - Parle-moi de N_CONNECT.Request
+    - Qu’est-ce qu’une Indication ?
+    - Explique la primitive Response
+    - Comment fonctionne Confirm ?
+    - Pourquoi les primitives standardisent ?
+    - Donne-moi un exemple de L_DATA.Request
+    - Comment les primitives interagissent ?
+    - Parle-moi des primitives de connexion
+    - Quels sont les types de primitives ?
+    - Explique N_DISCONNECT.Indication
+    - Comment les primitives gèrent les erreurs ?
+    - Donne-moi un exemple avec Transport
+    - Pourquoi les primitives sont essentielles ?
+    - Parle-moi des primitives de données
+    - Comment les couches utilisent les primitives ?
+
+# Intent: ask_lan_vs_wan
+- intent: ask_lan_vs_wan
+  examples: |
+    - Quelle est la différence entre LAN et WAN ?
+    - Explique LAN vs WAN
+    - C’est quoi un LAN ?
+    - C’est quoi un WAN ?
+    - Parle-moi des réseaux locaux
+    - Donne-moi un exemple de WAN
+    - Comment un LAN fonctionne ?
+    - Pourquoi un WAN est plus lent ?
+    - Quels protocoles pour un LAN ?
+    - Explique les adresses MAC dans un LAN
+    - Comment un WAN connecte des réseaux ?
+    - Parle-moi d’Ethernet dans un LAN
+    - Donne-moi un exemple de LAN
+    - Pourquoi un LAN est plus rapide ?
+    - Explique le rôle des routeurs dans un WAN
+    - Comment un LAN utilise les commutateurs ?
+    - Quelles technologies pour un WAN ?
+    - Parle-moi des VLAN dans un LAN
+    - Pourquoi un WAN couvre plus de distance ?
+    - Donne-moi les différences de vitesse
+
+# Intent: ask_exercices
+- intent: ask_exercices
+  examples: |
+    - Quels sont les exercices du chapitre 4 ?
+    - Liste les exercices du chapitre 4
+    - Donne-moi les problèmes du chapitre 4
+    - Parle-moi des exercices réseau
+    - Quels exercices sur OSI ?
+    - C’est quoi les exercices du chapitre 4 ?
+    - Donne-moi la liste des exercices
+    - Quels sont les problèmes pratiques ?
+    - Parle-moi des exercices sur les couches
+    - Liste les exercices sur les primitives
+    - Quels exercices sur l’encapsulation ?
+    - Donne-moi les exercices du chapitre
+    - Parle-moi des problèmes du chapitre 4
+    - Quels sont les exercices sur X.25 ?
+    - Liste les exercices sur les PDU
+    - Donne-moi les exercices sur les SDU
+    - Quels exercices sur les connexions ?
+    - Parle-moi des exercices pratiques
+    - Liste les exercices du livre
+    - Donne-moi les numéros des exercices
+
+# Intent: ask_exercice_1
+- intent: ask_exercice_1
+  examples: |
+    - Explique l’exercice 1 du chapitre 4
+    - C’est quoi l’exercice [1](exercise_number) ?
+    - Parle-moi de l’exercice 1
+    - Donne-moi les détails de l’exercice [1](exercise_number)
+    - Quels sont les critères de l’exercice 1 ?
+    - Explique les primitives dans l’exercice [1](exercise_number)
+    - Comment résoudre l’exercice 1 ?
+    - Parle-moi des choix dans l’exercice 1
+    - Donne-moi un exemple pour l’exercice [1](exercise_number)
+    - Explique les compromis de l’exercice 1
+    - Comment concevoir des primitives dans l’exercice [1](exercise_number) ?
+    - Parle-moi de la simplicité dans l’exercice 1
+    - Donne-moi les étapes de l’exercice 1
+    - Quels paramètres dans l’exercice [1](exercise_number) ?
+
+# Intent: ask_exercice_2
+- intent: ask_exercice_2
+  examples: |
+    - Explique l’exercice 2 du chapitre 4
+    - C’est quoi l’exercice [2](exercise_number) ?
+    - Parle-moi de l’exercice 2
+    - Donne-moi les détails de l’exercice [2](exercise_number)
+    - Quelles pannes dans l’exercice 2 ?
+    - Explique X.25 dans l’exercice [2](exercise_number)
+    - Comment résoudre l’exercice 2 ?
+    - Parle-moi des stratégies de l’exercice 2
+    - Donne-moi un exemple pour l’exercice [2](exercise_number)
+    - Qu’est-ce que l’exercice 2 demande ?
+    - Explique la reprise dans l’exercice 2
+    - Comment gérer les pannes dans l’exercice [2](exercise_number) ?
+    - Parle-moi du mode dégradé dans l’exercice 2
+    - Quelles primitives dans l’exercice [2](exercise_number) ?
+
+# Intent: ask_exercice_3
+- intent: ask_exercice_3
+  examples: |
+    - Explique l’exercice 3 du chapitre 4
+    - C’est quoi l’exercice [3](exercise_number) ?
+    - Parle-moi de l’exercice 3
+    - Donne-moi les détails de l’exercice [3](exercise_number)
+    - Quelles connexions dans l’exercice 3 ?
+    - Explique LAP-B dans l’exercice [3](exercise_number)
+    - Comment résoudre l’exercice 3 ?
+    - Parle-moi des trames dans l’exercice 3
+    - Donne-moi un exemple pour l’exercice [3](exercise_number)
+    - Explique SABM dans l’exercice 3
+    - Comment gérer les erreurs dans l’exercice [3](exercise_number) ?
+    - Parle-moi de REJ dans l’exercice 3
+    - Donne-moi les étapes de l’exercice 3
+    - Quelles figures dans l’exercice [3](exercise_number) ?
+
+# Intent: ask_exercice_4
+- intent: ask_exercice_4
+  examples: |
+    - Explique l’exercice 4 du chapitre 4
+    - C’est quoi l’exercice [4](exercise_number) ?
+    - Parle-moi de l’exercice 4
+    - Donne-moi les détails de l’exercice [4](exercise_number)
+    - Quelles PDU dans l’exercice 4 ?
+    - Explique les SDU dans l’exercice [4](exercise_number)
+    - Parle-moi des trames dans l’exercice 4
+    - Donne-moi un exemple pour l’exercice [4](exercise_number)
+    - Qu’est-ce que l’exercice 4 demande ?
+    - Explique l’encapsulation dans l’exercice 4
+    - Comment calculer les PDU dans l’exercice [4](exercise_number) ?
+    - Parle-moi de I00 dans l’exercice 4
+    - Donne-moi les étapes de l’exercice 4
+    - Quelles trames dans l’exercice [4](exercise_number) ?
+
+# Intent: ask_exercice_5
+- intent: ask_exercice_5
+  examples: |
+    - Explique l’exercice 5 du chapitre 4
+    - C’est quoi l’exercice [5](exercise_number) ?
+    - Parle-moi de l’exercice 5
+    - Donne-moi les détails de l’exercice [5](exercise_number)
+    - Quel contenu dans l’exercice 5 ?
+    - Explique les PDU dans l’exercice [5](exercise_number)
+    - Comment résoudre l’exercice 5 ?
+    - Parle-moi des paquets dans l’exercice 5
+    - Donne-moi un exemple pour l’exercice [5](exercise_number)
+    - Qu’est-ce que l’exercice 5 demande ?
+    - Explique RR dans l’exercice 5
+    - Comment analyser les PDU dans l’exercice [5](exercise_number) ?
+    - Parle-moi de SABM dans l’exercice 5
+    - Donne-moi les étapes de l’exercice 5
+    - Quels paquets dans l’exercice [5](exercise_number) ?
+
+# Intent: ask_exercice_6
+- intent: ask_exercice_6
+  examples: |
+    - Explique l’exercice 6 du chapitre 4
+    - C’est quoi l’exercice [6](exercise_number) ?
+    - Parle-moi de l’exercice 6
+    - Donne-moi les détails de l’exercice [6](exercise_number)
+    - Quelles primitives dans l’exercice 6 ?
+    - Explique N_CONNECT dans l’exercice [6](exercise_number)
+    - Comment résoudre l’exercice 6 ?
+    - Parle-moi de L_DATA dans l’exercice 6
+    - Donne-moi un exemple pour l’exercice [6](exercise_number)
+    - Qu’est-ce que l’exercice 6 demande ?
+    - Explique Indication dans l’exercice 6
+    - Comment les primitives fonctionnent dans l’exercice [6](exercise_number) ?
+    - Parle-moi des trames dans l’exercice 6
+    - Donne-moi les étapes de l’exercice 6
+    - Quelles interactions dans l’exercice [6](exercise_number) ?
+
+# Intent: ask_exercice_7
+- intent: ask_exercice_7
+  examples: |
+    - Explique l’exercice 7 du chapitre 4
+    - C’est quoi l’exercice [7](exercise_number) ?
+    - Parle-moi de l’exercice 7
+    - Donne-moi les détails de l’exercice [7](exercise_number)
+    - Quel rôle des primitives dans l’exercice 7 ?
+    - Explique N_CONNECT.Request dans l’exercice [7](exercise_number)
+    - Comment résoudre l’exercice 7 ?
+    - Parle-moi de Confirm dans l’exercice 7
+    - Donne-moi un exemple pour l’exercice [7](exercise_number)
+    - Qu’est-ce que l’exercice 7 demande ?
+    - Explique X.25 dans l’exercice 7
+    - Comment établir une connexion dans l’exercice [7](exercise_number) ?
+    - Parle-moi des circuits virtuels dans l’exercice 7
+    - Donne-moi les étapes de l’exercice 7
+    - Quelles primitives dans l’exercice [7](exercise_number) ?
+
+# Intent: ask_exercice_8
+- intent: ask_exercice_8
+  examples: |
+    - Explique l’exercice 8 du chapitre 4
+    - C’est quoi l’exercice [8](exercise_number) ?
+    - Parle-moi de l’exercice 8
+    - Donne-moi les détails de l’exercice [8](exercise_number)
+    - Quelle fragmentation dans l’exercice 8 ?
+    - Explique les segments dans l’exercice [8](exercise_number)
+    - Comment résoudre l’exercice 8 ?
+    - Parle-moi des paquets dans l’exercice 8
+    - Donne-moi un exemple pour l’exercice [8](exercise_number)
+    - Qu’est-ce que l’exercice 8 demande ?
+    - Explique les calculs dans l’exercice 8
+    - Comment diviser une photo dans l’exercice [8](exercise_number) ?
+    - Parle-moi de TCP/IP dans l’exercice 8
+    - Donne-moi les étapes de l’exercice 8
+    - Quels segments dans l’exercice [8](exercise_number) ?
+
+# Intent: ask_ip_addressing
+- intent: ask_ip_addressing
+  examples: |
+    - C’est quoi l’adressage IP ?
+    - Explique l’adressage IP
+    - Comment fonctionnent les adresses IP ?
+    - Quelles sont les classes IP ?
+    - Donne-moi un exemple d’adresse IP
+    - À quoi sert une adresse IP ?
+    - Explique la notation décimale pointée
+    - Qu’est-ce qu’une adresse de loopback ?
+    - Comment identifier une classe IP ?
+    - Donne-moi des détails sur [10.0.0.1](ip_address)
+    - Pourquoi les adresses IP sont divisées ?
+    - Parle-moi des adresses privées
+    - Qu’est-ce qu’une adresse de diffusion ?
+    - Explique [172.16.0.1](ip_address)
+    - Comment les adresses IP sont attribuées ?
+    - Donne-moi un exemple de classe C
+    - Parle-moi de [127.0.0.1](ip_address)
+    - Pourquoi les classes IP existent ?
+    - Explique la structure d’une adresse IP
+
+# Intent: ask_subnetting
+- intent: ask_subnetting
+  examples: |
+    - C’est quoi le sous-réseautage ?
+    - Explique le sous-réseautage
+    - Comment calculer un sous-réseau ?
+    - Qu’est-ce qu’un masque de sous-réseau ?
+    - Donne-moi un exemple de sous-réseau
+    - Parle-moi de [255.255.255.0](subnet_mask)
+    - À quoi sert le sous-réseautage ?
+    - Explique [192.168.1.0/24](cidr)
+    - Comment diviser un réseau ?
+    - Donne-moi un calcul pour [172.16.0.0/16](cidr)
+    - Parle-moi de [255.255.255.192](subnet_mask)
+    - Comment identifier un sous-réseau ?
+    - Explique le ET logique dans le sous-réseautage
+    - Donne-moi un exemple avec [10.0.0.0/8](cidr)
+    - Pourquoi utiliser des sous-réseaux ?
+    - Parle-moi de [255.255.255.240](subnet_mask)
+    - Comment déterminer la plage d’un sous-réseau ?
+    - Explique [192.168.1.50/28](cidr)
+    - Donne-moi un exemple de /30
+
+# Intent: ask_cidr
+- intent: ask_cidr
+  examples: |
+    - C’est quoi CIDR ?
+    - Explique CIDR
+    - Comment fonctionne CIDR ?
+    - Qu’est-ce qu’un masque CIDR ?
+    - Donne-moi un exemple de CIDR
+    - Parle-moi de [192.168.0.0/24](cidr)
+    - À quoi sert CIDR ?
+    - Explique la notation /22
+    - Comment calculer une plage CIDR ?
+    - Quels sont les avantages de CIDR ?
+    - Donne-moi un exemple avec [10.0.0.0/16](cidr)
+    - Parle-moi de [172.16.0.0/23](cidr)
+    - Comment CIDR remplace les classes ?
+    - Explique [255.255.240.0](subnet_mask) en CIDR
+    - Donne-moi un calcul pour [193.33.32.0/22](cidr)
+    - Pourquoi CIDR est flexible ?
+    - Parle-moi de [255.255.255.128](subnet_mask)
+    - Comment diviser un réseau avec CIDR ?
+    - Explique [10.10.0.0/20](cidr)
+    - Donne-moi un exemple de /25
+
+# Intent: ask_mac_ip_mapping
+- intent: ask_mac_ip_mapping
+  examples: |
+    - C’est quoi la correspondance MAC-IP ?
+    - Explique ARP
+    - Comment associer une IP à une MAC ?
+    - Qu’est-ce qu’une adresse MAC ?
+    - Donne-moi un exemple de requête ARP
+    - Parle-moi de [00:14:22:33:44:55](mac_address)
+    - À quoi sert ARP ?
+    - Explique la table ARP
+    - Comment une requête ARP fonctionne ?
+    - Qu’est-ce qu’une trame ARP ?
+    - Parle-moi de [FF:FF:FF:FF:FF:FF](mac_address)
+    - Pourquoi ARP est local ?
+    - Explique [08 06](ethernet_frame) dans ARP
+    - Donne-moi un exemple de réponse ARP
+    - Comment la MAC diffère de l’IP ?
+    - Parle-moi de [3E:98:4A:51:49:76](mac_address)
+    - Comment ARP met à jour la table ?
+    - Explique ARP pour [10.0.0.1](ip_address)
+    - Donne-moi un exemple de diffusion ARP
+
+# Intent: ask_fragmentation
+- intent: ask_fragmentation
+  examples: |
+    - C’est quoi la fragmentation IP ?
+    - Explique la fragmentation
+    - Comment un datagramme est fragmenté ?
+    - Qu’est-ce que la MTU ?
+    - Donne-moi un exemple de fragmentation
+    - Parle-moi du champ Déplacement
+    - À quoi sert le bit MF ?
+    - Explique le champ Identification
+    - Comment le réassemblage fonctionne ?
+    - Donne-moi un exemple avec MTU 1500
+    - Parle-moi d’un datagramme de 3000 octets
+    - Pourquoi fragmenter un datagramme ?
+    - Explique le réassemblage à destination
+    - Donne-moi un calcul de fragmentation
+    - Comment la MTU affecte la fragmentation ?
+    - Parle-moi du champ TTL
+    - Quels sont les champs pour la fragmentation ?
+    - Explique un datagramme de 4000 octets
+    - Donne-moi un exemple avec MTU 576
+
+# Intent: ask_interconnection_devices
+- intent: ask_interconnection_devices
+  examples: |
+    - C’est quoi un équipement d’interconnexion ?
+    - Explique les répéteurs
+    - Qu’est-ce qu’un pont ?
+    - Parle-moi des routeurs
+    - Donne-moi un exemple de [routeur](network_device)
+    - À quoi sert un [répéteur](network_device) ?
+    - Explique la différence entre pont et routeur
+    - Comment un [pont](network_device) filtre ?
+    - Quels sont les niveaux des équipements ?
+    - Donne-moi un exemple de [commutateur](network_device)
+    - Parle-moi du routage IP
+    - Pourquoi utiliser un [routeur](network_device) ?
+    - Explique les tables de routage
+    - Comment un [répéteur](network_device) amplifie ?
+    - Donne-moi un exemple avec un [pont](network_device)
+    - Parle-moi des VLAN avec un [commutateur](network_device)
+    - Quels protocoles pour un [routeur](network_device) ?
+    - Explique un [commutateur](network_device) dans un LAN
+    - Comment un [pont](network_device) réduit les collisions ?
+    - Donne-moi un exemple de réseau avec [routeur](network_device)
+
+# Intent: ask_icmp_tools
+- intent: ask_icmp_tools
+  examples: |
+    - C’est quoi ping ?
+    - Explique traceroute
+    - Comment fonctionne ping ?
+    - À quoi sert traceroute ?
+    - Donne-moi un exemple de ping
+    - Parle-moi de [Echo Request](icmp_type)
+    - Qu’est-ce que [Time Exceeded](icmp_type) ?
+    - Explique un ping à [8.8.8.8](ip_address)
+    - Comment traceroute trouve les sauts ?
+    - Donne-moi un exemple de traceroute
+    - Parle-moi du TTL dans traceroute
+    - Pourquoi ping mesure la latence ?
+    - Comment analyser un résultat de ping ?
+    - Donne-moi un exemple avec [192.168.1.1](ip_address)
+    - Parle-moi des messages ICMP
+    - Quels outils utilisent ICMP ?
+    - Explique un traceroute à [google.com](ip_address)
+    - Comment ping détecte une panne ?
+    - Donne-moi un exemple de latence
+    - Comment utiliser ping dans un réseau ?
+    - Quelle commande pour lancer un traceroute ?
+    - Teste la connexion avec ping
+    - Montre-moi un diagnostic avec traceroute
+
+# Intent: ask_frame_decoding
+- intent: ask_frame_decoding
+  examples: |
+    - C’est quoi le décodage de trames ?
+    - Explique une trame Ethernet
+    - Comment décoder un datagramme IP ?
+    - Quels sont les champs d’une trame ?
+    - Donne-moi un exemple de trame
+    - Parle-moi du type [08 00](ethernet_frame)
+    - À quoi sert l’en-tête IP ?
+    - Explique le champ Protocole
+    - Comment analyser une trame ARP ?
+    - Parle-moi du préambule Ethernet
+    - Qu’est-ce que le champ TTL ?
+    - Explique le décodage d’une trame
+    - Comment identifier une trame IP ?
+    - Donne-moi un exemple de [08 06](ethernet_frame)
+    - Parle-moi du champ Checksum
+    - Explique une trame avec [00:14:22:33:44:55](mac_address)
+    - Comment décoder un datagramme ICMP ?
+    - Donne-moi un exemple de trame Ethernet
+
+# Intent: ask_ipv6
+- intent: ask_ipv6
+  examples: |
+    - C’est quoi IPv6 ?
+    - Explique IPv6
+    - Comment fonctionne IPv6 ?
+    - Quelles sont les différences avec IPv4 ?
+    - Donne-moi un exemple d’adresse IPv6
+    - Parle-moi de [2001:0db8::1](ip_address)
+    - À quoi sert IPv6 ?
+    - Explique la notation ::
+    - Comment IPv6 gère le multicast ?
+    - Qu’est-ce qu’un en-tête d’extension ?
+    - Donne-moi un exemple avec [fe80::1](ip_address)
+    - Parle-moi de PMTU
+    - Pourquoi IPv6 a 128 bits ?
+    - Explique les adresses locales
+    - Donne-moi un exemple de multicast
+    - Parle-moi des en-têtes hop-by-hop
+    - Quels sont les avantages d’IPv6 ?
+    - Explique [ff02::1](ip_address)
+    - Comment IPv6 améliore le routage ?
+    - Donne-moi un exemple de notation IPv6
+
+# Intent: ask_ip_service
+- intent: ask_ip_service
+  examples: |
+    - C’est quoi le service IP ?
+    - Explique le protocole IP
+    - Comment IP route les datagrammes ?
+    - Qu’est-ce qu’un service sans connexion ?
+    - Donne-moi un exemple de routage IP
+    - À quoi sert le protocole IP ?
+    - Explique la non-fiabilité d’IP
+    - Comment les routeurs utilisent IP ?
+    - Qu’est-ce qu’un datagramme IP ?
+    - Donne-moi un exemple avec [8.8.8.8](ip_address)
+    - Parle-moi des tables de routage
+    - Pourquoi IP est léger ?
+    - Explique le routage de [10.0.0.1](ip_address)
+    - Donne-moi un exemple de perte de paquet
+    - Parle-moi de la simplicité d’IP
+    - Quels protocoles reposent sur IP ?
+    - Explique un datagramme de [172.16.0.1](ip_address)
+    - Comment IP gère les adresses ?
+    - Donne-moi un exemple de routage
+
+# Intent: ask_datagram_format
+- intent: ask_datagram_format
+  examples: |
+    - C’est quoi le format d’un datagramme ?
+    - Explique l’en-tête IP
+    - Quels sont les champs d’un datagramme ?
+    - À quoi sert le champ TTL ?
+    - Donne-moi un exemple de datagramme
+    - Parle-moi du champ Protocole
+    - Qu’est-ce que le champ Identification ?
+    - Explique le champ ToS
+    - Comment fonctionne le Checksum ?
+    - Qu’est-ce que le bit DF ?
+    - Parle-moi du champ IHL
+    - Pourquoi le TTL limite les sauts ?
+    - Explique un datagramme ICMP
+    - Donne-moi un exemple de champ MF
+    - Parle-moi de la Longueur totale
+    - Quels champs pour la fragmentation ?
+    - Explique un datagramme de [10.0.0.1](ip_address)
+    - Comment analyser un en-tête IP ?
+    - Donne-moi un exemple de ToS
+
+# Intent: ask_icmp_protocol
+- intent: ask_icmp_protocol
+  examples: |
+    - C’est quoi ICMP ?
+    - Explique le protocole ICMP
+    - Quels sont les messages ICMP ?
+    - À quoi sert [Echo Request](icmp_type) ?
+    - Donne-moi un exemple de message ICMP
+    - Parle-moi de [Time Exceeded](icmp_type)
+    - Qu’est-ce que [Destination Unreachable](icmp_type) ?
+    - Explique ICMP pour [8.8.8.8](ip_address)
+    - Comment ICMP diagnostique les erreurs ?
+    - Quels sont les codes ICMP ?
+    - Parle-moi de l’encapsulation ICMP
+    - Pourquoi ICMP est dans IP ?
+    - Explique [Echo Reply](icmp_type)
+    - Donne-moi un exemple de type 3
+    - Parle-moi du code 0
+    - Explique un message pour [10.0.0.1](ip_address)
+    - Comment ICMP gère les erreurs ?
+    - Donne-moi un exemple de Time Exceeded
+    - Explique les types de messages ICMP
+    - Quels sont les codes d’erreur ICMP ?
+    - Comment ICMP signale une panne ?
+
+# Intent: ask_exercise_1_principles
+- intent: ask_exercise_1_principles
+  examples: |
+    - Explique l’exercice 1 des principes IP
+    - C’est quoi l’exercice [1](exercise_number) des principes ?
+    - Parle-moi de l’exercice 1 sur IP
+    - Pourquoi diviser réseau et machine ?
+    - Explique l’unicité dans l’exercice [1](exercise_number)
+    - Parle-moi de [192.168.1.1](ip_address) dans l’exercice 1
+    - Qu’est-ce que l’exercice 1 demande ?
+    - Explique le routage dans l’exercice 1
+    - Comment les adresses IP sont attribuées dans l’exercice [1](exercise_number) ?
+    - Parle-moi de l’efficacité dans l’exercice 1
+    - Quels principes dans l’exercice 1 ?
+
+# Intent: ask_exercise_2_classes
+- intent: ask_exercise_2_classes
+  examples: |
+    - Explique l’exercice 2 des classes IP
+    - C’est quoi l’exercice [2](exercise_number) des classes ?
+    - Parle-moi de l’exercice 2 sur les classes
+    - Comment identifier la classe de [193.48.200.49](ip_address) ?
+    - Explique les bits dans l’exercice [2](exercise_number)
+    - Parle-moi de [10.0.0.1](ip_address) dans l’exercice 2
+    - Explique la classe C dans l’exercice 2
+    - Comment vérifier une classe dans l’exercice [2](exercise_number) ?
+    - Parle-moi de [172.16.0.1](ip_address) dans l’exercice 2
+    - Donne-moi les étapes de l’exercice 2
+    - Quelles classes dans l’exercice [2](exercise_number) ?
+
+# Intent: ask_exercise_3_config
+- intent: ask_exercise_3_config
+  examples: |
+    - Explique l’exercice 3 de configuration
+    - C’est quoi l’exercice [3](exercise_number) de config ?
+    - Parle-moi de l’exercice 3 sur la configuration
+    - Comment calculer le sous-réseau de [143.27.102.101](ip_address) ?
+    - Explique le masque [255.255.192.0](subnet_mask) dans l’exercice [3](exercise_number)
+    - Parle-moi de [143.27.172.101](ip_address) dans l’exercice 3
+    - Qu’est-ce que l’exercice 3 demande ?
+    - Explique la diffusion dans l’exercice 3
+    - Comment vérifier les sous-réseaux dans l’exercice [3](exercise_number) ?
+    - Parle-moi du routeur dans l’exercice 3
+    - Quels calculs dans l’exercice [3](exercise_number) ?
+
+# Intent: ask_exercise_4_mac_ip
+- intent: ask_exercise_4_mac_ip
+  examples: |
+    - Explique l’exercice 4 de correspondance MAC-IP
+    - C’est quoi l’exercice [4](exercise_number) sur MAC-IP ?
+    - Parle-moi de l’exercice 4 sur le mapping
+    - Comment associer [192.168.1.1](ip_address) à une MAC dans l’exercice 4 ?
+    - Explique ARP dans l’exercice [4](exercise_number)
+    - Parle-moi de [00:14:22:33:44:55](mac_address) dans l’exercice 4
+    - Explique la table ARP dans l’exercice 4
+    - Comment résoudre l’exercice 4 ?
+
+# Intent: ask_exercise_5_mapping
+- intent: ask_exercise_5_mapping
+  examples: |
+    - Explique l’exercice 5 sur le mapping
+    - Aide-moi pour le mapping dans l’exercice 5
+    - Que demande l’exercice 5 sur le mapping ?
+    - Comment faire le mapping dans l’exercice 5 ?
+    - Explique ARP dans l’exercice 5
+    - Parle-moi de la correspondance MAC-IP dans l’exercice 5
+
+# Intent: ask_exercise_6_subnets
+- intent: ask_exercise_6_subnets
+  examples: |
+    - Explique l’exercice 6 sur les sous-réseaux
+    - Aide-moi avec les subnets de l’exercice 6
+    - Que faut-il faire dans l’exercice 6 ?
+    - C’est quoi l’exercice 6 sur les subnets ?
+    - Comment calculer un subnet dans l’exercice 6 ?
+    - Parle-moi du masque dans l’exercice 6
+
+# Intent: ask_exercise_7_address_plan
+- intent: ask_exercise_7_address_plan
+  examples: |
+    - Quelle est la solution pour le plan d’adressage de l’exercice 7 ?
+    - Explique le plan d’adressage de l’exercice 7
+    - Aide-moi à résoudre l’exercice 7
+    - Que contient l’exercice 7 ?
+    - Comment faire un plan d’adressage dans l’exercice 7 ?
+    - Parle-moi des adresses dans l’exercice 7
+
+# Intent: ask_exercise_8_specific_plan
+- intent: ask_exercise_8_specific_plan
+  examples: |
+    - Comment faire le plan spécifique dans l’exercice 8 ?
+    - C’est quoi le plan demandé dans l’exercice 8 ?
+    - Détaille l’exercice 8 avec un plan spécifique
+    - Aide-moi avec l’exercice 8
+    - Explique le plan d’adressage spécifique dans l’exercice 8
+    - Parle-moi des détails de l’exercice 8
+
+# Intent: ask_exercise_9_subnet_plan
+- intent: ask_exercise_9_subnet_plan
+  examples: |
+    - Comment faire le plan de sous-réseaux dans l’exercice 9 ?
+    - Donne-moi un exemple pour l’exercice 9
+    - Quel est l’objectif de l’exercice 9 ?
+    - Aide-moi avec l’exercice 9
+    - Explique le sous-réseautage dans l’exercice 9
+    - Parle-moi du plan de subnets dans l’exercice 9
+
+# Intent: ask_exercise_10_cidr
+- intent: ask_exercise_10_cidr
+  examples: |
+    - Explique-moi l’exercice 10 sur le CIDR
+    - Aide-moi avec le CIDR dans l’exercice 10
+    - Que demande l’exercice 10 ?
+    - Détaille le CIDR dans l’exercice 10
+    - Comment calculer une plage CIDR dans l’exercice 10 ?
+    - Parle-moi de la notation CIDR dans l’exercice 10
+
+# Intent: ask_exercise_11_fragmentation
+- intent: ask_exercise_11_fragmentation
+  examples: |
+    - Comment résoudre l’exercice 11 sur la fragmentation ?
+    - Explique l’exercice 11
+    - Aide pour l’exercice 11 fragmentation
+    - Que faut-il faire dans l’exercice 11 ?
+    - Comment fragmenter un datagramme dans l’exercice 11 ?
+    - Parle-moi de la MTU dans l’exercice 11
+
+# Intent: ask_exercise_12_interconnection
+- intent: ask_exercise_12_interconnection
+  examples: |
+    - Quelle est la solution de l’exercice 12 sur l’interconnexion ?
+    - Explique l’interconnexion de l’exercice 12
+    - C’est quoi l’exercice 12 ?
+    - Aide pour l’interconnexion réseau
+    - Comment connecter des réseaux dans l’exercice 12 ?
+    - Parle-moi des équipements dans l’exercice 12
+
+# Intent: ask_exercise_13_devices
+- intent: ask_exercise_13_devices
+  examples: |
+    - Quelles sont les fonctions des équipements dans l’exercice 13 ?
+    - Explique les équipements de l’exercice 13
+    - Détaille l’exercice 13 sur les dispositifs réseau
+    - Aide pour les équipements dans l’exercice 13
+    - Parle-moi des routeurs dans l’exercice 13
+    - Comment un pont fonctionne dans l’exercice 13 ?
+
+# Intent: ask_exercise_14_ping
+- intent: ask_exercise_14_ping
+  examples: |
+    - Que fait la commande ping dans l’exercice 14 ?
+    - À quoi sert ping dans l’exercice 14 ?
+    - Explique l’utilisation de ping
+    - Aide-moi avec l’exercice 14 sur ping
+    - Comment tester une connexion dans l’exercice 14 ?
+    - Parle-moi de ping dans l’exercice 14
+
+# Intent: ask_exercise_15_traceroute
+- intent: ask_exercise_15_traceroute
+  examples: |
+    - Que fait traceroute dans l’exercice 15 ?
+    - Explique l’utilisation de traceroute
+    - Détaille l’exercice 15
+    - Aide pour traceroute
+    - Comment tracer un chemin réseau dans l’exercice 15 ?
+    - Parle-moi de traceroute dans l’exercice 15
+
+# Intent: ask_exercise_16_datagram
+- intent: ask_exercise_16_datagram
+  examples: |
+    - C’est quoi un datagramme dans l’exercice 16 ?
+    - Explique l’exercice 16 sur les datagrammes
+    - Aide-moi pour les datagrammes
+    - Que demande l’exercice 16 ?
+    - Comment analyser un datagramme dans l’exercice 16 ?
+    - Parle-moi des champs dans l’exercice 16
+
+# Intent: ask_exercise_17_ethernet
+- intent: ask_exercise_17_ethernet
+  examples: |
+    - Quelle est la structure Ethernet dans l’exercice 17 ?
+    - Détaille l’exercice 17
+    - Aide pour l’exercice 17 sur Ethernet
+    - Que contient l’exercice 17 ?
+    - Explique une trame Ethernet dans l’exercice 17
+    - Parle-moi d’Ethernet dans l’exercice 17
+
+# Intent: ask_exercise_18_ethernet_arp
+- intent: ask_exercise_18_ethernet_arp
+  examples: |
+    - C’est quoi ARP dans Ethernet (exercice 18) ?
+    - Détaille l’exercice 18
+    - Aide pour Ethernet et ARP
+    - Que demande l’exercice 18 ?
+    - Comment ARP fonctionne dans l’exercice 18 ?
+    - Parle-moi d’une trame ARP dans l’exercice 18

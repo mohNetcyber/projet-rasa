@@ -74,8 +74,8 @@ class ActionSetLastTopic(Action):
             'ask_tcp_segment_format': 'tcp_segment_format',
             'ask_tcp_features': 'tcp_features',
             'transport_protocols_summary': 'transport',
-            'tcp_vs_udp': 'protocol_comparison'
-            'tcp_header_format': 'tcp_header'
+            'tcp_vs_udp': 'protocol_comparison',
+            'tcp_header_format': 'tcp_header',
             'tcp_multiple_connections': 'tcp_multi_connections'
         }
         

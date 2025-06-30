@@ -1,0 +1,71 @@
+version: "3.1"
+
+stories:
+- story: Demander des informations sur la fibre
+  steps:
+  - intent: demander_fibre
+  - action: utter_expliquer_fibre
+  - intent: demander_avantage_fibre
+  - action: utter_expliquer_avantage_fibre
+- story: Dépannage réseau avec latence
+  steps:
+  - intent: decrire_probleme
+  - slot_was_set:
+    - symptome: latence
+  - action: form_troubleshooting
+  - active_loop: form_troubleshooting
+  - active_loop: null
+  - action: action_analyser_performance
+  - action: utter_expliquer_latence
+- story: Dépannage HDLC
+  steps:
+  - intent: decrire_probleme
+  - slot_was_set:
+    - protocole: HDLC
+  - action: form_troubleshoot_data_link
+  - active_loop: form_troubleshoot_data_link
+  - active_loop: null
+  - action: action_collecter_logs
+  - action: utter_expliquer_erreur
+- story: Requête sur la sécurité réseau
+  steps:
+  - intent: demander_securite
+  - action: utter_expliquer_securite
+  - intent: demander_chiffrement
+  - action: utter_expliquer_chiffrement
+- story: Demande de cloud computing
+  steps:
+  - intent: demander_cloud
+  - action: utter_expliquer_cloud
+  - intent: demander_iaas
+  - action: utter_expliquer_iaas
+#- story: Comparaison de technologies
+#  steps:
+#  - intent: comparer_technologies
+#  - action: action_comparer_technologies
+#  - action: utter_comparer_technologies
+
+- story: Demande bande passante
+  steps:
+    - intent: demander_bande_passante
+    - action: utter_expliquer_bande_passante
+
+- story: Demande impédance
+  steps:
+    - intent: demander_impédance
+    - action: utter_expliquer_impedance
+
+- story: Demande crosstalk
+  steps:
+    - intent: demander_crosstalk
+    - action: utter_expliquer_crosstalk
+
+- story: Demande diaphonie
+  steps:
+    - intent: demander_diaphonie
+    - action: utter_expliquer_diaphonie
+
+- story: Demande adaptation d’impédance
+  steps:
+    - intent: demander_adaptation_impédance
+    - action: utter_expliquer_adaptation_impedance

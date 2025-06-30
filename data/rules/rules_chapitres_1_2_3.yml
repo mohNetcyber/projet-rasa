@@ -1,0 +1,547 @@
+version: "3.1"
+rules:
+  # Transmission (Chap 1 + Chap 3)
+  - rule: Expliquer les supports de transmission
+    steps:
+      - intent: demander_supports_transmission
+      - action: utter_expliquer_supports_transmission
+  - rule: Expliquer les caractéristiques des supports
+    steps:
+      - intent: demander_caracteristiques_support
+      - action: utter_expliquer_caracteristiques_support
+  - rule: Expliquer les pertes de transmission
+    steps:
+      - intent: demander_pertes_transmission
+      - action: utter_expliquer_pertes_transmission
+  - rule: Expliquer l'affaiblissement
+    steps:
+      - intent: demander_affaiblissement
+      - action: utter_expliquer_affaiblissement
+  - rule: Comparer les supports
+    steps:
+      - intent: comparer_supports
+      - action: utter_comparer_supports
+  - rule: Répondre à la bande passante
+    steps:
+      - intent: demander_bande_passante
+      - action: utter_expliquer_bande_passante
+
+  - rule: Répondre à l'impédance
+    steps:
+      - intent: demander_impédance
+      - action: utter_expliquer_impedance
+
+  - rule: Répondre au crosstalk
+    steps:
+      - intent: demander_crosstalk
+      - action: utter_expliquer_crosstalk
+
+  - rule: Répondre à la diaphonie
+    steps:
+      - intent: demander_diaphonie
+      - action: utter_expliquer_diaphonie
+
+  - rule: Répondre à l'adaptation d'impédance
+    steps:
+      - intent: demander_adaptation_impédance
+      - action: utter_expliquer_adaptation_impedance
+  - rule: Expliquer l'ADSL
+    steps:
+      - intent: demander_adsl
+      - action: utter_expliquer_adsl
+  - rule: Expliquer la modulation
+    steps:
+      - intent: demander_modulation
+      - action: utter_expliquer_modulation
+  - rule: Expliquer le débit
+    steps:
+      - intent: demander_debit
+      - action: utter_expliquer_debit
+  - rule: Expliquer la latence
+    steps:
+      - intent: demander_latence
+      - action: utter_expliquer_latence
+  - rule: Expliquer la fibre optique
+    steps:
+      - intent: demander_fibre
+      - action: utter_expliquer_fibre
+  - rule: Expliquer un équipement réseau
+    steps:
+      - intent: demander_equipement
+      - action: utter_expliquer_equipement
+  - rule: Expliquer la paire torsadée
+    steps:
+      - intent: demander_paire_torsadee
+      - action: utter_expliquer_paire_torsadee
+  - rule: Expliquer le câble coaxial
+    steps:
+      - intent: demander_cable_coaxial
+      - action: utter_expliquer_cable_coaxial
+  - rule: Expliquer le bruit
+    steps:
+      - intent: demander_bruit
+      - action: utter_expliquer_bruit
+  - rule: Expliquer la distorsion
+    steps:
+      - intent: demander_distorsion
+      - action: utter_expliquer_distorsion
+  - rule: Expliquer la bande de fréquence
+    steps:
+      - intent: demander_bande_frequence
+      - action: utter_expliquer_bande_frequence
+  - rule: Expliquer les types de bruit
+    steps:
+      - intent: demander_type_bruit
+      - action: utter_expliquer_type_bruit
+  - rule: Expliquer les types de distorsion
+    steps:
+      - intent: demander_type_distorsion
+      - action: utter_expliquer_type_distorsion
+  - rule: Expliquer les catégories de paires torsadées
+    steps:
+      - intent: demander_categorie_paire_torsadee
+      - action: utter_expliquer_categorie_paire_torsadee
+  - rule: Expliquer les avantages de la fibre
+    steps:
+      - intent: demander_avantage_fibre
+      - action: utter_expliquer_avantage_fibre
+  - rule: Expliquer la fréquence porteuse
+    steps:
+      - intent: demander_frequence_porteuse
+      - action: utter_expliquer_frequence_porteuse
+  - rule: Expliquer VDSL
+    steps:
+      - intent: demander_vdsl
+      - action: utter_expliquer_vdsl
+  - rule: Expliquer xDSL
+    steps:
+      - intent: demander_xdsl
+      - action: utter_expliquer_xdsl
+  - rule: Expliquer le câble
+    steps:
+      - intent: demander_cable
+      - action: utter_expliquer_cable
+  - rule: Expliquer Ethernet
+    steps:
+      - intent: demander_ethernet
+      - action: utter_expliquer_ethernet
+  - rule: Expliquer PON
+    steps:
+      - intent: demander_pon
+      - action: utter_expliquer_pon
+  - rule: Expliquer Fibre Channel
+    steps:
+      - intent: demander_fibre_channel
+      - action: utter_expliquer_fibre_channel
+  - rule: Expliquer Infiniband
+    steps:
+      - intent: demander_infiniband
+      - action: utter_expliquer_infiniband
+  - rule: Expliquer SONET/SDH
+    steps:
+      - intent: demander_sonet_sdh
+      - action: utter_expliquer_sonet_sdh
+  - rule: Expliquer OTN
+    steps:
+      - intent: demander_otn
+      - action: utter_expliquer_otn
+  - rule: Expliquer Wi-Fi
+    steps:
+      - intent: demander_wifi
+      - action: utter_expliquer_wifi
+  - rule: Expliquer 5G
+    steps:
+      - intent: demander_5g
+      - action: utter_expliquer_5g
+  - rule: Expliquer Bluetooth
+    steps:
+      - intent: demander_bluetooth
+      - action: utter_expliquer_bluetooth
+  - rule: Expliquer LoRa
+    steps:
+      - intent: demander_lora
+      - action: utter_expliquer_lora
+  - rule: Expliquer NFC
+    steps:
+      - intent: demander_nfc
+      - action: utter_expliquer_nfc
+  - rule: Expliquer RFID
+    steps:
+      - intent: demander_rfid
+      - action: utter_expliquer_rfid
+  - rule: Expliquer Zigbee
+    steps:
+      - intent: demander_zigbee
+      - action: utter_expliquer_zigbee
+  - rule: Expliquer Z-Wave
+    steps:
+      - intent: demander_z-wave
+      - action: utter_expliquer_z-wave
+  - rule: Expliquer Sigfox
+    steps:
+      - intent: demander_sigfox
+      - action: utter_expliquer_sigfox
+  - rule: Expliquer WiMAX
+    steps:
+      - intent: demander_wimax
+      - action: utter_expliquer_wimax
+  # Protocoles (Chap 1 + Chap 3)
+  - rule: Expliquer un protocole réseau
+    steps:
+      - intent: demander_protocole
+      - action: utter_expliquer_protocole
+  - rule: Expliquer HTTP/HTTPS
+    steps:
+      - intent: demander_http_https
+      - action: utter_expliquer_http_https
+  - rule: Expliquer DNS
+    steps:
+      - intent: demander_dns
+      - action: utter_expliquer_dns
+  - rule: Expliquer DHCP
+    steps:
+      - intent: demander_dhcp
+      - action: utter_expliquer_dhcp
+  - rule: Expliquer VoIP
+    steps:
+      - intent: demander_voip
+      - action: utter_expliquer_voip
+  - rule: Expliquer FTP/SFTP
+    steps:
+      - intent: demander_ftp_sftp
+      - action: utter_expliquer_ftp_sftp
+  - rule: Expliquer SMTP
+    steps:
+      - intent: demander_smtp
+      - action: utter_expliquer_smtp
+  - rule: Expliquer IMAP/POP3
+    steps:
+      - intent: demander_imap_pop3
+      - action: utter_expliquer_imap_pop3
+  - rule: Expliquer BGP
+    steps:
+      - intent: demander_bgp
+      - action: utter_expliquer_bgp
+  - rule: Expliquer OSPF
+    steps:
+      - intent: demander_ospf
+      - action: utter_expliquer_ospf
+  - rule: Expliquer RIP
+    steps:
+      - intent: demander_rip
+      - action: utter_expliquer_rip
+  - rule: Expliquer ICMP
+    steps:
+      - intent: demander_icmp
+      - action: utter_expliquer_icmp
+  - rule: Expliquer ARP
+    steps:
+      - intent: demander_arp
+      - action: utter_expliquer_arp
+  # Data Link Layer (Chap 2)
+  - rule: Expliquer le protocole de liaison
+    steps:
+      - intent: demander_protocole_liaison
+      - action: utter_expliquer_protocole_liaison
+  - rule: Expliquer le protocole HDLC
+    steps:
+      - intent: demander_hdlc
+      - action: utter_expliquer_hdlc
+  - rule: Expliquer le protocole PPP
+    steps:
+      - intent: demander_ppp
+      - action: utter_expliquer_ppp
+  - rule: Expliquer le mécanisme d'acquittement
+    steps:
+      - intent: demander_acquittement
+      - action: utter_expliquer_acquittement
+  - rule: Expliquer le contrôle de flux
+    steps:
+      - intent: demander_controle_flux
+      - action: utter_expliquer_controle_flux
+  - rule: Expliquer la structure d'une trame
+    steps:
+      - intent: demander_trame
+      - action: utter_expliquer_trame
+  - rule: Expliquer la gestion des erreurs
+    steps:
+      - intent: demander_erreur
+      - action: utter_expliquer_erreur
+  - rule: Expliquer la taille de la fenêtre
+    steps:
+      - intent: demander_fenetre
+      - action: utter_expliquer_fenetre
+  - rule: Expliquer les trames d'information
+    steps:
+      - intent: demander_trame_information
+      - action: utter_expliquer_trame_information
+  - rule: Expliquer les trames de supervision
+    steps:
+      - intent: demander_trame_supervision
+      - action: utter_expliquer_trame_supervision
+  - rule: Expliquer les trames non numérotées
+    steps:
+      - intent: demander_trame_non_numerotee
+      - action: utter_expliquer_trame_non_numerotee
+  - rule: Expliquer le bit stuffing
+    steps:
+      - intent: demander_bit_stuffing
+      - action: utter_expliquer_bit_stuffing
+  - rule: Expliquer les modes de connexion HDLC
+    steps:
+      - intent: demander_mode_connexion_hdlc
+      - action: utter_expliquer_mode_connexion_hdlc
+  - rule: Expliquer le contrôle d'erreur CRC
+    steps:
+      - intent: demander_controle_erreur_crc
+      - action: utter_expliquer_controle_erreur_crc
+  - rule: Expliquer le contrôle d'erreur VRC
+    steps:
+      - intent: demander_controle_erreur_vrc
+      - action: utter_expliquer_controle_erreur_vrc
+
+  - rule: Répondre à la question sur LRC
+    steps:
+    - intent: demander_controle_erreur_lrc
+    - action: utter_expliquer_controle_erreur_lrc
+
+  - rule: Répondre à la question sur le piggy-backing
+    steps:
+    - intent: demander_piggy_backing
+    - action: utter_expliquer_piggy_backing
+
+  - rule: Répondre à la question sur LCP dans PPP
+    steps:
+    - intent: demander_lcp_ppp
+    - action: utter_expliquer_lcp_ppp
+
+  - rule: Répondre à la question sur NCP dans PPP
+    steps:
+    - intent: demander_ncp_ppp
+    - action: utter_expliquer_ncp_ppp
+
+  # Sécurité
+  - rule: Répondre à la question sur la sécurité
+    steps:
+    - intent: demander_securite
+    - action: utter_expliquer_securite
+
+  - rule: Répondre à la question sur le chiffrement
+    steps:
+    - intent: demander_chiffrement
+    - action: utter_expliquer_chiffrement
+
+  - rule: Répondre à la question sur le VPN
+    steps:
+    - intent: demander_vpn
+    - action: utter_expliquer_vpn
+
+  - rule: Répondre à la question sur le firewall
+    steps:
+    - intent: demander_firewall
+    - action: utter_expliquer_firewall
+
+  - rule: Répondre à la question sur les IDS/IPS
+    steps:
+    - intent: demander_ids_ips
+    - action: utter_expliquer_ids_ips
+
+  - rule: Répondre à la question sur le modèle Zero Trust
+    steps:
+    - intent: demander_zero_trust
+    - action: utter_expliquer_zero_trust
+
+  - rule: Répondre à la question sur la PKI
+    steps:
+    - intent: demander_pki
+    - action: utter_expliquer_pki
+
+  - rule: Répondre à la question sur SSL/TLS
+    steps:
+    - intent: demander_ssl_tls
+    - action: utter_expliquer_ssl_tls
+
+  - rule: Répondre à la question sur Kerberos
+    steps:
+    - intent: demander_kerberos
+    - action: utter_expliquer_kerberos
+
+  - rule: Répondre à la question sur RADIUS
+    steps:
+    - intent: demander_radius
+    - action: utter_expliquer_radius
+
+  - rule: Répondre à la question sur TACACS+
+    steps:
+    - intent: demander_tacacs
+    - action: utter_expliquer_tacacs
+
+  - rule: Répondre à la question sur 802.1X
+    steps:
+    - intent: demander_802.1x
+    - action: utter_expliquer_802.1x
+
+  # Cloud
+  - rule: Répondre à la question sur le cloud
+    steps:
+    - intent: demander_cloud
+    - action: utter_expliquer_cloud
+
+  - rule: Répondre à la question sur IaaS
+    steps:
+    - intent: demander_iaas
+    - action: utter_expliquer_iaas
+
+  - rule: Répondre à la question sur PaaS
+    steps:
+    - intent: demander_paas
+    - action: utter_expliquer_paas
+
+  - rule: Répondre à la question sur SaaS
+    steps:
+    - intent: demander_saas
+    - action: utter_expliquer_saas
+
+  - rule: Répondre à la question sur Serverless
+    steps:
+    - intent: demander_serverless
+    - action: utter_expliquer_serverless
+
+  - rule: Répondre à la question sur Edge computing
+    steps:
+    - intent: demander_edge
+    - action: utter_expliquer_edge
+
+  - rule: Répondre à la question sur Fog computing
+    steps:
+    - intent: demander_fog
+    - action: utter_expliquer_fog
+
+  - rule: Répondre à la question sur le multicloud
+    steps:
+    - intent: demander_multicloud
+    - action: utter_expliquer_multicloud
+
+  - rule: Répondre à la question sur le cloud hybride
+    steps:
+    - intent: demander_hybrid_cloud
+    - action: utter_expliquer_hybrid_cloud
+
+  - rule: Répondre à la question sur le cloud natif
+    steps:
+    - intent: demander_cloud_natif
+    - action: utter_expliquer_cloud_natif
+
+
+# Operation (chp 3)
+  - rule: Répondre à la question sur QoS
+    steps:
+    - intent: demander_qos
+    - action: utter_expliquer_qos
+
+  - rule: Répondre à la question sur le monitoring
+    steps:
+    - intent: demander_monitoring
+    - action: utter_expliquer_monitoring
+
+  - rule: Répondre à la question sur SNMP
+    steps:
+    - intent: demander_snmp
+    - action: utter_expliquer_snmp
+
+  - rule: Répondre à la question sur le troubleshooting
+    steps:
+    - intent: demander_troubleshooting
+    - action: utter_expliquer_troubleshooting
+
+  - rule: Répondre à la question sur l'automatisation
+    steps:
+    - intent: demander_automatisation
+    - action: utter_expliquer_automatisation
+
+  - rule: Répondre à la question sur SDN
+    steps:
+    - intent: demander_sdn
+    - action: utter_expliquer_sdn
+
+  - rule: Répondre à la question sur NFV
+    steps:
+    - intent: demander_nfv
+    - action: utter_expliquer_nfv
+
+  - rule: Répondre à la question sur NETCONF
+    steps:
+    - intent: demander_netconf
+    - action: utter_expliquer_netconf
+
+  - rule: Répondre à la question sur RESTCONF
+    steps:
+    - intent: demander_restconf
+    - action: utter_expliquer_restconf
+
+  - rule: Répondre à la question sur Ansible
+    steps:
+    - intent: demander_ansible
+    - action: utter_expliquer_ansible
+
+  - rule: Répondre à la question sur Chef
+    steps:
+    - intent: demander_chef
+    - action: utter_expliquer_chef
+
+  - rule: Répondre à la question sur Puppet
+    steps:
+    - intent: demander_puppet
+    - action: utter_expliquer_puppet
+
+# Théorie
+
+  - rule: Répondre à la question sur le subnetting
+    steps:
+    - intent: demander_subnetting
+    - action: utter_expliquer_subnetting
+
+  - rule: Répondre à la question sur NAT
+    steps:
+    - intent: demander_nat
+    - action: utter_expliquer_nat
+
+  - rule: Répondre à la question sur VLAN
+    steps:
+    - intent: demander_vlan
+    - action: utter_expliquer_vlan
+
+  - rule: Répondre à la question sur MPLS
+    steps:
+    - intent: demander_mpls
+    - action: utter_expliquer_mpls
+
+  - rule: Répondre à la question sur l’adressage MAC
+    steps:
+    - intent: demander_mac_adressage
+    - action: utter_expliquer_mac_adressage
+
+  - rule: Répondre à la question sur le routage
+    steps:
+    - intent: demander_routage
+    - action: utter_expliquer_routage
+
+  - rule: Répondre à la question sur la commutation
+    steps:
+    - intent: demander_commutation
+    - action: utter_expliquer_commutation
+
+  - rule: Répondre à la question sur Q-in-Q
+    steps:
+    - intent: demander_q_in_q
+    - action: utter_expliquer_q_in_q
+
+  - rule: Répondre à la question sur VXLAN
+    steps:
+    - intent: demander_vxlan
+    - action: utter_expliquer_vxlan
+
+  - rule: Répondre à la question sur Geneve
+    steps:
+    - intent: demander_geneve
+    - action: utter_expliquer_geneve
